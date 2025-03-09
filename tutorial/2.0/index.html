@@ -662,7 +662,7 @@
 <p>在桌面上的牌根据位置不同有不同的称呼。  </p>
 <p>牌局刚刚开始时，在桌面上会有四摞码好的、两两叠起的牌堆，称之为牌山（はいやま<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。每次开局时，每人面前将有一摞牌山，每座牌山有<span class="heti-skip"><span class="heti-spacing"> </span>17<span class="heti-spacing"> </span></span>叠、<span>34<span class="heti-spacing"> </span></span>张牌。开局的分牌（はいぱい）和牌局中的摸牌（ツモる）都是从牌山摸取的。  </p>
 <p>打牌时，需要将牌码在自己面前，这一区域的牌称为牌河（ホー・かわ<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。  </p>
-<p>摸到手中不亮出的牌称为手牌（てはい<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。初始有<span class="heti-skip"><span class="heti-spacing"> </span>13<span class="heti-spacing"> </span></span>张，在自己摸牌后出牌阶段有<span class="heti-skip"><span class="heti-spacing"> </span>14<span class="heti-spacing"> </span></span>张，鸣牌导致有副露后手牌数会减少，但一定保证手牌一定是<span class="heti-skip"><span class="heti-spacing"> </span>(4-x)*3+1/2<span class="heti-spacing"> </span></span>的形式，其中<span class="heti-skip"><span class="heti-spacing"> </span>x<span class="heti-spacing"> </span></span>是副露数；非出牌时为<span><span class="heti-spacing"> </span>1</span>，摸牌后出牌时为<span><span class="heti-spacing"> </span>2</span>。如果手牌数大于此，称为大相公（ダーパイ<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>；  </p>
+<p>摸到手中不亮出的牌称为手牌（てはい<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。初始有<span class="heti-skip"><span class="heti-spacing"> </span>13<span class="heti-spacing"> </span></span>张，在自己摸牌后出牌阶段有<span class="heti-skip"><span class="heti-spacing"> </span>14<span class="heti-spacing"> </span></span>张，鸣牌导致有副露后手牌数会减少，但一定保证手牌一定是<span class="heti-skip"><span class="heti-spacing"> </span>$ (4-x) \multi 3 + m $<span class="heti-spacing"> </span></span>的形式，其中<span class="heti-skip"><span class="heti-spacing"> </span>$ x $<span class="heti-spacing"> </span></span>是副露数；非出牌时<span class="heti-skip"><span class="heti-spacing"> </span>$ m $<span class="heti-spacing"> </span></span>为<span><span class="heti-spacing"> </span>$ 1 $</span> ，摸牌后出牌时为<span><span class="heti-spacing"> </span>$ 2 $</span> 。如果手牌数大于此，称为大相公（ダーパイ<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>；如果手牌小于此，称为小相公（ショーパイ）  </p>
 <p>鸣牌后，亮出的牌需要放在自己右手侧，这一区域的牌称为副露（フーロ<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。要注意暗杠时，虽然暗杠牌也需要摆在副露区，但不算为副露。  </p>
 <p>除暗杠外，从未鸣过牌的状态叫做门前清（もんぜんきよし<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
 <p>在日麻中，牌山的最后<span class="heti-skip"><span class="heti-spacing"> </span>14<span class="heti-spacing"> </span></span>张牌不在对局中使用。这<span class="heti-skip"><span class="heti-spacing"> </span>14<span class="heti-spacing"> </span></span>张牌被称为王牌（ワンパイ<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。王牌通俗的叫法为岭上牌（リンシャンパイ<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。  </p>
@@ -674,7 +674,7 @@
 <p><br/><br/></p>
 <p><span id="2.2"></span></p>
 <h2 id="2_1"><span>2.<span class="heti-spacing"> </span></span>什么是役<a class="headerlink" href="#2_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p>役种是日麻中的重要规则。日麻中和牌除了要满足<span class="heti-skip"><span class="heti-spacing"> </span>4*3+2<span class="heti-spacing"> </span></span>的牌型以外，还必须要让牌型满足至少<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>种役，否则不能和牌。  </p>
+<p>役种是日麻中的重要规则。日麻中和牌除了要满足<span class="heti-skip"><span class="heti-spacing"> </span>$ 4 \multi 3 + 2 $<span class="heti-spacing"> </span></span>的牌型以外，还必须要让牌型满足至少<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>种役，否则不能和牌。  </p>
 <p>关于役种，根据获得难度，每个役种都有对应的番数。因此，一般以番数来分类役种。役种大部分都不是互斥的，也就是说，你可以同时和出多个役种。  </p>
 <p>役种详见<a href="../app.1/">附录<span><span class="heti-spacing"> </span>1</span>：日麻役种表</a>。  </p>
 <p>役种看似杂乱无章，实际上可以通过经验积累记住它们。在短时间内，玩家可以先记住“立直”和“断幺九”，因为他们都是比较容易和出的牌。除此以外，还可以通过获得三元牌或场自风牌刻子来占役。  </p>
@@ -867,7 +867,7 @@
 <p></p></center>
 <p>接下来我们介绍一些细节规则：</p>
 <h4 id="_2">初始点数<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>一般的初始点数均为<span><span class="heti-spacing"> </span>25000</span>。</p>
+<p>一般的初始点数均为<span><span class="heti-spacing"> </span>$ 25000 $</span> 。</p>
 <hr/>
 <h4 id="_3">风位<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>每一个完整游戏局内，玩家座位都唯一确定，每个位置都被用风来命名，称为<strong>风位</strong>。一般麻将机没有固定的东风位，因此可以由玩家自行决定哪侧为东。东风位玩家的下家是南风位，上家是北风位，对家是西风位。东风位玩家是完整游戏局内第一个坐庄的玩家。</p>
@@ -876,8 +876,8 @@
 <p>每一局内都有本场的<strong>场风</strong>和玩家的<strong>自风</strong>，统称为<strong>风家</strong>。场风由东位玩家坐庄次数决定，自风由自己与本局坐庄玩家的相对位置决定。由于风位和风家容易混淆，请务必仔细辨析两者间的区别。</p>
 <p><strong>场风</strong>由东风位玩家坐庄次数决定。坐庄次数只考虑轮庄后上庄，连庄时次数不增加。东风位玩家坐庄<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>次为东风场，<span>2<span class="heti-spacing"> </span></span>次为南风场，以此类推。</p>
 <p><strong>自风</strong>由自己与本局坐庄玩家相对位置决定。本局坐庄玩家是东家，坐庄玩家的下家是南家，上家是北家，对家是西家。</p>
-<p><strong>本场</strong>是在同场风局下的累加局。当一局流局，或是庄家和牌时，本场数<span><span class="heti-spacing"> </span>+1</span>。本场数初始为<span><span class="heti-spacing"> </span>0</span>。当本场不为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>时，有人和牌，其他人就要多付<span class="heti-skip"><span class="heti-spacing"> </span>300*<span class="heti-spacing"> </span></span>本场数的点数。荣和时由放铳者付全部，自摸和时每人付<span class="heti-skip"><span class="heti-spacing"> </span>100*<span class="heti-spacing"> </span></span>本场数。</p>
-<p>在讨论牌局时，可以称<span class="heti-skip"><span class="heti-spacing"> </span>Ax<span class="heti-spacing"> </span></span>局<span class="heti-skip"><span class="heti-spacing"> </span>m<span class="heti-spacing"> </span></span>本场。其中<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>是该局场风，<span>x<span class="heti-spacing"> </span></span>是该场风下的第几局，<span>m<span class="heti-spacing"> </span></span>是本场数。例如南风位第一次坐庄的局可以称东<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>局<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>本场。流局一次且南风位没有听牌，则西风位坐庄，称东<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>局<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>本场。</p>
+<p><strong>本场</strong>是在同场风局下的累加局。当一局流局，或是庄家和牌时，本场数<span><span class="heti-spacing"> </span>+1</span>。本场数初始为<span><span class="heti-spacing"> </span>0</span>。当本场不为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>时，有人和牌，其他人就要多付<span class="heti-skip"><span class="heti-spacing"> </span>$ 300 \multi<span class="heti-spacing"> </span></span>本场数<span class="heti-skip"><span class="heti-spacing"> </span>$<span class="heti-spacing"> </span></span>的点数。荣和时由放铳者付全部，自摸和时每人付<span class="heti-skip"><span class="heti-spacing"> </span>$ 100 \multi<span class="heti-spacing"> </span></span>本场数<span><span class="heti-spacing"> </span>$</span> 。</p>
+<p>在讨论牌局时，可以称<strong><span>Ax<span class="heti-spacing"> </span></span>局<span class="heti-skip"><span class="heti-spacing"> </span>m<span class="heti-spacing"> </span></span>本场</strong>。其中<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>是该局场风， <span>x<span class="heti-spacing"> </span></span>是该场风下的第几局， <span>m<span class="heti-spacing"> </span></span>是本场数。例如南风位第一次坐庄的局可以称 东<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>局<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>本场。流局一次且南风位没有听牌，则西风位坐庄，称东<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>局<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>本场。</p>
 <hr/>
 <h4 id="_5">宝牌、赤宝牌、里宝牌<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><strong>宝牌</strong>又称悬赏牌，和牌时若牌内包含宝牌则可以加番，有几张加几番。</p>
@@ -939,7 +939,7 @@
 <p><strong>罚张</strong>指的是故意<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>无意露出一张手牌，则该张手牌成为罚张牌。牌被罚张后，被罚张人可以选择生罚张或死罚张：<br/>
 - 选择生罚张则在下一次打牌必须打出这张罚张牌；<br/>
 - 选择死罚张则在下一次打牌时打出其他牌，从此以后直至本局结束都不允许再打出这张牌（包含同数同色的其他三张牌）</p>
-<p><strong>诈立</strong>指的是在还未听牌的状态下宣言立直。诈立的情节较为轻微，因为一般只需要交出供托即可。特殊情况是其立直后荒牌流局。根据荒牌流局规则，需要检查其是否已听牌，此时被查出诈立则立直不成立，除了要付荒牌流局付的<span class="heti-skip"><span class="heti-spacing"> </span>1000/1500/3000<span class="heti-spacing"> </span></span>外，还需再每家付<strong>1000</strong>点。  </p>
+<p><strong>诈立</strong>指的是在还未听牌的状态下宣言立直。诈立的情节较为轻微，因为一般只需要交出供托即可。特殊情况是其立直后荒牌流局。根据荒牌流局规则，需要检查其是否已听牌，此时被查出诈立则立直不成立，除了要付荒牌流局付的<span class="heti-skip"><span class="heti-spacing"> </span>$ 1000 $ / $ 1500 $ / $ 3000 $<span class="heti-spacing"> </span></span>外，还需再每家付<span class="heti-skip"><span class="heti-spacing"> </span>$ 1000 $<span class="heti-spacing"> </span></span>点。  </p>
 <hr/>
 <h4 id="_7">东风战、半庄战、全庄战<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>一次完整的麻将游戏一般由多局组成。根据局数的长短，分为以下几种长度：</p>
@@ -962,11 +962,11 @@
 <p>一次完整麻将游戏的最后一局（一般<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。东风战中的东<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>局、半庄战中的南<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>局和全庄战中的北<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>局均是<span><span class="heti-spacing"> </span>ALL LAST</span>。</p>
 <hr/>
 <h4 id="_8">位次、顺位、逆位<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>根据玩家点数排行，分数高的位数低，排出<span><span class="heti-spacing"> </span>1</span>、2、3、<span>4<span class="heti-spacing"> </span></span>位，称为<strong>位次</strong>。如果点数相同，则按结算时的东家为起点向下顺延位次。例如某一局结束后，该局东家为<span class="heti-skip"><span class="heti-spacing"> </span>30000<span class="heti-spacing"> </span></span>点，南家也为<span class="heti-skip"><span class="heti-spacing"> </span>30000<span class="heti-spacing"> </span></span>点，那么东家为<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>位，南家为<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>位。</p>
+<p>根据玩家点数排行，分数高的位数低，排出<span><span class="heti-spacing"> </span>1</span>、2、3、<span>4<span class="heti-spacing"> </span></span>位，称为<strong>位次</strong>。如果点数相同，则按结算时的东家为起点向下顺延位次。例如某一局结束后，该局东家为<span class="heti-skip"><span class="heti-spacing"> </span>$ 30000 $<span class="heti-spacing"> </span></span>点，南家也为<span class="heti-skip"><span class="heti-spacing"> </span>$ 30000 $<span class="heti-spacing"> </span></span>点，那么东家为<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>位，南家为<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>位。</p>
 <p><strong>顺位</strong>指保持位次或向下降低位次。相对的，<strong>逆位</strong>指向上提升位次。这里的顺逆位一般只在<span class="heti-skip"><span class="heti-spacing"> </span>ALL LAST<span class="heti-spacing"> </span></span>中讨论，<span>ALL LAST<span class="heti-spacing"> </span></span>结束后，可以根据<span class="heti-skip"><span class="heti-spacing"> </span>ALL LAST<span class="heti-spacing"> </span></span>结算前和结算后对比，确定是顺位或逆位成绩。一般顺位成绩要优于逆位成绩，即顺位<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>位比逆位<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>位更有含金量。不过绝大多数情况下均不重视顺逆位情况。</p>
 <hr/>
 <h4 id="_9">一位必要<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><span>ALL LAST<span class="heti-spacing"> </span></span>时，若一位的点数小于<strong>一位必要点数</strong>（一般为<span><span class="heti-spacing"> </span>30000</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，则牌局下入，例如半庄战会西入西风场，然后游戏继续进行，直到下入场结束或一位达到一位必要点数。</p>
+<p><span>ALL LAST<span class="heti-spacing"> </span></span>时，若一位的点数小于<strong>一位必要点数</strong>（一般为<span><span class="heti-spacing"> </span>$ 30000 $</span> <heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，则牌局下入，例如半庄战会西入西风场，然后游戏继续进行，直到下入场结束或一位达到一位必要点数。</p>
 <hr/>
 <h4 id="_10">食替<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><strong>食替</strong>指进行鸣牌后不可以打出鸣牌前凑的牌。见以下例子：
@@ -1006,9 +1006,9 @@
 <li>四家均宣言立直，触发<strong>四家立直</strong>，流局。一般三家立直后，第四家本局无大牌且门前清下可以选择四家立直来保护自己防止放铳。  </li>
 </ul>
 <p><strong>荒牌流局</strong>后，若全员未听牌或全员听牌，则无事发生，本场<span><span class="heti-spacing"> </span>+1</span>；若非以上情况，则根据听牌和未听牌人数比例付点数：<br/>
-- 一人听牌三人未听牌：三人每人付给听牌者1000点，即一人+3000，三人-1000；
-- 两人停牌两人未听牌：未听牌两人分别付给听牌者1500点，即两人+1500，两人-1500；
-- 三人听牌一人未听牌，未听牌者付给三人一人1000点，即三人+1000，一人-3000；</p>
+- 一人听牌三人未听牌：三人每人付给听牌者 $ 1000 $ 点，即一人 $ +3000 $ ，三人 $ -1000 $ ；
+- 两人停牌两人未听牌：未听牌两人分别付给听牌者 $ 1500 $ 点，即两人 $ +1500 $ ，两人 $ -1500 $ ；
+- 三人听牌一人未听牌，未听牌者付给三人一人 $ 1000 $ 点，即三人 $ +1000 $ ，一人 $ -3000 $ ；</p>
 <details class="note">
 <summary>小技巧</summary>
 <p>根据流局付点规则，可以在余牌不多的情况下选择副露快速上听来保证自己荒牌流局时收入为正。注意荒牌流局时<strong>即使无役听牌，也属于听牌</strong>。</p>
@@ -1022,8 +1022,8 @@
 <ol>
 <li>番数计算</li>
 </ol>
-<p>算点的第一步是算番。算番操作比较容易，只需要对照役种表检查牌是否符合对应牌型，然后累加番数即可。需要注意的是记得累加宝牌和里宝牌。如果牌有多种和牌拆解方式，就需要分别计算对应番数。记番数为<span><span class="heti-spacing"> </span>$ n $</span>。  </p>
-<p><em>若<span><span class="heti-spacing"> </span>$ n \geq 5 $</span>，则跳过第二步，直接进入第三步</em></p>
+<p>算点的第一步是算番。算番操作比较容易，只需要对照役种表检查牌是否符合对应牌型，然后累加番数即可。需要注意的是记得累加宝牌和里宝牌。如果牌有多种和牌拆解方式，就需要分别计算对应番数。记番数为<span><span class="heti-spacing"> </span>$ n $</span> 。  </p>
+<p><em>若<span><span class="heti-spacing"> </span>$ n \geq 5 $</span> ，则跳过第二步，直接进入第三步</em></p>
 <ol start="2">
 <li>符数计算</li>
 </ol>
@@ -1038,20 +1038,20 @@
 </ol>
 </blockquote>
 <p>其余情况均在<span class="heti-skip"><span class="heti-spacing"> </span>$ 20 $<span class="heti-spacing"> </span></span>符的基础上累加：  </p>
-<p><strong>检查刻子</strong>。明刻<span><span class="heti-spacing"> </span>$ +2 <span class="arithmatex">\(，暗刻\)</span> \multi 2 <span class="arithmatex">\(，幺九刻\)</span> \multi 2</span><span class="arithmatex">\(；  
-**检查杠子**。明杠\)</span><span><span class="heti-spacing"> </span>+8 <span class="arithmatex">\(，暗杠\)</span> \multi 2 <span class="arithmatex">\(，幺九杠\)</span> \multi 2 $</span>；  </p>
-<p><strong>检查雀头</strong>。场风自风三元牌雀头<span><span class="heti-spacing"> </span>$ +2 <span class="arithmatex">\(。如果同时为场风自风则\)</span> +4 $</span>。  </p>
-<p><strong>看听牌</strong>。听牌为单骑<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>边张<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>嵌张则<span><span class="heti-spacing"> </span>$ +2 $</span>；  </p>
-<p><strong>看和牌方式</strong>。自摸<span><span class="heti-spacing"> </span>$ +2 <span class="arithmatex">\(，门前清荣和\)</span> +10 $</span>。  </p>
-<p>累加后，不满整十的向上取整十作为最终符数。计符数为<span><span class="heti-spacing"> </span>$ m $</span>。  </p>
+<p><strong>检查刻子</strong>。明刻<span><span class="heti-spacing"> </span>$ +2 $</span> ，暗刻<span><span class="heti-spacing"> </span>$ \multi 2 $</span> ，幺九刻<span><span class="heti-spacing"> </span>$ \multi 2 $</span> ；<br/>
+<strong>检查杠子</strong>。明杠<span><span class="heti-spacing"> </span>$ +8 $</span> ，暗杠<span><span class="heti-spacing"> </span>$ \multi 2 $</span> ，幺九杠<span><span class="heti-spacing"> </span>$ \multi 2 $</span> ；  </p>
+<p><strong>检查雀头</strong>。场风自风三元牌雀头<span><span class="heti-spacing"> </span>$ +2 $</span> 。如果同时为场风自风则<span><span class="heti-spacing"> </span>$ +4 $</span> 。  </p>
+<p><strong>看听牌</strong>。听牌为单骑<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>边张<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>嵌张则<span><span class="heti-spacing"> </span>$ +2 $</span> ；  </p>
+<p><strong>看和牌方式</strong>。自摸<span><span class="heti-spacing"> </span>$ +2 $</span> ，门前清荣和<span><span class="heti-spacing"> </span>$ +10 $</span> 。  </p>
+<p>累加后，不满整十的向上取整十作为最终符数。计符数为<span><span class="heti-spacing"> </span>$ m $</span> 。  </p>
 <ol start="3">
 <li>计算点数</li>
 </ol>
-<p>若<span><span class="heti-spacing"> </span>$ n \leq 4 $</span>，计算
+<p>若<span><span class="heti-spacing"> </span>$ n \leq 4 $</span> ，计算
 </p><center>
 <div class="arithmatex">\[ a = m \times 2^{n} \]</div>
 <p></p></center>
-<p>若<span><span class="heti-spacing"> </span>$ n \geq 5 $</span>，则按下表取<span class="heti-skip"><span class="heti-spacing"> </span>a<span class="heti-spacing"> </span></span>的值：
+<p>若<span><span class="heti-spacing"> </span>$ n \geq 5 $</span> ，则按下表取<span class="heti-skip"><span class="heti-spacing"> </span>a<span class="heti-spacing"> </span></span>的值：
 </p><center>
 <table>
 <thead>
@@ -1090,7 +1090,7 @@
 </tbody>
 </table>
 <p></p></center>
-<p>注意当<span><span class="heti-spacing"> </span>$ n \geq 14 <span class="arithmatex">\(时，仍计\)</span> n=13 $</span>。</p>
+<p>注意当<span class="heti-skip"><span class="heti-spacing"> </span>$ n \geq 14 $<span class="heti-spacing"> </span></span>时，仍计<span><span class="heti-spacing"> </span>$ n=13 $</span> 。</p>
 <p>计算<span class="heti-skip"><span class="heti-spacing"> </span>a<span class="heti-spacing"> </span></span>后，按下表付点数。付的点数有不满<span class="heti-skip"><span class="heti-spacing"> </span>100<span class="heti-spacing"> </span></span>部分向上取整百。
 </p><center>
 <table>
@@ -1111,7 +1111,7 @@
 </tr>
 <tr>
 <td style="text-align: center;">闲家自摸</td>
-<td style="text-align: center;">闲家付<span><span class="heti-spacing"> </span>$ a <span class="arithmatex">\(，庄家付\)</span> 2a $</span></td>
+<td style="text-align: center;">闲家付<span><span class="heti-spacing"> </span>$ a $</span> ，庄家付<span><span class="heti-spacing"> </span>$ 2a $</span></td>
 </tr>
 <tr>
 <td style="text-align: center;">放铳闲家</td>
@@ -1121,8 +1121,8 @@
 </table>
 <p></p></center>
 <p>和牌者获得所有<strong>供托（きょうたく）</strong>。</p>
-<p>有本场时，还需付本场费，费用为<span><span class="heti-spacing"> </span>$ 300 \multi N <span class="arithmatex">\(，\)</span> N <span class="arithmatex">\(为本场数。放铳时由放铳者付全部，自摸时三家一人付\)</span> 100 \multi N $</span>。</p>
-<p>如果和出了役满<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>双倍役满时，则只计役满和双倍役满种，不计宝牌和其他役种。役种累加倍数，计倍数为<span><span class="heti-spacing"> </span>$ N <span class="arithmatex">\(。计\)</span> a=8000 $</span>，同样按上文表中的方式付款。  </p>
+<p>有本场时，还需付本场费，费用为<span><span class="heti-spacing"> </span>$ 300 \multi N $</span> ， <span>$ N $<span class="heti-spacing"> </span></span>为本场数。放铳时由放铳者付全部，自摸时三家一人付<span><span class="heti-spacing"> </span>$ 100 \multi N $</span> 。</p>
+<p>如果和出了役满<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>双倍役满时，则只计役满和双倍役满种，不计宝牌和其他役种。役种累加倍数，计倍数为<span><span class="heti-spacing"> </span>$ N $</span> 。计<span><span class="heti-spacing"> </span>$ a=8000 $</span> ，同样按上文表中的方式付款。  </p>
 <p>役满时无需付本场费，但如果满足本场条件，本场数仍增加。  </p>
 <p>由于计算比较麻烦，可以参考<a href="../app.2/">附录<span><span class="heti-spacing"> </span>2</span>：日麻点数速查表</a>。  </p>
 </article>

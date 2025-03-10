@@ -189,21 +189,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../3.0.md/#3.1">
+<a class="md-nav__link" href="#3.1">
 <span class="md-ellipsis">
     1. 四川麻将（川麻）规则介绍
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../3.0.md/#3.2">
+<a class="md-nav__link" href="#3.2">
 <span class="md-ellipsis">
     2. 北方推倒胡（碰大对）规则介绍
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../3.0.md/#3.3">
+<a class="md-nav__link" href="#3.3">
 <span class="md-ellipsis">
     3. 穷胡规则介绍
   </span>
@@ -708,8 +708,34 @@
 2. 庄家摇两个6面骰子，得到一个点数 $ a $，然后取 $ a mod 4 $，根据下表确定假庄；
 3. 假庄摇两个6面骰子，得到一个点数 $ b $，然后取 $ b mod 4 $，根据下表确定开山家；<br/>
 4. 计算 $ C = a + b $，数开山家的左手边第 $ C $墩牌为止，庄家从第 $ C+1 $墩牌开始配牌；  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">$ mod $</th>
+<th style="text-align: center;">庄家<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>假庄视角的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">自己</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">下家</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">对家</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">上家</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition question">
-<p class="admonition-title"><span><span>$$ C \geq 18 $$<span class="heti-spacing"> </span></span></span>怎么办？</p>
+<p class="admonition-title"><span><span>$ C \geq 18 $<span class="heti-spacing"> </span></span></span>怎么办？</p>
 <p>由于每名玩家面前的山是<span class="heti-skip"><span class="heti-spacing"> </span>17<span class="heti-spacing"> </span></span>墩<span class="heti-skip"><span class="heti-spacing"> </span>34<span class="heti-spacing"> </span></span>张牌，因此若<span class="heti-skip"><span class="heti-spacing"> </span>$ C \geq 18 $<span class="heti-spacing"> </span></span>会出现无法找到牌的情况。此时只需要从开山家的下家（右手边）门前的牌山开始数<span class="heti-skip"><span class="heti-spacing"> </span>$ C - 17 $<span class="heti-spacing"> </span></span>墩牌即可。</p>
 </div>
 <h4 id="_15">杠上牌与分张<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
@@ -793,6 +819,7 @@
 <li>抢杠和：和其他人的刮风牌<font color="red"><span class="heti-skip"><span class="heti-spacing"> </span>x2<span class="heti-spacing"> </span></span>倍</font> </li>
 </ul>
 <p>自摸和牌时，闲家付点炮应付的点数，庄家付双倍；庄家自摸时，闲家付点炮应付的两倍。  </p>
+<p><br/><br/></p>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>

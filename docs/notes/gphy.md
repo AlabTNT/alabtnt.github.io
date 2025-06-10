@@ -45,8 +45,8 @@
 | 周期与频率的关系: |  $ T = \frac{1}{f} $  |
 | 角波数与波长的关系: |  $ k = \frac{2\pi}{\lambda} $  |
 | 波速与角波数的关系: |  $ v = \frac{\omega}{k} $  |
-| 杨氏模量Y表达式: |  $ Y = \frac{\text{应力}}{\text{应变}} = \frac{F/A}{\Delta L/L_0} $  |
-| 剪切模量S表达式: |  $ S = \frac{\text{剪切应力}}{\text{剪切应变}} = \frac{F/A}{x/h} $  |
+| 杨氏模量Y表达式: |  $ Y = \frac{ \text{应力} }{ \text{应变} } = \frac{F/A}{\Delta L/L_0} $  |
+| 剪切模量S表达式: |  $ S = \frac{ \text{剪切应力} }{ \text{剪切应变} } = \frac{F/A}{x/h} $  |
 | 体积模量Bulk表达式: |  $ B = -V \frac{\Delta P}{\Delta V} $  |
 | 线性波波动方程: |  $ \frac{\partial^2 y}{\partial t^2} = v^2 \frac{\partial^2 y}{\partial x^2} $  |
 | 简谐波波动方程: |  $ y(x,t) = A \sin(kx - \omega t + \phi) $  |

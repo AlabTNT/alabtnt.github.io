@@ -2,7 +2,7 @@
 
 ## 日G历年卷
 
-[2024中文版](./gphy_ly) | [2024 English](./gphy_eng) | [2024 原版手抄回忆卷](./gphy_origin.pdf)
+[2024中文版](../gphy_ly) | [2024 English](../gphy_eng) | [2024 原版手抄回忆卷](./gphy_origin.pdf)
 
 *注：如果前面两个卷子出现问题，请参考手抄回忆卷！*
 

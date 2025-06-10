@@ -8,7 +8,7 @@
 | :--- | :--- |
 | 角速度与角度的关系: |  $ \omega = \frac{d\theta}{dt} $  |
 | 角加速度与角速度的关系: |  $ \alpha = \frac{d\omega}{dt} = \frac{d^2\theta}{dt^2} $  |
-| 线速度与角速度的关系: |  $ \vec{v} = \vec{\omega} \times \vec{r} $  |
+| 线速度与角速度的关系: |  $ \vec{v} = \vec{\omega} \cdot \vec{r} $  |
 | 法向加速度与线速度的关系: |  $ a_n = \frac{v^2}{r} $  |
 | 法向加速度与角速度的关系: |  $ a_n = \omega^2 r $  |
 | 切向加速度与角加速度的关系: |  $ a_t = \alpha r $  |
@@ -39,13 +39,13 @@
 | 单摆中, 角频率与绳长的关系: |  $ \omega = \sqrt{\frac{g}{L}} $  |
 | 物理摆中, 角频率与质心-支点距离的关系: |  $ \omega = \sqrt{\frac{mgd}{I}} $  |
 | 弹簧振子中, 角频率与弹簧弹性系数的关系: |  $ \omega = \sqrt{\frac{k}{m}} $  |
-| 阻尼振动方程与其中角频率的表达式: |  $ \frac{d^2x}{dt^2} + 2\gamma\frac{dx}{dt} + \omega_0^2 x = 0 ，其中 \omega' = \sqrt{\omega_0^2 - \gamma^2} $  |
-| 受迫振动方程与其中"初始态"的角频率表达式: |  $ \frac{d^2x}{dt^2} + 2\gamma\frac{dx}{dt} + \omega_0^2 x = \frac{F_0}{m}\cos(\omega t) ，其中 \omega_0 = \sqrt{\frac{k}{m}} $  |
+| 阻尼振动方程与其中角频率的表达式: |  $ \frac{d^2x}{dt^2} + 2 \gamma \frac{dx}{dt} + \omega_0^2 x = 0 $ ，其中 $ \omega' = \sqrt{\omega_0^2 - \gamma^2} $  |
+| 受迫振动方程与其中"初始态"的角频率表达式: |  $ \frac{d^2x}{dt^2} + 2\gamma\frac{dx}{dt} + \omega_0^2 x = \frac{F_0}{m}\cos(\omega t) $ ，其中 $ \omega_0 = \sqrt{\frac{k}{m}} $  |
 | 波长与波速的关系: |  $ v = f\lambda $  |
 | 周期与频率的关系: |  $ T = \frac{1}{f} $  |
 | 角波数与波长的关系: |  $ k = \frac{2\pi}{\lambda} $  |
 | 波速与角波数的关系: |  $ v = \frac{\omega}{k} $  |
-| 杨氏模量Y表达式: |  $ Y = \frac{ \text{应力} }{ \text{应变} } = \frac{F/A}{\Delta L/L_0} $  |
+| 杨氏模量Y表达式: |  $ Y = \frac{应力}{应变} = \frac{F/A}{\Delta L/L_0} $  |
 | 剪切模量S表达式: |  $ S = \frac{ \text{剪切应力} }{ \text{剪切应变} } = \frac{F/A}{x/h} $  |
 | 体积模量Bulk表达式: |  $ B = -V \frac{\Delta P}{\Delta V} $  |
 | 线性波波动方程: |  $ \frac{\partial^2 y}{\partial t^2} = v^2 \frac{\partial^2 y}{\partial x^2} $  |
@@ -82,7 +82,7 @@
 
 | 中文描述 | 公式 |
 | :--- | :--- |
-| 理想气体状态方程两个形式: |  $ PV = nRT $  \quad 和 \quad  $ PV = Nk_BT $  |
+| 理想气体状态方程两个形式: |  $ PV = nRT $ 和  $ PV = Nk_BT $  |
 | 理想气体内能与温度的关系: |  $ U = n C_V T $  |
 | 已知分子自由度的气体内能与温度的关系: |  $ U = \frac{i}{2}nRT $  |
 | 玻尔兹曼常数与阿伏伽德罗常数的关系: |  $ R = N_A k_B $  |

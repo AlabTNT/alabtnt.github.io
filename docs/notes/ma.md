@@ -151,6 +151,10 @@ $$\iint_S R(x,y,z)\mathrm{d}x\mathrm{d}y$$
 
 15. 拉格朗日乘数法：对于一个 $ n $ 元函数，希望在条件限制下求其极值，可以使用拉格朗日乘数法。例如23-24年第四题。操作方法是：首先确定目标多元函数 $ f(x,y,...) $ 和限制条件（等式） $ Con(x,y,...)=0 $。引入一个新变量 $\lambda$。设一新函数 $ F(x,y,...,\lambda) = f(x,y,...) + \lambda Con(x,y,...) $。对 $ F $ 的每一项均进行求偏导操作，并使每一项值均为0。根据所得到的 $ n+1 $ 个等式，可以求出 $ n $ 个变量的值。这些值下，原函数 $ f(x,y,...) $ 取极值。*注意对 $\lambda$ 求偏导的式子可能会大大简化运算*。
 
+<br><br>
+
+16. 给定空间曲线求法线及法平面，方法为：对其中任一变量求偏导。例如选择 $ x $ 。求偏导时，对于不包含该变量的式子，使用链式法则，令其对另一变量求偏导，然后乘另一变量对选定变量的偏导。例如选择 $ x $ 后，对于 $ y^2 $，可以求 $ \frac{\partial(y^2)}{\partial y}\cdot\frac{\partial y}{\partial x} = 2y\frac{\partial y}{\partial x}$ 。 得到方程后解出其他变量对选定变量的偏导，可以确定法线方向向量 $ \vec{v}=(\frac{\partial x}{\partial t},\frac{\partial y}{\partial t},\frac{\partial z}{\partial t}) $ 。其中 $ t $ 是选中的向量，例如上述过程中选中了 $ x $ ，那么方向向量即为 $ \vec{v}=(1,\frac{\partial y}{\partial x},\frac{\partial z}{\partial x}) $ 。由法线方向向量写法线：$ \frac{x}{\vec{v}_x}=\frac{y}{\vec{v}_y}=\frac{z}{\vec{v}_z} $ ；由法线方向向量写法平面： $ (x-\vec{v}_x)+(y-\vec{v}_y)+(z-\vec{v}_z)=0 $ .
+
 <br><br><br>
 
 ## byd奇技淫巧
@@ -177,5 +181,7 @@ $$\iint_S R(x,y,z)\mathrm{d}x\mathrm{d}y$$
 5. $ F(x,y,...)=\sqrt{(x-x_0)^2+(y-y_0)^2+...}$ 时，有 $ \dfrac{\partial F}{\partial x} = \dfrac{x-x_0}{F(x,y,...)} $
 
 6. $ \displaystyle \sum_{k=1}^{n}\cos kx=\frac{1}{2\sin{\frac{x}{2}}}(\sin{(n+\frac{1}{2})x}-\sin{\frac{x}{2}})\leq\frac{1}{2\sin{\frac{x}{2}}}-1$
+
+7. $ \sqrt{a}-\sqrt{b}=\frac{a-b}{\sqrt{a}+\sqrt{b}} $
 
 <br><br>

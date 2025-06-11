@@ -191,3 +191,17 @@ $$\iint_S R(x,y,z)\mathrm{d}x\mathrm{d}y$$
 7. $ \sqrt{a}-\sqrt{b}=\frac{a-b}{\sqrt{a}+\sqrt{b}} $
 
 <br><br>
+
+## 学姐笔记
+
+<center>
+
+![alt text](xj1.jpeg)
+
+![alt text](xj2.jpeg)
+
+![alt text](xj3.jpeg)
+
+![alt text](xj4.jpeg)
+
+</center>

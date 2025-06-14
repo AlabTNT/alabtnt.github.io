@@ -31,7 +31,7 @@
 
 **线性泛函**：$ V $ 上的线性泛函是从 $ V $ 到 $ \mathbb{F} $ 的线性映射. 也就是说，线性泛函是 $ \mathcal{L}(V,\mathbb{F}) $ 中的元素. 
 
-**Gram-Schmidt过程**：设 $ v_1, ..., v_m $ 是 $ V $ 中的线性无关向量组. 设 $ e_1 = v_1/||v_1|| $. 对于 $ j = 2, ..., m $, 定义 $ e_j $ 如下： $$ e_j = \frac{v_j - \langle v_j, e_1 \rangle e_1 - \cdots - \langle v_j, e_{j-1} \rangle e_{j-1} }{||v_j - \langle v_j, e_1 \rangle e_1 - \cdots - \langle v_j, e_{j-1} \rangle e_{j-1} ||}.$$ 则 $ e_1, ..., e_m $ 是 $ V $ 中的规范正交组，使得对 $ j = 1, ..., m $ 有 $$ \mathrm{span}(v_1, ..., v_j) = \mathrm{span}(e_1, ..., e_j) $$
+**Gram-Schmidt过程**：设 $ v_1, ..., v_m $ 是 $ V $ 中的线性无关向量组. 设 $ e_1 = v_1/ \Vert v_1 \Vert  $. 对于 $ j = 2, ..., m $, 定义 $ e_j $ 如下： $$ e_j = \frac{v_j - \langle v_j, e_1 \rangle e_1 - \cdots - \langle v_j, e_{j-1} \rangle e_{j-1} }{ \Vert v_j - \langle v_j, e_1 \rangle e_1 - \cdots - \langle v_j, e_{j-1} \rangle e_{j-1}  \Vert }.$$ 则 $ e_1, ..., e_m $ 是 $ V $ 中的规范正交组，使得对 $ j = 1, ..., m $ 有 $$ \mathrm{span}(v_1, ..., v_j) = \mathrm{span}(e_1, ..., e_j) $$
 
 **单的**：如果当 $ Tu = Tv $ 时必有 $ u = v $ ，则称映射 $ T \mid V \rightarrow W $ 是单的.
 
@@ -40,7 +40,7 @@
 
 **线性映射基本定理**：设 $ V $ 是有限维的， $ T \in \mathcal{L}(V, W) $. 则 $ \mathrm{range} T $ 是有限维的并且 $$ \mathrm{dim} V = \mathrm{dim null} T + \mathrm{dim range} T $$.
 
-**同构**：同构就是可逆的线性映射。若两个向量空间之间存在一个同构，则称这两个向量空间是同构的.
+**同构**：同构就是可逆的线性映射. 若两个向量空间之间存在一个同构，则称这两个向量空间是同构的.
 
 **向量空间的积**：设 $ V_1, ..., V_m $ 均为 $ \mathbb{F} $ 上的向量空间. 规定积 $ V_1 \times ... \times V_m = \{(v_1, ..., v_m) \mid v_1\in V_1, ..., v_m\in V_m \}$.
 
@@ -76,25 +76,23 @@ $ \mathrm{null} T' = (\mathrm{range} T)^0 $
 
 $ \mathrm{dim null} T' = \mathrm{dim null} T +\mathrm{dim} W - \mathrm{dim} V $ 
 
+## 我是不是给你点线面给多了？艚柅杩蝶
 
+对于两条线，首先求出其方向向量：
 
+给定了参数方程：参数系数即为方向向量系数
 
-当然可以，下面是用 KaTeX 编写的 **Jordan 标准型（Jordan Canonical Form）** 的正式定义：
+给定一般式的方程组：每个一般式都确定一个平面，x、y、z前的系数即为该平面的法向量系数，再叉乘法向量获得方向向量
 
----
+求两条线平行：方向向量线性相关；  
+求两条线相交：联立判断解存在. 有必要可以借助共面；  
+求两条线异面：两条线上任取两点 $ A $ 、 $ B $ ，然后求 $ \overrightarrow{AB} \cdot (\overrightarrow{l_1} \times \overrightarrow{l_2}) $ ，并令其 $ \neq 0 $. 同理知共面条件是 $ =0 $. 
 
-**Jordan 标准型的定义**：
+求点到直线距离： $$ d=\frac{\Vert \overrightarrow{PQ} \times \overrightarrow{l} \Vert}{\Vert \overrightarrow{l} \Vert} $$  
+求点到面距离： $$ d=\frac{\vert Ax + By + Cz + D \vert}{\sqrt{A^2+B^2+C^2}} $$
 
-一个 $n \times n$ 的复矩阵 $A$ 是**相似于**一个分块对角矩阵 $J$ 的，即存在可逆矩阵 $P$，使得：
+求线在平面内：代入平面方程满足且方向向量与平面法向量点积为0；  
 
-$$
-A = PJP^{-1}
-$$
-
-其中 $J$ 是以下形式的块对角矩阵：
-
-
-
-每个 $J_{k_i}(\lambda_i)$ 是一个大小为 $k_i \times k_i$ 的 **Jordan 块（Jordan block）**，定义为：
+求过线/点的平面方程：首先转化为过两条线的平面。三点方法为任求两点间直线参数方程；一点一线法为任选线上一点求两点间直线方程。然后求两条线的叉乘，记 $ (A,B,C) $ ，在给定的三点中任取一点，或取一线一点中的一点，记 $ (x_0, y_0, z_0) $ ，那么有平面方程 $ A(x-x_0)+B(y-y_0)+C(z-z_0)=0 $ 。可化简得最终结果。
 
 

@@ -293,11 +293,32 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    1ss.LinearAlgebra
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     1ss.LinearAlgebra
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      概念全部飞飞飞
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../gphy/">
@@ -380,6 +401,19 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      概念全部飞飞飞
+    </span>
+</a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -387,6 +421,25 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="ii">线性代数<span><span class="heti-spacing"> </span>II</span><a class="headerlink" href="#ii" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<p><a href="https://zju-turing.github.io/TuringCourses/math_phys/linear_algebra2/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%20%E2%85%A1%EF%BC%88H%EF%BC%892024%E6%98%A5%E5%A4%8F%E5%9B%9E%E5%BF%86%E5%8D%B7.pdf">2024SS</a></p>
+<p><a href="https://zju-turing.github.io/TuringCourses/math_phys/linear_algebra2/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%20%E2%85%A1%EF%BC%88H%EF%BC%892023%E6%98%A5%E5%A4%8F%E5%9B%9E%E5%BF%86%E5%8D%B7.pdf">2023SS</a></p>
+<h3 id="_1">概念全部飞飞飞<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><strong>正规矩阵</strong>：矩阵<span class="heti-skip"><span class="heti-spacing"> </span>$ A $<span class="heti-spacing"> </span></span>是正规矩阵，当<span class="heti-skip"><span class="heti-spacing"> </span>$ A A^H = A^H A $<span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>.$ A^H $<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>$ A $<span class="heti-spacing"> </span></span>的<a href="#gg.gezzjz">共轭转置矩阵</a><span><span class="heti-spacing"> </span>.</span></p>
+<blockquote>
+<p>和正规矩阵<a href="#gg.yxs">酉相似</a>的矩阵都是正规矩阵<br/>
+正规矩阵必有 $ n $ 个线性无关特征向量，即正规矩阵一定可以被相似对角化<br/>
+正规矩阵的属于不同特征值的特征子空间是互相正交的  </p>
+</blockquote>
+<p><span id="gg.gezzjz"></span></p>
+<p><strong>共轭转置矩阵</strong>：矩阵<span class="heti-skip"><span class="heti-spacing"> </span>$ A $<span class="heti-spacing"> </span></span>的共轭转置矩阵<span><span class="heti-spacing"> </span>$ A^H $</span> ，就是将<span class="heti-skip"><span class="heti-spacing"> </span>$ A $<span class="heti-spacing"> </span></span>转置后取每个元素的复共轭<span><span class="heti-spacing"> </span>.</span></p>
+<p><span id="gg.yxs"></span></p>
+<p><strong>酉相似</strong>：对于矩阵<span><span class="heti-spacing"> </span>$ A $</span> ，若存在<a href="#gg.yjz">酉矩阵</a><span class="heti-skip"><span class="heti-spacing"> </span>$ U $<span class="heti-spacing"> </span></span>使得<span><span class="heti-spacing"> </span>$ U^{-1}AU = U^{H}AU = B $</span> ，就说<span class="heti-skip"><span class="heti-spacing"> </span>$ A $<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>$ B $<span class="heti-spacing"> </span></span>酉相似<span><span class="heti-spacing"> </span>.</span></p>
+<p><span id="gg.yjz"></span></p>
+<p><strong>酉矩阵</strong>：若矩阵<span class="heti-skip"><span class="heti-spacing"> </span>$ A $<span class="heti-spacing"> </span></span>满足<span><span class="heti-spacing"> </span>$ A^H A = AA^H = E $</span>，那么<span class="heti-skip"><span class="heti-spacing"> </span>$ A $<span class="heti-spacing"> </span></span>是酉矩阵<span><span class="heti-spacing"> </span>.</span></p>
+<p><strong>正交补</strong>：设<span class="heti-skip"><span class="heti-spacing"> </span>$ U $<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>的自己，则<span class="heti-skip"><span class="heti-spacing"> </span>$ U $<span class="heti-spacing"> </span></span>的正交补是由<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>中与<span class="heti-skip"><span class="heti-spacing"> </span>$ U $<span class="heti-spacing"> </span></span>的每个向量都正交的那些向量组成的集合，记为<span class="heti-skip"><span class="heti-spacing"> </span>$ U^{\perp} $ .<span class="heti-spacing"> </span></span>即<span><span class="heti-spacing"> </span><span class="arithmatex">\(U^{\perp} = \{v \in V \mid \forall u \in U,\, \langle v, u \rangle = 0\}\)</span></span></p>
+<p><strong>线性泛函</strong>：<span>$ V $<span class="heti-spacing"> </span></span>上的线性泛函是从<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span>$ \mathbb{F} $<span class="heti-spacing"> </span></span>的线性映射<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>也就是说，线性泛函是<span class="heti-skip"><span class="heti-spacing"> </span>$ \mathcal{L}(V,\mathbb{F}) $<span class="heti-spacing"> </span></span>中的元素<span><span class="heti-spacing"> </span>.</span> </p>
+<p><strong><span>Gram-Schmidt<span class="heti-spacing"> </span></span>过程</strong>：设<span class="heti-skip"><span class="heti-spacing"> </span>$ v_1, ..., v_m $<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>中的线性无关向量组<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>设<span class="heti-skip"><span class="heti-spacing"> </span>$ e_1 = v_1/||v_1|| $.<span class="heti-spacing"> </span></span>对于<span class="heti-skip"><span class="heti-spacing"> </span>$ j = 2, ..., m $,<span class="heti-spacing"> </span></span>定义<span class="heti-skip"><span class="heti-spacing"> </span>$ e_j $<span class="heti-spacing"> </span></span>如下： <span>$$ e_j = \frac{v_j - \langle v_j, e_1 \rangle e_1 - \cdots - \langle v_j, e_{j-1} \rangle e_{j-1} }{||v_j - \langle v_j, e_1 \rangle e_1 - \cdots - \langle v_j, e_{j-1} \rangle e_{j-1} ||}.$$<span class="heti-spacing"> </span></span>则<span class="heti-skip"><span class="heti-spacing"> </span>$ e_1, ..., e_m $<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>中的规范正交组，使得对<span class="heti-skip"><span class="heti-spacing"> </span>$ j = 1, ..., m $<span class="heti-spacing"> </span></span>有<span><span class="heti-spacing"> </span>$$ \mathrm{span}(v_1, ..., v_j) = \mathrm{span}(e_1, ..., e_j) $$</span></p>
+<hr/>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>

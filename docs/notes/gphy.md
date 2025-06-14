@@ -2,9 +2,35 @@
 
 ## 日G历年卷
 
-[2024中文版](../gphy_ly) | [2024 English](../gphy_eng) | [2024 原版手抄回忆卷](./gphy_origin.pdf)
+[2024中文版](../gphy/ly) | [2024 English](../gphy/eng) | [2024 原版手抄回忆卷](./gphy/origin.pdf)
 
 *注：如果前面两个卷子出现问题，请参考手抄回忆卷！*
+
+## WOW GPA!
+
+[GPA](../gphy/gpa.pdf)
+
+## 干NM历史作业
+
+[HW1](../gphy/hw1.pdf)  
+[HW2](../gphy/hw2.pdf)  
+[HW3](../gphy/hw3.pdf)  
+[HW4](../gphy/hw4.pdf)  
+[HW5](../gphy/hw5.pdf)  
+[HW6](../gphy/hw6.pdf)  
+[HW7](../gphy/hw7.pdf)  
+[HW8](../gphy/hw8.pdf)  
+[HW9](../gphy/hw9.pdf)  
+[HW10](../gphy/hw10.pdf)  
+[HW11](../gphy/hw11.pdf)  
+[HW12](../gphy/hw12.pdf)  
+[HW13](../gphy/hw13.pdf)  
+[HW14](../gphy/hw14.pdf)  
+
+## 舔J QUIZ
+
+
+
 
 ## 草B公式
 

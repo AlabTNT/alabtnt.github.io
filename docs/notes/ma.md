@@ -19,7 +19,7 @@
 
  $$ \Delta z=f(x_0+\Delta x,y_0+\Delta y)-f(x_0,y_0) \newline =A\Delta x+B\Delta y+\omicron(\rho) \tag{1} $$ 
 
-其中 $ A,B $ 是仅与点 $ P_0 $ 有关的常数， $ \rho=\sqrt{\Delta x^2+\Delta y^2} $ ， $ \omicron(\rho) $ 是较 $ \rho $ 高阶的无穷小量。则称函数 $ f $ 在点 $ P_0 $ **可微**，并称[(1)式](#s1)中关于 $ \Delta x, \Delta y $ 的线性函数 $ A\Delta x+B\Delta y $ 为函数 $ f $ 在点 $ P_0 $ 的**全微分**，记作
+其中 $ A,B $ 是仅与点 $ P_0 $ 有关的常数， $ \rho=\sqrt{\Delta x^2+\Delta y^2} $ ， $ \omicron(\rho) $ 是较 $ \rho $ 高阶的无穷小量.则称函数 $ f $ 在点 $ P_0 $ **可微**，并称[(1)式](#s1)中关于 $ \Delta x, \Delta y $ 的线性函数 $ A\Delta x+B\Delta y $ 为函数 $ f $ 在点 $ P_0 $ 的**全微分**，记作
 
 <span id="s2"></span>
 
@@ -27,7 +27,7 @@
 
 <br><br>
 
-2. Jacobi: 矩阵横向为同一原变量对所有新变量的偏导，纵向为所有原变量对同一新变量的偏导。取矩阵的行列式值，结果为换元后应乘函数。
+2. Jacobi: 矩阵横向为同一原变量对所有新变量的偏导，纵向为所有原变量对同一新变量的偏导.取矩阵的行列式值，结果为换元后应乘函数.
 
 *Jacobi常见换元详见[奇技淫巧 #4](#byd4.0)*
 
@@ -85,7 +85,7 @@ $$a_0=\frac{1}{l}\int^{l}_{-l}f(x)\mathrm{d}x\quad\newline a_n=\frac{1}{l}\int^{
 
 *注：9/10看不懂可以看[奇技淫巧 #2](#byd2.0)*
 
-9. 第一型曲线积分计算：一堆定义看书去**P185定义1**。第一型曲线积分形如：
+9. 第一型曲线积分计算：一堆定义看书去**P185定义1**.第一型曲线积分形如：
 
 $$\int_L f(x,y)\mathrm{d}s$$
 
@@ -99,15 +99,15 @@ $$\int_L f(x,y)\mathrm{d}s=\int_{a}^{b} f(x,\psi(x))\sqrt{1+\psi'^2(t)}\mathrm{d
 
 即令 $ x=t, y=\psi(t) $. 其中 $\varphi'^2(t)=1$ 
 
-以上情况也可以在 $ x=\varphi(y) $ 时成立，反向替换即可。
+以上情况也可以在 $ x=\varphi(y) $ 时成立，反向替换即可.
 
 <br><br>
 
-10. 第二型曲线积分计算： 一堆定义看书去**P190定义1**。第二型曲线积分形如：
+10. 第二型曲线积分计算： 一堆定义看书去**P190定义1**.第二型曲线积分形如：
 
 $$\int_L P(x,y)\mathrm{d}x+Q(x,y)\mathrm{d}y $$
 
-上式中 $ L $ 可以用 $ \overgroup{AB} $ 替换。
+上式中 $ L $ 可以用 $ \overgroup{AB} $ 替换.
 
 计算方式是
 
@@ -125,7 +125,7 @@ $$ \oint_{L^+} P(x,y)\mathrm{d}x+Q(x,y)\mathrm{d}y=\iint_D (\frac{\partial Q}{\p
 
 *注：12/13看不懂可以看[奇技淫巧 #3](#byd3.0)*
 
-12. 第一型曲面积分：定义一堆**P259定义1**。形如：
+12. 第一型曲面积分：定义一堆**P259定义1**.形如：
 
 $$\iint_S f(x,y,z)\mathrm{d}S$$
 
@@ -137,11 +137,11 @@ $$\iint_S f(x,y,z)\mathrm{d}S=\iint_D f(x,y,z(x,y))\sqrt{1+z_x^2+z_y^2}\mathrm{d
 
 <br><br>
 
-13. 第二型曲面积分：定义一堆**P264定义1**。形如：
+13. 第二型曲面积分：定义一堆**P264定义1**.形如：
 
 $$\iint_S R(x,y,z)\mathrm{d}x\mathrm{d}y$$
 
-计算方法直接把 $ z(x,y) $套进去即可。也就是用 $x,y$ 替换 $z$.
+计算方法直接把 $ z(x,y) $套进去即可.也就是用 $x,y$ 替换 $z$.
 
 <br><br>
 
@@ -149,17 +149,17 @@ $$\iint_S R(x,y,z)\mathrm{d}x\mathrm{d}y$$
 
 <br><br>
 
-15. 拉格朗日乘数法：对于一个 $ n $ 元函数，希望在条件限制下求其极值，可以使用拉格朗日乘数法。例如23-24年第四题。操作方法是：首先确定目标多元函数 $ f(x,y,...) $ 和限制条件（等式） $ Con(x,y,...)=0 $。引入一个新变量 $\lambda$。设一新函数 $ F(x,y,...,\lambda) = f(x,y,...) + \lambda Con(x,y,...) $。对 $ F $ 的每一项均进行求偏导操作，并使每一项值均为0。根据所得到的 $ n+1 $ 个等式，可以求出 $ n $ 个变量的值。这些值下，原函数 $ f(x,y,...) $ 取极值。*注意对 $\lambda$ 求偏导的式子可能会大大简化运算*。
+15. 拉格朗日乘数法：对于一个 $ n $ 元函数，希望在条件限制下求其极值，可以使用拉格朗日乘数法.例如23-24年第四题.操作方法是：首先确定目标多元函数 $ f(x,y,...) $ 和限制条件（等式） $ Con(x,y,...)=0 $.引入一个新变量 $\lambda$.设一新函数 $ F(x,y,...,\lambda) = f(x,y,...) + \lambda Con(x,y,...) $.对 $ F $ 的每一项均进行求偏导操作，并使每一项值均为0.根据所得到的 $ n+1 $ 个等式，可以求出 $ n $ 个变量的值.这些值下，原函数 $ f(x,y,...) $ 取极值.*注意对 $\lambda$ 求偏导的式子可能会大大简化运算*.
 
 <br><br>
 
-16. 给定空间曲线求法线及法平面，方法为：对其中任一变量求偏导。例如选择 $ x $ 。求偏导时，对于不包含该变量的式子，使用链式法则，令其对另一变量求偏导，然后乘另一变量对选定变量的偏导。例如选择 $ x $ 后，对于 $ y^2 $，可以求 $ \frac{\partial(y^2)}{\partial y}\cdot\frac{\partial y}{\partial x} = 2y\frac{\partial y}{\partial x}$ 。 得到方程后带入指定点坐标，解出其他变量对选定变量的偏导，可以确定法线方向向量 $ \overrightarrow{v}=(\frac{\partial x}{\partial t},\frac{\partial y}{\partial t},\frac{\partial z}{\partial t}) $ 。其中 $ t $ 是选中的向量，例如上述过程中选中了 $ x $ ，那么方向向量即为 $ \overrightarrow{v}=(1,\frac{\partial y}{\partial x},\frac{\partial z}{\partial x}) $ 。由法线方向向量写法线：$ \frac{x}{\overrightarrow{v}_x}=\frac{y}{\overrightarrow{v}_y}=\frac{z}{\overrightarrow{v}_z} $ ；由法线方向向量写法平面： $ (x-\overrightarrow{v}_x)+(y-\overrightarrow{v}_y)+(z-\overrightarrow{v}_z)=0 $ .
+16. 给定空间曲线求法线及法平面，方法为：对其中任一变量求偏导.例如选择 $ x $ .求偏导时，对于不包含该变量的式子，使用链式法则，令其对另一变量求偏导，然后乘另一变量对选定变量的偏导.例如选择 $ x $ 后，对于 $ y^2 $，可以求 $ \frac{\partial(y^2)}{\partial y}\cdot\frac{\partial y}{\partial x} = 2y\frac{\partial y}{\partial x}$ . 得到方程后带入指定点坐标，解出其他变量对选定变量的偏导，可以确定法线方向向量 $ \overrightarrow{v}=(\frac{\partial x}{\partial t},\frac{\partial y}{\partial t},\frac{\partial z}{\partial t}) $ .其中 $ t $ 是选中的向量，例如上述过程中选中了 $ x $ ，那么方向向量即为 $ \overrightarrow{v}=(1,\frac{\partial y}{\partial x},\frac{\partial z}{\partial x}) $ .由法线方向向量写法线：$ \frac{x}{\overrightarrow{v}_x}=\frac{y}{\overrightarrow{v}_y}=\frac{z}{\overrightarrow{v}_z} $ ；由法线方向向量写法平面： $ (x-\overrightarrow{v}_x)+(y-\overrightarrow{v}_y)+(z-\overrightarrow{v}_z)=0 $ .
 
 17. 隐函数存在定理: 对于由二元等式 $ F(x,y)=0 $ 确定的隐函数，对于某一点，若：  
     (i) $ F(x_0,y_0) = 0 $ ;  
     (ii) $ F(x,y) $ 和 $ F_y(x,y) $ 在 $(x_0,y_0)$ 附近某一领域连续;  
     (iii) $ F_y(x_0,y_0)\neq 0 $  
-那么在 $(x_0,y_0)$ 附近，二元等式 $ F(x,y)=0 $ 惟一确定一个隐函数。且其确定的隐函数导数 $y'(x)=-\frac{F_x(x,y)}{F_y(x,y)}$ 。
+那么在 $(x_0,y_0)$ 附近，二元等式 $ F(x,y)=0 $ 惟一确定一个隐函数.且其确定的隐函数导数 $y'(x)=-\frac{F_x(x,y)}{F_y(x,y)}$ .
 
 <br><br><br>
 
@@ -169,11 +169,11 @@ $$\iint_S R(x,y,z)\mathrm{d}x\mathrm{d}y$$
 
 <span id="byd2.0"></span>
 
-2. 第一二型曲线积分：对于一段曲线， $ \mathrm{d}s $ 就是一型，$ \text{一堆} \mathrm{d}x + \text{另一堆} \mathrm{d}y $ 就是二型。计算方法：把 $ x $ 和 $ y $ 替换成 $ t $ ，注意换元时对应积分的改换 。对于 $ \mathrm{d}s $ ，其替换结果是各替换项平方和的算术平方根（即 $\sqrt{f_x'^2(t)+f_y'^2{t}+...}$ ，在这里 $f_x(t)$ 代表 $x$ 对于 $t$ 的函数）。如果 $ x $ 和 $ y $ 已经有等量关系了，直接令自变量为 $ t $ 。然后带入原式子求积分就行了。积分上下限取得是 $ t $ 的可求范围
+2. 第一二型曲线积分：对于一段曲线， $ \mathrm{d}s $ 就是一型，$ \text{一堆} \mathrm{d}x + \text{另一堆} \mathrm{d}y $ 就是二型.计算方法：把 $ x $ 和 $ y $ 替换成 $ t $ ，注意换元时对应积分的改换 .对于 $ \mathrm{d}s $ ，其替换结果是各替换项平方和的算术平方根（即 $\sqrt{f_x'^2(t)+f_y'^2{t}+...}$ ，在这里 $f_x(t)$ 代表 $x$ 对于 $t$ 的函数）.如果 $ x $ 和 $ y $ 已经有等量关系了，直接令自变量为 $ t $ .然后带入原式子求积分就行了.积分上下限取得是 $ t $ 的可求范围
 
 <span id="byd3.0"></span>
 
-3. 第一二型曲面积分：对于一块曲面， $ dS $ 就是一型， $ dxdy $ 就是二型。一型只要把 $z$ 带进去再乘 $\sqrt{1+z_x^2+z_y^2}$ 即可。二型只要把 $z$ 带进去即可。**注意二型有时出现 $ \mathrm{d}z $，需要用Jacobi换元。**
+3. 第一二型曲面积分：对于一块曲面， $ dS $ 就是一型， $ dxdy $ 就是二型.一型只要把 $z$ 带进去再乘 $\sqrt{1+z_x^2+z_y^2}$ 即可.二型只要把 $z$ 带进去即可.**注意二型有时出现 $ \mathrm{d}z $，需要用Jacobi换元.**
 
 <span id="byd4.0"></span>
 

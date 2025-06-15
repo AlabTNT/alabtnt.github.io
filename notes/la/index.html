@@ -505,6 +505,15 @@ $$</p>
 <p><strong>对偶映射</strong>：若<span><span class="heti-spacing"> </span>$ T\in\mathcal{L}(V,W) $</span> ，则<span class="heti-skip"><span class="heti-spacing"> </span>$ T $<span class="heti-spacing"> </span></span>的对偶映射是线性映射<span><span class="heti-spacing"> </span>$ T'\in\mathcal{L}(W',V') $</span> ：对于<span><span class="heti-spacing"> </span>$ \varphi \in W' $</span> ，有<span><span class="heti-spacing"> </span>$ T'(\varphi)=\varphi \circ T $.</span></p>
 <p><strong>零化子</strong>：对于<span><span class="heti-spacing"> </span>$ U \subset V $</span> ，<span>$ U $<span class="heti-spacing"> </span></span>的零化子定义如下： $$ U^0 = { \varphi \in V' \mid \forall u \in U, \varphi(u)=0 }.$$</p>
 <p><strong><span>Jordan<span class="heti-spacing"> </span></span>标准型</strong>：形如<span class="heti-skip"><span class="heti-spacing"> </span>$$ J_k(\lambda) = \begin{bmatrix} \lambda &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \newline 0 &amp; \lambda &amp; 1 &amp; \cdots &amp; 0 \newline \vdots &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots \newline 0 &amp; \cdots &amp; 0 &amp; \lambda &amp; 1 \newline 0 &amp; \cdots &amp; \cdots &amp; 0 &amp; \lambda \end{bmatrix} \in \mathbb{C}^{k \times k} $$<span class="heti-spacing"> </span></span>的矩阵块组成的形如<span class="heti-skip"><span class="heti-spacing"> </span>$$ J = \begin{bmatrix} J_{k_1}(\lambda_1) &amp; &amp; \newline &amp; \ddots &amp; \newline &amp; &amp; J_{k_m}(\lambda_m) \end{bmatrix} $$<span class="heti-spacing"> </span></span>的矩阵是矩阵<span class="heti-skip"><span class="heti-spacing"> </span>$ A $<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>$ Jordan $<span class="heti-spacing"> </span></span>标准型，当存在可逆矩阵<span class="heti-skip"><span class="heti-spacing"> </span>$ P $<span class="heti-spacing"> </span></span>使得<span><span class="heti-spacing"> </span>$ A = PJP^{-1} $.</span></p>
+<p><strong>验证内积</strong>：</p>
+<ul>
+<li>正性： $ \langle v,v \rangle \geq 0 $</li>
+<li>定性： <span>$ \langle v,v \rangle = 0 \text{<span class="heti-spacing"> </span></span>当且仅当<span><span class="heti-spacing"> </span>} v=0 $</span></li>
+<li>首位加性： $ \langle u+v, w \rangle = \langle u, w \rangle + \langle v, w \rangle $</li>
+<li>首位齐性： $ \langle \lambda v, w \rangle = \lambda \langle v, w \rangle $</li>
+<li>共轭对称性： $ \langle u,v \rangle = \bar{\langle v, u \rangle} $</li>
+</ul>
+<p><strong>平方根</strong>：自伴</p>
 <h2 id="_3">你们一个个（公式）想咋的？<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <p>$ \mathrm{dim} (U_1 + U_2) = \mathrm{dim} U_1 + \mathrm{dim} U_2 - \mathrm{dim}( U_1 \bigcap U_2 ) $ （<strong>有限维</strong>）</p>
 <p>$ \mathrm{null} T' = (\mathrm{range} T)^0 $</p>

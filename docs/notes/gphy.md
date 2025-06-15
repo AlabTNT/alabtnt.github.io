@@ -31,7 +31,6 @@
 
 
 
-
 ## 草B公式
 
 ### 刚体
@@ -77,8 +76,8 @@
 | 周期与频率的关系: |  $ T = \frac{1}{f} $  |
 | 角波数与波长的关系: |  $ k = \frac{2\pi}{\lambda} $  |
 | 波速与角波数的关系: |  $ v = \frac{\omega}{k} $  |
-| 杨氏模量Y表达式: |  $ Y = \frac{应力}{应变} = \frac{F/A}{\Delta L/L_0} $  |
-| 剪切模量S表达式: |  $ S = \frac{ \text{剪切应力} }{ \text{剪切应变} } = \frac{F/A}{x/h} $  |
+| 杨氏模量Y表达式: |  $ Y = \frac{\text{ 应力 }}{\text{ 应变 }} = \frac{F/A}{\Delta L/L_0} $  |
+| 剪切模量S表达式: |  $ S = \frac{ \text{ 剪切应力 } }{ \text{ 剪切应变 } } = \frac{F/A}{x/h} $  |
 | 体积模量Bulk表达式: |  $ B = -V \frac{\Delta P}{\Delta V} $  |
 | 线性波波动方程: |  $ \frac{\partial^2 y}{\partial t^2} = v^2 \frac{\partial^2 y}{\partial x^2} $  |
 | 简谐波波动方程: |  $ y(x,t) = A \sin(kx - \omega t + \phi) $  |
@@ -124,8 +123,8 @@
 | 已知分子自由度的气体定容比热: |  $ C_V = \frac{i}{2}R $  |
 | 定容过程中热量与定容比热的关系: |  $ Q = nC_V\Delta T $  |
 | 热力学第一定律: |  $ \Delta U = Q - W $  |
-| 对理想气体, 绝热过程中温度和体积的关系: |  $ TV^{\gamma-1} = \text{常数} $  |
-| 对理想气体, 绝热过程中压强和体积的关系: |  $ PV^\gamma = \text{常数} $  |
+| 对理想气体, 绝热过程中温度和体积的关系: |  $ TV^{\gamma-1} = \text{ 常数 } $  |
+| 对理想气体, 绝热过程中压强和体积的关系: |  $ PV^\gamma = \text{ 常数 } $  |
 | 对理想气体, 定容比热和等压比热的关系: |  $ C_P - C_V = R $  , 其中  $ \gamma = \frac{C_P}{C_V} $  |
 | 固体热胀效应: |  $ \Delta L = \alpha L_0 \Delta T $  |
 | 范德瓦尔斯气体状态方程: |  $ \left(P + \frac{an^2}{V^2}\right)(V - nb) = nRT $  |

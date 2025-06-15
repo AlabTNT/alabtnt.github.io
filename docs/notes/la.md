@@ -68,6 +68,16 @@ $$
 
 **Jordan标准型**：形如 $$ J_k(\lambda) = \begin{bmatrix} \lambda & 1 & 0 & \cdots & 0 \newline 0 & \lambda & 1 & \cdots & 0 \newline \vdots & \ddots & \ddots & \ddots & \vdots \newline 0 & \cdots & 0 & \lambda & 1 \newline 0 & \cdots & \cdots & 0 & \lambda \end{bmatrix} \in \mathbb{C}^{k \times k} $$ 的矩阵块组成的形如 $$ J = \begin{bmatrix} J_{k_1}(\lambda_1) & & \newline & \ddots & \newline & & J_{k_m}(\lambda_m) \end{bmatrix} $$ 的矩阵是矩阵 $ A $ 的 $ Jordan $ 标准型，当存在可逆矩阵 $ P $ 使得 $ A = PJP^{-1} $.
 
+**验证内积**：
+
+- 正性： $ \langle v,v \rangle \geq 0 $
+- 定性： $ \langle v,v \rangle = 0 \text{ 当且仅当 } v=0 $
+- 首位加性： $ \langle u+v, w \rangle = \langle u, w \rangle + \langle v, w \rangle $
+- 首位齐性： $ \langle \lambda v, w \rangle = \lambda \langle v, w \rangle $
+- 共轭对称性： $ \langle u,v \rangle = \bar{\langle v, u \rangle} $
+
+**平方根**：自伴
+
 ## 你们一个个（公式）想咋的？
 
 $ \mathrm{dim} (U_1 + U_2) = \mathrm{dim} U_1 + \mathrm{dim} U_2 - \mathrm{dim}( U_1 \bigcap U_2 ) $ （**有限维**）

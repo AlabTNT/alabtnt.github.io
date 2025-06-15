@@ -128,7 +128,7 @@
 | 对理想气体, 定容比热和等压比热的关系: |  $ C_P - C_V = R $  , 其中  $ \gamma = \frac{C_P}{C_V} $  |
 | 固体热胀效应: |  $ \Delta L = \alpha L_0 \Delta T $  |
 | 范德瓦尔斯气体状态方程: |  $ \left(P + \frac{an^2}{V^2}\right)(V - nb) = nRT $  |
-| 麦克斯韦速率分布函数: |  $ f(v) = 4\pi \left(\frac{m}{2\pi k_B T}\right)^{3/2} v^2 e^{-mv^2/(2k_B T)} $  |
+| 麦克斯韦速率分布函数: |  $ f(v) = 4\pi \left(\frac{m}{2\pi k_B T}\right)^{\frac{3}{2}} v^2 e^{\frac{-mv^2}{(2k_B T)}} $  |
 | 最高概率速率: |  $ v_p = \sqrt{\frac{2k_B T}{m}} $  |
 | 平均速率: |  $ \bar{v} = \sqrt{\frac{8k_B T}{\pi m}} $  |
 | 方均根速率: |  $ v_{rms} = \sqrt{\frac{3k_B T}{m}} $  |

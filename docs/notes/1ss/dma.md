@@ -40,8 +40,6 @@
 
 [19-20](../dma/dm-fexam-19(1).pdf) | [Answer](../dma/dm-fexam-19key(1).pdf)
 
-
-
 ## 啥必背的单词
 
 - conjunction 交
@@ -56,7 +54,8 @@
 - transitive 传递：若aRb和bRc则aRc
 - closure 闭包
 - homeomorphic 同胚
-
+- post/pre/in-order/fix 后/前/中 序/缀
+- chromatic 染色
 
 ## 必吃的概念
 
@@ -72,3 +71,5 @@
 - 完全图 $K_n$ 
 - Euler: 遍历所有边，所有边只经过一次
 - Hamilton: 遍历所有顶点，所有顶点只经过一次
+- Haffman: 哈夫曼，取两个概率最小的，第一小放右边，第二小放左边，并成新元素，递归执行最后成树
+- 

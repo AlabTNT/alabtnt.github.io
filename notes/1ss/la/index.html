@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="TNT的github.io" name="description"/>
+<link href="../fds/" rel="prev"/>
+<link href="../gphy/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.5.42" name="generator"/>
+<title>1ss.LinearAlgebra - AlabTNT's Github IO</title>
+<link href="../../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=JetBrains+Mono:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"JetBrains Mono";--md-code-font:"JetBrains Mono"}</style>
+<link href="../../../css/heti.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#ii">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="AlabTNT's Github IO" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="AlabTNT's Github IO">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            AlabTNT's Github IO
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              1ss.LinearAlgebra
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../tutorial/">
+          
+  
+  TNT麻将教程
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../main/">
+          
+  
+  TNT Note
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../eating/">
+          
+  
+  TNT Eating
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../others/cbt/">
+          
+  
+  TNTSiteOthers
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="AlabTNT's Github IO" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="AlabTNT's Github IO">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    AlabTNT's Github IO
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-ellipsis">
+    TNT麻将教程
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            TNT麻将教程
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../tutorial/">
+<span class="md-ellipsis">
+    主页
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../tutorial/0.0/">
+<span class="md-ellipsis">
+    零、前言
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../tutorial/1.0/">
+<span class="md-ellipsis">
+    一、麻将基础内容及基本规则
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../tutorial/2.0/">
+<span class="md-ellipsis">
+    二、日本麻将（マージャン）规则介绍
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../tutorial/3.0/">
+<span class="md-ellipsis">
+    三、国内麻将规则归纳（部分）
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../tutorial/4.0/">
+<span class="md-ellipsis">
+    四、TNT公式战分数规则
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../tutorial/5.0/">
+<span class="md-ellipsis">
+    五、线下礼仪
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../tutorial/end/">
+<span class="md-ellipsis">
+    结语
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../tutorial/app.1/">
+<span class="md-ellipsis">
+    附录1*：日麻役种表
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../tutorial/app.2/">
+<span class="md-ellipsis">
+    附录2*：日麻点数、符数速查表 &amp; 番种速查
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../tutorial/app.3/">
+<span class="md-ellipsis">
+    附录3*：术语收录一览
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../tutorial/app.4/">
+<span class="md-ellipsis">
+    附录4*：Melague相关内容
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    TNT Note
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            TNT Note
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../main/">
+<span class="md-ellipsis">
+    1ss.Main
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ma/">
+<span class="md-ellipsis">
+    1ss.MathAnalysis
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../dma/">
+<span class="md-ellipsis">
+    1ss.DiscreteMath
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../fds/">
+<span class="md-ellipsis">
+    1ss.FDS
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    1ss.LinearAlgebra
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    1ss.LinearAlgebra
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      老登怎么跟狗一样（指吃历年卷的史）
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      敢不背概念我让你飞起来
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      你们一个个（公式）想咋的？
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      我是不是给你点线面给多了？艚柅杩蝶
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../gphy/">
+<span class="md-ellipsis">
+    1ss.GeneralPhysics
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sys1/">
+<span class="md-ellipsis">
+    1ss.System1
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    TNT Eating
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            TNT Eating
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../eating/">
+<span class="md-ellipsis">
+    主页
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    TNTSiteOthers
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            TNTSiteOthers
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../others/cbt/">
+<span class="md-ellipsis">
+    pycbt
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../others/izatomo/">
+<span class="md-ellipsis">
+    izatomo
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      老登怎么跟狗一样（指吃历年卷的史）
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      敢不背概念我让你飞起来
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      你们一个个（公式）想咋的？
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      我是不是给你点线面给多了？艚柅杩蝶
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="ii">线性代数<span><span class="heti-spacing"> </span>II</span><a class="headerlink" href="#ii" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<h2 id="_1">老登怎么跟狗一样（指吃历年卷的史）<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p><a href="https://zju-turing.github.io/TuringCourses/math_phys/linear_algebra2/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%20%E2%85%A1%EF%BC%88H%EF%BC%892024%E6%98%A5%E5%A4%8F%E5%9B%9E%E5%BF%86%E5%8D%B7.pdf">2024SS</a></p>
+<p><a href="https://zju-turing.github.io/TuringCourses/math_phys/linear_algebra2/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%20%E2%85%A1%EF%BC%88H%EF%BC%892023%E6%98%A5%E5%A4%8F%E5%9B%9E%E5%BF%86%E5%8D%B7.pdf">2023SS</a></p>
+<h2 id="_2">敢不背概念我让你飞起来<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p><strong>正规矩阵</strong>：矩阵<span class="heti-skip"><span class="heti-spacing"> </span>$ A $<span class="heti-spacing"> </span></span>是正规矩阵，当<span class="heti-skip"><span class="heti-spacing"> </span>$ A A^H = A^H A $<span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>.$ A^H $<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>$ A $<span class="heti-spacing"> </span></span>的<a href="#gg.gezzjz">共轭转置矩阵</a><span><span class="heti-spacing"> </span>.</span></p>
+<blockquote>
+<p>和正规矩阵<a href="#gg.yxs">酉相似</a>的矩阵都是正规矩阵<br/>
+正规矩阵必有 $ n $ 个线性无关特征向量，即正规矩阵一定可以被相似对角化<br/>
+正规矩阵的属于不同特征值的特征子空间是互相正交的  </p>
+</blockquote>
+<p><span id="gg.gezzjz"></span></p>
+<p><strong>共轭转置矩阵</strong>：矩阵<span class="heti-skip"><span class="heti-spacing"> </span>$ A $<span class="heti-spacing"> </span></span>的共轭转置矩阵<span><span class="heti-spacing"> </span>$ A^H $</span> ，就是将<span class="heti-skip"><span class="heti-spacing"> </span>$ A $<span class="heti-spacing"> </span></span>转置后取每个元素的复共轭<span><span class="heti-spacing"> </span>.</span></p>
+<p><span id="gg.yxs"></span></p>
+<p><strong>酉相似</strong>：对于矩阵<span><span class="heti-spacing"> </span>$ A $</span> ，若存在<a href="#gg.yjz">酉矩阵</a><span class="heti-skip"><span class="heti-spacing"> </span>$ U $<span class="heti-spacing"> </span></span>使得<span><span class="heti-spacing"> </span>$ U^{-1}AU = U^{H}AU = B $</span> ，就说<span class="heti-skip"><span class="heti-spacing"> </span>$ A $<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>$ B $<span class="heti-spacing"> </span></span>酉相似<span><span class="heti-spacing"> </span>.</span></p>
+<p><span id="gg.yjz"></span></p>
+<p><strong>酉矩阵</strong>：若矩阵<span class="heti-skip"><span class="heti-spacing"> </span>$ A $<span class="heti-spacing"> </span></span>满足<span><span class="heti-spacing"> </span>$ A^H A = AA^H = E $</span>，那么<span class="heti-skip"><span class="heti-spacing"> </span>$ A $<span class="heti-spacing"> </span></span>是酉矩阵<span><span class="heti-spacing"> </span>.</span></p>
+<p><strong>正交补</strong>：设<span class="heti-skip"><span class="heti-spacing"> </span>$ U $<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>的自己，则<span class="heti-skip"><span class="heti-spacing"> </span>$ U $<span class="heti-spacing"> </span></span>的正交补是由<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>中与<span class="heti-skip"><span class="heti-spacing"> </span>$ U $<span class="heti-spacing"> </span></span>的每个向量都正交的那些向量组成的集合，记为<span class="heti-skip"><span class="heti-spacing"> </span>$ U^{\perp} $ .<span class="heti-spacing"> </span></span>即<span><span class="heti-spacing"> </span><span class="arithmatex">\(U^{\perp} = \{v \in V \mid \forall u \in U,\, \langle v, u \rangle = 0\}\)</span></span></p>
+<p><strong>线性泛函</strong>：<span>$ V $<span class="heti-spacing"> </span></span>上的线性泛函是从<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span>$ \mathbb{F} $<span class="heti-spacing"> </span></span>的线性映射<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>也就是说，线性泛函是<span class="heti-skip"><span class="heti-spacing"> </span>$ \mathcal{L}(V,\mathbb{F}) $<span class="heti-spacing"> </span></span>中的元素<span><span class="heti-spacing"> </span>.</span> </p>
+<p><strong><span>Gram-Schmidt<span class="heti-spacing"> </span></span>过程</strong>：设<span class="heti-skip"><span class="heti-spacing"> </span>$ v_1, ..., v_m $<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>中的线性无关向量组<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>设<span class="heti-skip"><span class="heti-spacing"> </span>$ e_1 = v_1/ \Vert v_1 \Vert  $.<span class="heti-spacing"> </span></span>对于<span class="heti-skip"><span class="heti-spacing"> </span>$ j = 2, ..., m $,<span class="heti-spacing"> </span></span>定义<span class="heti-skip"><span class="heti-spacing"> </span>$ e_j $<span class="heti-spacing"> </span></span>如下： <span>$$ e_j = \frac{v_j - \langle v_j, e_1 \rangle e_1 - \cdots - \langle v_j, e_{j-1} \rangle e_{j-1} }{ \Vert v_j - \langle v_j, e_1 \rangle e_1 - \cdots - \langle v_j, e_{j-1} \rangle e_{j-1}  \Vert }.$$<span class="heti-spacing"> </span></span>则<span class="heti-skip"><span class="heti-spacing"> </span>$ e_1, ..., e_m $<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>中的规范正交组，使得对<span class="heti-skip"><span class="heti-spacing"> </span>$ j = 1, ..., m $<span class="heti-spacing"> </span></span>有<span><span class="heti-spacing"> </span>$$ \mathrm{span}(v_1, ..., v_j) = \mathrm{span}(e_1, ..., e_j) $$</span></p>
+<p><strong>单的</strong>：如果当<span class="heti-skip"><span class="heti-spacing"> </span>$ Tu = Tv $<span class="heti-spacing"> </span></span>时必有<span><span class="heti-spacing"> </span>$ u = v $</span> ，则称映射<span class="heti-skip"><span class="heti-spacing"> </span>$ T \mid V \rightarrow W $<span class="heti-spacing"> </span></span>是单的<span><span class="heti-spacing"> </span>.</span></p>
+<blockquote>
+<p><span>$ T $<span class="heti-spacing"> </span></span>单射等价于<span><span class="heti-spacing"> </span>$ \mathrm{null} T = {0} $</span>
+</p>
+</blockquote>
+<p><strong>线性映射基本定理</strong>：设<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>是有限维的， <span>$ T \in \mathcal{L}(V, W) $.<span class="heti-spacing"> </span></span>则<span class="heti-skip"><span class="heti-spacing"> </span>$ \mathrm{range} T $<span class="heti-spacing"> </span></span>是有限维的并且<span><span class="heti-spacing"> </span>$$ \mathrm{dim} V = \mathrm{dim null} T + \mathrm{dim range} T $$.</span></p>
+<p><strong>同构</strong>：同构就是可逆的线性映射<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>若两个向量空间之间存在一个同构，则称这两个向量空间是同构的<span><span class="heti-spacing"> </span>.</span></p>
+<p><strong>向量空间的积</strong>：设<span class="heti-skip"><span class="heti-spacing"> </span>$ V_1, ..., V_m $<span class="heti-spacing"> </span></span>均为<span class="heti-skip"><span class="heti-spacing"> </span>$ \mathbb{F} $<span class="heti-spacing"> </span></span>上的向量空间<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>规定积<span><span class="heti-spacing"> </span>$ V_1 \times ... \times V_m = {(v_1, ..., v_m) \mid v_1\in V_1, ..., v_m\in V_m }$.</span></p>
+<p><strong>积的维数等于维数的和</strong>.</p>
+<p><strong>定义<span><span class="heti-spacing"> </span>$ v+U $</span></strong>：设<span><span class="heti-spacing"> </span><span class="arithmatex">\(v\in V\)</span></span> ， <span>$ U $<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>的子空间，则<span class="heti-skip"><span class="heti-spacing"> </span>$ v + U $<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>的子集，定义如下： $$ v + U = {v+u \mid u\in U}$$.</p>
+<p><strong>仿射子集</strong>：<span>$ V $<span class="heti-spacing"> </span></span>的仿射子集是<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>的形如<span class="heti-skip"><span class="heti-spacing"> </span>$ v+U $<span class="heti-spacing"> </span></span>的子集，其中<span><span class="heti-spacing"> </span>$ v\in V $</span> ， <span>$ U $<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>的子空间<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>对于<span class="heti-skip"><span class="heti-spacing"> </span>$ v \in V $<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>的子空间<span><span class="heti-spacing"> </span>$ U $</span> ，称仿射子集<span class="heti-skip"><span class="heti-spacing"> </span>$ v+U $<span class="heti-spacing"> </span></span>平行于<span><span class="heti-spacing"> </span>$ U $.</span></p>
+<p><strong>商空间</strong>：<span>$ V/U $<span class="heti-spacing"> </span></span>是指<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>的所有平行于<span class="heti-skip"><span class="heti-spacing"> </span>$ U $<span class="heti-spacing"> </span></span>的仿射子集的集合<span><span class="heti-spacing"> </span>.</span> </p>
+<p><strong>对偶空间</strong>：对偶空间<span class="heti-skip"><span class="heti-spacing"> </span>$ V' $<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>上的所有线性泛函构成的向量空间<span><span class="heti-spacing"> </span>.</span> </p>
+<p><strong>对偶基</strong>：设<span class="heti-skip"><span class="heti-spacing"> </span>$ v_1, ..., v_n $<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>的基，则<span class="heti-skip"><span class="heti-spacing"> </span>$ v_1, ..., v_n $<span class="heti-spacing"> </span></span>的对偶基是<span class="heti-skip"><span class="heti-spacing"> </span>$ V' $<span class="heti-spacing"> </span></span>中的元素组<span><span class="heti-spacing"> </span>$ \varphi_1, ..., \varphi_n$</span> ，其中每个<span class="heti-skip"><span class="heti-spacing"> </span>$ \varphi_j $<span class="heti-spacing"> </span></span>都是<span class="heti-skip"><span class="heti-spacing"> </span>$ V $<span class="heti-spacing"> </span></span>上的线性泛函，使得
+$$
+\varphi_j(v_k) = \begin{cases}
+  1, &amp; \text{ 当 } k = j  \newline
+  0, &amp; \text{ 当 } k \neq j
+\end{cases}
+$$</p>
+<p><strong>对偶映射</strong>：若<span><span class="heti-spacing"> </span>$ T\in\mathcal{L}(V,W) $</span> ，则<span class="heti-skip"><span class="heti-spacing"> </span>$ T $<span class="heti-spacing"> </span></span>的对偶映射是线性映射<span><span class="heti-spacing"> </span>$ T'\in\mathcal{L}(W',V') $</span> ：对于<span><span class="heti-spacing"> </span>$ \varphi \in W' $</span> ，有<span><span class="heti-spacing"> </span>$ T'(\varphi)=\varphi \circ T $.</span></p>
+<p><strong>零化子</strong>：对于<span><span class="heti-spacing"> </span>$ U \subset V $</span> ，<span>$ U $<span class="heti-spacing"> </span></span>的零化子定义如下： $$ U^0 = { \varphi \in V' \mid \forall u \in U, \varphi(u)=0 }.$$</p>
+<p><strong><span>Jordan<span class="heti-spacing"> </span></span>标准型</strong>：形如<span class="heti-skip"><span class="heti-spacing"> </span>$$ J_k(\lambda) = \begin{bmatrix} \lambda &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \newline 0 &amp; \lambda &amp; 1 &amp; \cdots &amp; 0 \newline \vdots &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots \newline 0 &amp; \cdots &amp; 0 &amp; \lambda &amp; 1 \newline 0 &amp; \cdots &amp; \cdots &amp; 0 &amp; \lambda \end{bmatrix} \in \mathbb{C}^{k \times k} $$<span class="heti-spacing"> </span></span>的矩阵块组成的形如<span class="heti-skip"><span class="heti-spacing"> </span>$$ J = \begin{bmatrix} J_{k_1}(\lambda_1) &amp; &amp; \newline &amp; \ddots &amp; \newline &amp; &amp; J_{k_m}(\lambda_m) \end{bmatrix} $$<span class="heti-spacing"> </span></span>的矩阵是矩阵<span class="heti-skip"><span class="heti-spacing"> </span>$ A $<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>$ Jordan $<span class="heti-spacing"> </span></span>标准型，当存在可逆矩阵<span class="heti-skip"><span class="heti-spacing"> </span>$ P $<span class="heti-spacing"> </span></span>使得<span><span class="heti-spacing"> </span>$ A = PJP^{-1} $.</span></p>
+<p><strong>验证内积</strong>：</p>
+<ul>
+<li>正性： $ \langle v,v \rangle \geq 0 $</li>
+<li>定性： <span>$ \langle v,v \rangle = 0 \text{<span class="heti-spacing"> </span></span>当且仅当<span><span class="heti-spacing"> </span>} v=0 $</span></li>
+<li>首位加性： $ \langle u+v, w \rangle = \langle u, w \rangle + \langle v, w \rangle $</li>
+<li>首位齐性： $ \langle \lambda v, w \rangle = \lambda \langle v, w \rangle $</li>
+<li>共轭对称性： $ \langle u,v \rangle = \bar{\langle v, u \rangle} $</li>
+</ul>
+<p><strong>平方根</strong>：自伴</p>
+<h2 id="_3">你们一个个（公式）想咋的？<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<p>$ \mathrm{dim} (U_1 + U_2) = \mathrm{dim} U_1 + \mathrm{dim} U_2 - \mathrm{dim}( U_1 \bigcap U_2 ) $ （<strong>有限维</strong>）</p>
+<p>$ \mathrm{null} T' = (\mathrm{range} T)^0 $</p>
+<p>$ \mathrm{dim null} T' = \mathrm{dim null} T +\mathrm{dim} W - \mathrm{dim} V $ </p>
+<h2 id="_4">我是不是给你点线面给多了？艚柅杩蝶<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>对于两条线，首先求出其方向向量：</p>
+<p>给定了参数方程：参数系数即为方向向量系数</p>
+<p>给定一般式的方程组：每个一般式都确定一个平面，x、y、<span>z<span class="heti-spacing"> </span></span>前的系数即为该平面的法向量系数，再叉乘法向量获得方向向量</p>
+<p>求两条线平行：方向向量线性相关；<br/>
+求两条线相交：联立判断解存在. 有必要可以借助共面；<br/>
+求两条线异面：两条线上任取两点 $ A $ 、 $ B $ ，然后求 $ \overrightarrow{AB} \cdot (\overrightarrow{l_1} \times \overrightarrow{l_2}) $ ，并令其 $ \neq 0 $. 同理知共面条件是 $ =0 $. </p>
+<p>求点到直线距离： $$ d=\frac{\Vert \overrightarrow{PQ} \times \overrightarrow{l} \Vert}{\Vert \overrightarrow{l} \Vert} $$<br/>
+求点到面距离： $$ d=\frac{\vert Ax + By + Cz + D \vert}{\sqrt{A^2+B^2+C^2}} $$</p>
+<p>求线在平面内：代入平面方程满足且方向向量与平面法向量点积为<span><span class="heti-spacing"> </span>0</span>；  </p>
+<p>求过线<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>点的平面方程：首先转化为过两条线的平面。三点方法为任求两点间直线参数方程；一点一线法为任选线上一点求两点间直线方程。然后求两条线的叉乘，记<span><span class="heti-spacing"> </span>$ (A,B,C) $</span> ，在给定的三点中任取一点，或取一线一点中的一点，记<span><span class="heti-spacing"> </span>$ (x_0, y_0, z_0) $</span> ，那么有平面方程<span><span class="heti-spacing"> </span>$ A(x-x_0)+B(y-y_0)+C(z-z_0)=0 $</span> 。可化简得最终结果。</p>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: 1ss.FDS" class="md-footer__link md-footer__link--prev" href="../fds/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                1ss.FDS
+              </div>
+</div>
+</a>
+<a aria-label="Next: 1ss.GeneralPhysics" class="md-footer__link md-footer__link--next" href="../gphy/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                1ss.GeneralPhysics
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright 2025 AlabTNT
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<div class="md-progress" data-md-component="progress" role="progressbar"></div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.footer", "navigation.tabs", "navigation.instant", "navigation.instant.progress"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+<script src="../../../javascripts/katex.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script src="../../../javascripts/rb.js"></script>
+</body>
+</html>

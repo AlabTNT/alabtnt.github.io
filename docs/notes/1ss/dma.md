@@ -52,10 +52,16 @@
 - symmetric 对称：若aRb则bRa
 - antisymmetric 反对称：若aRb和bRa则a=b
 - transitive 传递：若aRb和bRc则aRc
+- Equivalence 等价：即自反&对称&传递
+- Partial order 偏序：即自反&反对称&传递
 - closure 闭包
 - homeomorphic 同胚
 - post/pre/in-order/fix 后/前/中 序/缀
 - chromatic 染色
+- bipartite graph 二分图
+- linear homogeneous reccurence 线性齐次递归
+
+
 
 ## 必吃的概念
 
@@ -72,4 +78,17 @@
 - Euler: 遍历所有边，所有边只经过一次
 - Hamilton: 遍历所有顶点，所有顶点只经过一次
 - Haffman: 哈夫曼，取两个概率最小的，第一小放右边，第二小放左边，并成新元素，递归执行最后成树
-- 
+
+## 啥必记的数
+
+自反数：$ \boxed{2^{n(n-1)}} $  
+反自反：$ \boxed{2^{n(n-1)}} $  
+对称：$ \boxed{2^{\frac{n(n+1)}{2}}} $  
+反对称：$ 2^{n}3^{\frac{n(n-1)}{2}} $  
+自反+对称：$ \boxed{2^{\frac{n(n-1)}{2}}} $  
+反自反+对称：$ \boxed{2^{\frac{n(n-1)}{2}}} $  
+自反+反对称：$ 3^{\frac{n(n-1)}{2}} $  
+反自反+反对称：$ 3^{\frac{n(n-1)}{2}} $  
+
+
+

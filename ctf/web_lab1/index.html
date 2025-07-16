@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="TNT的github.io" name="description"/>
+<link href="../pwn_lab1/" rel="prev"/>
+<link href="../crypto_lab1/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.5.42" name="generator"/>
+<title>web_lab1 - AlabTNT's Github IO</title>
+<link href="../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=JetBrains+Mono:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"JetBrains Mono";--md-code-font:"JetBrains Mono"}</style>
+<link href="../../css/heti.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#ctf101-web-lab1">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="AlabTNT's Github IO" class="md-header__button md-logo" data-md-component="logo" href="../.." title="AlabTNT's Github IO">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            AlabTNT's Github IO
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              web_lab1
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../tutorial/">
+          
+  
+  TNT麻将教程
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../eating/">
+          
+  
+  TNT Eating
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../others/cbt/">
+          
+  
+  TNTSiteOthers
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../lab0_reuse/">
+          
+  
+  CTF2025
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="AlabTNT's Github IO" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="AlabTNT's Github IO">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    AlabTNT's Github IO
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-ellipsis">
+    TNT麻将教程
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            TNT麻将教程
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tutorial/">
+<span class="md-ellipsis">
+    主页
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tutorial/0.0/">
+<span class="md-ellipsis">
+    零、前言
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tutorial/1.0/">
+<span class="md-ellipsis">
+    一、麻将基础内容及基本规则
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tutorial/2.0/">
+<span class="md-ellipsis">
+    二、日本麻将（マージャン）规则介绍
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tutorial/3.0/">
+<span class="md-ellipsis">
+    三、国内麻将规则归纳（部分）
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tutorial/4.0/">
+<span class="md-ellipsis">
+    四、TNT公式战分数规则
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tutorial/5.0/">
+<span class="md-ellipsis">
+    五、线下礼仪
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tutorial/end/">
+<span class="md-ellipsis">
+    结语
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tutorial/app.1/">
+<span class="md-ellipsis">
+    附录1*：日麻役种表
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tutorial/app.2/">
+<span class="md-ellipsis">
+    附录2*：日麻点数、符数速查表 &amp; 番种速查
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tutorial/app.3/">
+<span class="md-ellipsis">
+    附录3*：术语收录一览
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tutorial/app.4/">
+<span class="md-ellipsis">
+    附录4*：Melague相关内容
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    TNT Eating
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            TNT Eating
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../eating/">
+<span class="md-ellipsis">
+    主页
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    TNTSiteOthers
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            TNTSiteOthers
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/cbt/">
+<span class="md-ellipsis">
+    pycbt
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/izatomo/">
+<span class="md-ellipsis">
+    izatomo
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../others/test/">
+<span class="md-ellipsis">
+    test
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-ellipsis">
+    CTF2025
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            CTF2025
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lab0_reuse/">
+<span class="md-ellipsis">
+    lab0
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../misc_lab1/">
+<span class="md-ellipsis">
+    misc_lab1
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rev_lab1/">
+<span class="md-ellipsis">
+    rev_lab1
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../pwn_lab1/">
+<span class="md-ellipsis">
+    pwn_lab1
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    web_lab1
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    web_lab1
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3240102120">
+<span class="md-ellipsis">
+      3240102120
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#task-1">
+<span class="md-ellipsis">
+      Task 1
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#task2">
+<span class="md-ellipsis">
+      Task2
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#task3">
+<span class="md-ellipsis">
+      Task3
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../crypto_lab1/">
+<span class="md-ellipsis">
+    crypto_lab1
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3240102120">
+<span class="md-ellipsis">
+      3240102120
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#task-1">
+<span class="md-ellipsis">
+      Task 1
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#task2">
+<span class="md-ellipsis">
+      Task2
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#task3">
+<span class="md-ellipsis">
+      Task3
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="ctf101-web-lab1">CTF101 WEB Lab1<a class="headerlink" href="#ctf101-web-lab1" title="Permanent link">¶</a></h1>
+<h2 id="3240102120">3240102120<a class="headerlink" href="#3240102120" title="Permanent link">¶</a></h2>
+<p><span>-&gt;<span class="heti-spacing"> </span></span>听<span class="heti-skip"><span class="heti-spacing"> </span>OverJerry<span class="heti-spacing"> </span></span>说如果用插件能把<span class="heti-skip"><span class="heti-spacing"> </span>xzzd<span class="heti-spacing"> </span></span>给骗过去的话不来也没关系，那我必须要使用<span class="heti-skip"><span class="heti-spacing"> </span>autosign.js<span class="heti-spacing"> </span></span>大法了（手动滑稽）<br/>
+-&gt; 虽然我人已经来到了现场，如下图所示：<br/>
+<img alt="alt text" src="../c806efa8d4100d8dc34830eef22c8f51.png"/></p>
+<h2 id="task-1">Task 1<a class="headerlink" href="#task-1" title="Permanent link">¶</a></h2>
+<ol>
+<li>使用指令<code>nslookup www.zju.edu.cn</code>，得到结果如下：</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="go">&gt;nslookup www.zju.edu.cn</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="go">服务器:  dns1.zju.edu.cn</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="go">Address:  10.10.0.21</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="go">名称:    www.zju.edu.cn</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="go">Address:  10.203.4.70</span>
+</code></pre></div></td></tr></table></div>
+<ol start="2">
+<li>实际上我想的是直接用自己的公网服务器进行<span><span class="heti-spacing"> </span>nslookup</span>，不过既然题目是这样出的，那就代表应该用<code>nslookup www.zju.edu.cn 8.8.8.8</code>或者<span><span class="heti-spacing"> </span>114.114.114.114</span>。这里使用<span><span class="heti-spacing"> </span>8.8.8.8</span></li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="go">&gt;nslookup www.zju.edu.cn 8.8.8.8</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="go">服务器:  dns.google</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="go">Address:  8.8.8.8</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="go">非权威应答:</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="go">名称:    www.zju.edu.cn.queniusa.com</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="go">Addresses:  2001:da8:20d:40d3:3::3f8</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="go">          2001:da8:20d:40d3:3::3f7</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="go">          222.192.187.246</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="go">          222.192.187.241</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="go">          222.192.187.248</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="go">          222.192.187.244</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="go">          222.192.187.242</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="go">          222.192.187.243</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="go">          222.192.187.240</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="go">          222.192.187.245</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="go">Aliases:  www.zju.edu.cn</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="go">          www.zju.edu.cn.w.cdngslb.com</span>
+</code></pre></div></td></tr></table></div>
+<p>这个很好理解，这两种方法均不能访问，因为<span class="heti-skip"><span class="heti-spacing"> </span>www.zju.edu.cn<span class="heti-spacing"> </span></span>要走<span><span class="heti-spacing"> </span>nginx</span>。区别在于使用的<span class="heti-skip"><span class="heti-spacing"> </span>DNS<span class="heti-spacing"> </span></span>返回的<span class="heti-skip"><span class="heti-spacing"> </span>ip<span class="heti-spacing"> </span></span>不一样。因为校内<span class="heti-skip"><span class="heti-spacing"> </span>DNS<span class="heti-spacing"> </span></span>会优先解析内网<span><span class="heti-spacing"> </span>ip</span>，把<span class="heti-skip"><span class="heti-spacing"> </span>www.zju.edu.cn<span class="heti-spacing"> </span></span>解析成<span class="heti-skip"><span class="heti-spacing"> </span>10.<span class="heti-spacing"> </span></span>开头的<span class="heti-skip"><span class="heti-spacing"> </span>ZJU<span class="heti-spacing"> </span></span>内网<span><span class="heti-spacing"> </span>ip</span>，而校外的则正常解析<span class="heti-skip"><span class="heti-spacing"> </span>www.zju.edu.cn<span class="heti-spacing"> </span></span>的公网地址。这里解析的结果都应该算作<span class="heti-skip"><span class="heti-spacing"> </span>www.zju.edu.cn<span class="heti-spacing"> </span></span>的真实<span><span class="heti-spacing"> </span>ip</span>（毕竟没有反代<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，但是如果认为“真实<span><span class="heti-spacing"> </span>IP</span>”是互联网上绝大部分环境均能访问的所谓“公网<span><span class="heti-spacing"> </span>IP</span>”，那么使用校内<span class="heti-skip"><span class="heti-spacing"> </span>DNS<span class="heti-spacing"> </span></span>解析的“10.10.0.21”就不是“真实<span><span class="heti-spacing"> </span>IP</span>”，因为它属于浙江大学校内网的内网<span><span class="heti-spacing"> </span>IP</span>。</p>
+<h2 id="task2">Task2<a class="headerlink" href="#task2" title="Permanent link">¶</a></h2>
+<blockquote>
+<p><span>BurpSuite<span class="heti-spacing"> </span></span>硬控我<span class="heti-skip"><span class="heti-spacing"> </span>10<span class="heti-spacing"> </span></span>分钟<span><span class="heti-spacing"> </span>.jpg</span></p>
+</blockquote>
+<p>加载<span class="heti-skip"><span class="heti-spacing"> </span>zdbk.zju.edu.cn<span class="heti-spacing"> </span></span>的成绩查询界面。流程大致是：</p>
+<p>浏览器发送<span class="heti-skip"><span class="heti-spacing"> </span>POST<span class="heti-spacing"> </span></span>请求，带个人信息<span class="heti-skip"><span class="heti-spacing"> </span>-&gt;zdbk<span class="heti-spacing"> </span></span>返回成绩<span class="heti-skip"><span class="heti-spacing"> </span>json-&gt;<span class="heti-spacing"> </span></span>前端</p>
+<p>比较关键的有以下几个：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">接口路径</th>
+<th style="text-align: center;">方法</th>
+<th style="text-align: left;">参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">/jwglxt/cxdy/xscjcx_cxXscjIndex.html?gnmkdm=N5083&amp;layout=default&amp;su=3240102120</td>
+<td style="text-align: center;">GET</td>
+<td style="text-align: left;">gnmkdm=N5083&amp;layout=default&amp;su=3240102120</td>
+</tr>
+<tr>
+<td style="text-align: left;">/jwglxt/xtgl/index_cxMyCosJxpj.html?gnmkdm=N5083&amp;su=3240102120</td>
+<td style="text-align: center;">POST</td>
+<td style="text-align: left;">gnmkdm=N5083&amp;su=3240102120</td>
+</tr>
+<tr>
+<td style="text-align: left;">/jwglxt/cxdy/xscjcx_cxXscjIndex.html?doType=query&amp;gnmkdm=N5083&amp;su=3240102120</td>
+<td style="text-align: center;">POST</td>
+<td style="text-align: left;">?doType=query&amp;gnmkdm=N5083&amp;su=3240102120</td>
+</tr>
+</tbody>
+</table>
+<p>这里面核心是最后一次<span><span class="heti-spacing"> </span>POST</span>，即<span><span class="heti-spacing"> </span>doType=query</span>。这次请求返回了一个<span><span class="heti-spacing"> </span>JSON</span>，里面就包含了所有成绩信息。</p>
+<p>接下来编写<span><span class="heti-spacing"> </span>python</span>。作为<span><span class="heti-spacing"> </span>noob of python</span>，只需花费<span class="heti-skip"><span class="heti-spacing"> </span>114514<span class="heti-spacing"> </span></span>时间就可以写出这样的一个<span><span class="heti-spacing"> </span>request</span>：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">requests</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">url</span> <span class="o">=</span> <span class="s2">"https://zdbk.zju.edu.cn/jwglxt/cxdy/xscjcx_cxXscjIndex.html?doType=query&amp;gnmkdm=N5083&amp;su=3240102120"</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>    <span class="s2">"User-Agent"</span><span class="p">:</span> <span class="s2">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36"</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>    <span class="s2">"Cookie"</span><span class="p">:</span> <span class="s2">"JSESSIONID=..."</span><span class="c1">#这里省去cookie敏感信息，实际后面还有老长一坨了</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="p">}</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>  <span class="c1"># 输出成绩信息</span>
+</code></pre></div></td></tr></table></div>
+<p>执行就可以获得一坨没有<span class="heti-skip"><span class="heti-spacing"> </span>beutified<span class="heti-spacing"> </span></span>的<span><span class="heti-spacing"> </span>json</span>，大概长这样：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="go">{"currentPage":1,"currentResult":0,"entityOrField":false,"items":...</span>
+</code></pre></div></td></tr></table></div>
+<p>研究一下<span class="heti-skip"><span class="heti-spacing"> </span>json<span class="heti-spacing"> </span></span>的键可以知道这个<span class="heti-skip"><span class="heti-spacing"> </span>items<span class="heti-spacing"> </span></span>下面是一个列表，列表里面元素全是字典，每个字典下面豆对应了一门课，按键给定信息，比如拿出我弃修的汇编这门课为例：</p>
+<p><code>{"cj":"弃修","completeAnswer":true,"jd":"0.0","jgpxzd":"1","kcmc":"汇编语言","listnav":"false","localeKey":"zh_CN","pageable":true,"queryModel":{"currentPage":1,"currentResult":0,"entityOrField":false,"limit":15,"offset":0,"pageNo":0,"pageSize":15,"showCount":10,"sorts":[],"totalCount":0,"totalPage":0,"totalResult":0},"rangeable":true,"row_id":"1","totalResult":"21","userModel":{"monitor":false,"roleCount":0,"roleKeys":"","roleValues":"","status":0,"usable":false},"xf":"2.0","xkkh":"(2024-2025-2)-CS1024M-0091340-1"}</code></p>
+<p>看一下有用的信息就是<span class="heti-skip"><span class="heti-spacing"> </span>cj<span class="heti-spacing"> </span></span>对应成绩、<span>jd<span class="heti-spacing"> </span></span>对应绩点、<span>kcmc<span class="heti-spacing"> </span></span>对应汇编语言、<span>xf<span class="heti-spacing"> </span></span>对应学分，<span>xkkh<span class="heti-spacing"> </span></span>对应课程号。</p>
+<p>所以可以继续处理一下形成类似<span class="heti-skip"><span class="heti-spacing"> </span>celechron<span class="heti-spacing"> </span></span>的应用。为了避开<span class="heti-skip"><span class="heti-spacing"> </span>tkinter<span class="heti-spacing"> </span></span>大坑，这里选择我常用的<span class="heti-skip"><span class="heti-spacing"> </span>flet<span class="heti-spacing"> </span></span>写了一个小<span><span class="heti-spacing"> </span>GUI</span>：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span>
+<span class="normal"><a href="#__codelineno-4-18">18</a></span>
+<span class="normal"><a href="#__codelineno-4-19">19</a></span>
+<span class="normal"><a href="#__codelineno-4-20">20</a></span>
+<span class="normal"><a href="#__codelineno-4-21">21</a></span>
+<span class="normal"><a href="#__codelineno-4-22">22</a></span>
+<span class="normal"><a href="#__codelineno-4-23">23</a></span>
+<span class="normal"><a href="#__codelineno-4-24">24</a></span>
+<span class="normal"><a href="#__codelineno-4-25">25</a></span>
+<span class="normal"><a href="#__codelineno-4-26">26</a></span>
+<span class="normal"><a href="#__codelineno-4-27">27</a></span>
+<span class="normal"><a href="#__codelineno-4-28">28</a></span>
+<span class="normal"><a href="#__codelineno-4-29">29</a></span>
+<span class="normal"><a href="#__codelineno-4-30">30</a></span>
+<span class="normal"><a href="#__codelineno-4-31">31</a></span>
+<span class="normal"><a href="#__codelineno-4-32">32</a></span>
+<span class="normal"><a href="#__codelineno-4-33">33</a></span>
+<span class="normal"><a href="#__codelineno-4-34">34</a></span>
+<span class="normal"><a href="#__codelineno-4-35">35</a></span>
+<span class="normal"><a href="#__codelineno-4-36">36</a></span>
+<span class="normal"><a href="#__codelineno-4-37">37</a></span>
+<span class="normal"><a href="#__codelineno-4-38">38</a></span>
+<span class="normal"><a href="#__codelineno-4-39">39</a></span>
+<span class="normal"><a href="#__codelineno-4-40">40</a></span>
+<span class="normal"><a href="#__codelineno-4-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="o">...</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kn">from</span> <span class="nn">flet</span> <span class="kn">import</span> <span class="n">Page</span><span class="p">,</span> <span class="n">DataTable</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">Text</span><span class="p">,</span>  <span class="n">ThemeMode</span><span class="p">,</span> <span class="n">MainAxisAlignment</span><span class="p">,</span> <span class="n">DataColumn</span><span class="p">,</span> <span class="n">DataRow</span><span class="p">,</span> <span class="n">DataCell</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">Column</span><span class="p">,</span> <span class="n">border</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="kn">from</span> <span class="nn">json</span> <span class="kn">import</span> <span class="n">dumps</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="n">data</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">"item"</span><span class="p">]</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">page</span><span class="p">:</span> <span class="n">Page</span><span class="p">):</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>    <span class="n">page</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">"成绩列表"</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>    <span class="n">page</span><span class="o">.</span><span class="n">theme_mode</span> <span class="o">=</span> <span class="n">ThemeMode</span><span class="o">.</span><span class="n">LIGHT</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>    <span class="n">page</span><span class="o">.</span><span class="n">padding</span> <span class="o">=</span> <span class="mi">30</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>    <span class="n">page</span><span class="o">.</span><span class="n">scroll</span> <span class="o">=</span> <span class="s2">"auto"</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>    <span class="n">page</span><span class="o">.</span><span class="n">horizontal_alignment</span> <span class="o">=</span> <span class="n">MainAxisAlignment</span><span class="o">.</span><span class="n">CENTER</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>    <span class="n">page</span><span class="o">.</span><span class="n">vertical_alignment</span> <span class="o">=</span> <span class="n">MainAxisAlignment</span><span class="o">.</span><span class="n">CENTER</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a>    <span class="c1"># 构造表头</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a>    <span class="n">table</span> <span class="o">=</span> <span class="n">DataTable</span><span class="p">(</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a>        <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a>            <span class="n">DataColumn</span><span class="p">(</span><span class="n">Text</span><span class="p">(</span><span class="s2">"课程名称"</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">"bold"</span><span class="p">)),</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19"></a>            <span class="n">DataColumn</span><span class="p">(</span><span class="n">Text</span><span class="p">(</span><span class="s2">"成绩"</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">"bold"</span><span class="p">)),</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20"></a>            <span class="n">DataColumn</span><span class="p">(</span><span class="n">Text</span><span class="p">(</span><span class="s2">"绩点"</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">"bold"</span><span class="p">)),</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21"></a>            <span class="n">DataColumn</span><span class="p">(</span><span class="n">Text</span><span class="p">(</span><span class="s2">"学分"</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">"bold"</span><span class="p">)),</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22"></a>        <span class="p">],</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23"></a>        <span class="n">rows</span><span class="o">=</span><span class="p">[</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24"></a>            <span class="n">DataRow</span><span class="p">(</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25"></a>                <span class="n">cells</span><span class="o">=</span><span class="p">[</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26"></a>                    <span class="n">DataCell</span><span class="p">(</span><span class="n">Text</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"kcmc"</span><span class="p">])),</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27"></a>                    <span class="n">DataCell</span><span class="p">(</span><span class="n">Text</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"cj"</span><span class="p">])),</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28"></a>                    <span class="n">DataCell</span><span class="p">(</span><span class="n">Text</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"jd"</span><span class="p">])),</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29"></a>                    <span class="n">DataCell</span><span class="p">(</span><span class="n">Text</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"xf"</span><span class="p">])),</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30"></a>                <span class="p">]</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31"></a>            <span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32"></a>        <span class="p">],</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33"></a>        <span class="n">heading_row_color</span><span class="o">=</span><span class="n">colors</span><span class="o">.</span><span class="n">BLUE_50</span><span class="p">,</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34"></a>        <span class="n">border</span><span class="o">=</span><span class="n">border</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">colors</span><span class="o">.</span><span class="n">GREY_300</span><span class="p">),</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35"></a>        <span class="n">column_spacing</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36"></a>        <span class="n">data_row_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37"></a>    <span class="p">)</span>
+<a id="__codelineno-4-38" name="__codelineno-4-38"></a>
+<a id="__codelineno-4-39" name="__codelineno-4-39"></a>    <span class="n">page</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Column</span><span class="p">([</span><span class="n">Text</span><span class="p">(</span><span class="s2">"成绩列表"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">"bold"</span><span class="p">),</span> <span class="n">table</span><span class="p">],</span> <span class="n">alignment</span><span class="o">=</span><span class="n">MainAxisAlignment</span><span class="o">.</span><span class="n">CENTER</span><span class="p">))</span>
+<a id="__codelineno-4-40" name="__codelineno-4-40"></a>
+<a id="__codelineno-4-41" name="__codelineno-4-41"></a><span class="n">app</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">main</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>执行后可以打开一个显示成绩的页面。其实只要用<span class="heti-skip"><span class="heti-spacing"> </span>request<span class="heti-spacing"> </span></span>把成绩拉到手，剩下的想怎么处理就怎么处理了。</p>
+<h2 id="task3">Task3<a class="headerlink" href="#task3" title="Permanent link">¶</a></h2>
+<p>关于<span class="heti-skip"><span class="heti-spacing"> </span>HTTP<span class="heti-spacing"> </span></span>请求走私漏洞：这个漏洞利用前后端服务器解析<span class="heti-skip"><span class="heti-spacing"> </span>HTTP<span class="heti-spacing"> </span></span>请求时用的头不一致，构建一个差异请求包，从而使后端服务器错将一个包解析为多个包，造成一个“边界错位”，在此错位内注入走私请求，即可达到攻击效果。</p>
+<p>实现<span><span class="heti-spacing"> </span>Lab</span>。原<span class="heti-skip"><span class="heti-spacing"> </span>Lab<span class="heti-spacing"> </span></span>中希望实现的是提交一个<span class="heti-skip"><span class="heti-spacing"> </span>GPOST<span class="heti-spacing"> </span></span>请求。根据之前的边界错位原理，如果把<span class="heti-skip"><span class="heti-spacing"> </span>Content-Length<span class="heti-spacing"> </span></span>设置成区块截止（0）的位置，再把<span class="heti-skip"><span class="heti-spacing"> </span>Transfer-Encoding<span class="heti-spacing"> </span></span>设置成<span><span class="heti-spacing"> </span>chunked</span>：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span>
+<span class="normal"><a href="#__codelineno-5-8">8</a></span>
+<span class="normal"><a href="#__codelineno-5-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nf">POST</span> <span class="nn">/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="na">Host</span><span class="o">:</span> <span class="l">0a6800a403f1413383246ed900270005.web-security-academy.net</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="na">Connection</span><span class="o">:</span> <span class="l">keep-alive</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="na">Content-Length</span><span class="o">:</span> <span class="l">6</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="na">Transfer-Encoding</span><span class="o">:</span> <span class="l">chunked</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>0
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>G
+</code></pre></div></td></tr></table></div>
+<p><br/>
+（注意Length后默认填0，6是由Burp自动生成的）<br/>
+这样在发送之后，G就会被后端认为是下一个包的内容，等待继续输入，这个时候如果再有其他用户（受害者）发送一个POST请求，G就会出现在这个POST请求的最前面，于是就会出现GPOST方法包了。</p>
+<p>那么根据这个原理，只需要先发送一个包，然后把<span class="heti-skip"><span class="heti-spacing"> </span>G<span class="heti-spacing"> </span></span>修改成全<span class="heti-skip"><span class="heti-spacing"> </span>POST<span class="heti-spacing"> </span></span>请求，在末尾添加一个类似<span class="heti-skip"><span class="heti-spacing"> </span>Content:<span class="heti-spacing"> </span></span>的内容，接下来发送的包就会被认为是<span class="heti-skip"><span class="heti-spacing"> </span>Content<span class="heti-spacing"> </span></span>内容，也就是评论区的内容，这样受害者再发送包时服务器就会把包的全部内容当作<span class="heti-skip"><span class="heti-spacing"> </span>Content<span class="heti-spacing"> </span></span>传入评论区。主动抓取评论功能的<span class="heti-skip"><span class="heti-spacing"> </span>POST<span class="heti-spacing"> </span></span>包，可以得到如下内容：
+<br/></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span>
+<span class="normal"><a href="#__codelineno-6-17">17</a></span>
+<span class="normal"><a href="#__codelineno-6-18">18</a></span>
+<span class="normal"><a href="#__codelineno-6-19">19</a></span>
+<span class="normal"><a href="#__codelineno-6-20">20</a></span>
+<span class="normal"><a href="#__codelineno-6-21">21</a></span>
+<span class="normal"><a href="#__codelineno-6-22">22</a></span>
+<span class="normal"><a href="#__codelineno-6-23">23</a></span>
+<span class="normal"><a href="#__codelineno-6-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="nf">POST</span> <span class="nn">/post/comment</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="na">Host</span><span class="o">:</span> <span class="l">0a6800a403f1413383246ed900270005.web-security-academy.net</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="na">Cookie</span><span class="o">:</span> <span class="l">session=khggnJVkypsHtqXcNtK5VkZS2WDKiHsp</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="na">Content-Length</span><span class="o">:</span> <span class="l">125</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="na">Cache-Control</span><span class="o">:</span> <span class="l">max-age=0</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="na">Sec-Ch-Ua</span><span class="o">:</span> <span class="l">"Not)A;Brand";v="8", "Chromium";v="138"</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="na">Sec-Ch-Ua-Mobile</span><span class="o">:</span> <span class="l">?0</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="na">Sec-Ch-Ua-Platform</span><span class="o">:</span> <span class="l">"Windows"</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="na">Accept-Language</span><span class="o">:</span> <span class="l">zh-CN,zh;q=0.9</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="na">Origin</span><span class="o">:</span> <span class="l">https://0a6800a403f1413383246ed900270005.web-security-academy.net</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/x-www-form-urlencoded</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="na">Upgrade-Insecure-Requests</span><span class="o">:</span> <span class="l">1</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="na">User-Agent</span><span class="o">:</span> <span class="l">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="na">Accept</span><span class="o">:</span> <span class="l">text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="na">Sec-Fetch-Site</span><span class="o">:</span> <span class="l">same-origin</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="na">Sec-Fetch-Mode</span><span class="o">:</span> <span class="l">navigate</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="na">Sec-Fetch-User</span><span class="o">:</span> <span class="l">?1</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="na">Sec-Fetch-Dest</span><span class="o">:</span> <span class="l">document</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="na">Referer</span><span class="o">:</span> <span class="l">https://0a6800a403f1413383246ed900270005.web-security-academy.net/post?postId=8</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="na">Accept-Encoding</span><span class="o">:</span> <span class="l">gzip, deflate, br</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="na">Priority</span><span class="o">:</span> <span class="l">u=0, i</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22"></a><span class="na">Connection</span><span class="o">:</span> <span class="l">keep-alive</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23"></a>
+<a id="__codelineno-6-24" name="__codelineno-6-24"></a><span class="nt">csrf</span><span class="o">=</span><span class="s">8hUFUgINQOBiAL481JoFghTWLBkbPx7O</span><span class="p">&amp;</span><span class="nt">postId</span><span class="o">=</span><span class="s">8</span><span class="p">&amp;</span><span class="nt">comment</span><span class="o">=</span><span class="s">Web+yidaotiyebuhuizuo</span><span class="p">&amp;</span><span class="nt">name</span><span class="o">=</span><span class="s">AlabTNT</span><span class="p">&amp;</span><span class="nt">email</span><span class="o">=</span><span class="s">alabtnt%40zju.edu.cn</span><span class="p">&amp;</span><span class="nt">website</span><span class="o">=</span>
+</code></pre></div></td></tr></table></div>
+<p>那么很显然这里有一个<span><span class="heti-spacing"> </span>comment=</span>，所以只需要构建这样一个包发送即可：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span>
+<span class="normal"><a href="#__codelineno-7-20">20</a></span>
+<span class="normal"><a href="#__codelineno-7-21">21</a></span>
+<span class="normal"><a href="#__codelineno-7-22">22</a></span>
+<span class="normal"><a href="#__codelineno-7-23">23</a></span>
+<span class="normal"><a href="#__codelineno-7-24">24</a></span>
+<span class="normal"><a href="#__codelineno-7-25">25</a></span>
+<span class="normal"><a href="#__codelineno-7-26">26</a></span>
+<span class="normal"><a href="#__codelineno-7-27">27</a></span>
+<span class="normal"><a href="#__codelineno-7-28">28</a></span>
+<span class="normal"><a href="#__codelineno-7-29">29</a></span>
+<span class="normal"><a href="#__codelineno-7-30">30</a></span>
+<span class="normal"><a href="#__codelineno-7-31">31</a></span>
+<span class="normal"><a href="#__codelineno-7-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="nf">POST</span> <span class="nn">/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="na">Host</span><span class="o">:</span> <span class="l">0a6800a403f1413383246ed900270005.web-security-academy.net</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="na">Connection</span><span class="o">:</span> <span class="l">keep-alive</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="na">Content-Length</span><span class="o">:</span> <span class="l">1126</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="na">Transfer-Encoding</span><span class="o">:</span> <span class="l">chunked</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>0
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>POST /post/comment HTTP/1.1
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>Host: 0a6800a403f1413383246ed900270005.web-security-academy.net
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a>Cookie: session=2NQumaO6W33x2slHoTvBhKRJzgemreFX
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a>Content-Length: 300
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a>Cache-Control: max-age=0
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a>Sec-Ch-Ua: "Not)A;Brand";v="8", "Chromium";v="138"
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a>Sec-Ch-Ua-Mobile: ?0
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a>Sec-Ch-Ua-Platform: "Windows"
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a>Accept-Language: zh-CN,zh;q=0.9
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a>Origin: https://0a6800a403f1413383246ed900270005.web-security-academy.net
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a>Content-Type: application/x-www-form-urlencoded
+<a id="__codelineno-7-20" name="__codelineno-7-20"></a>Upgrade-Insecure-Requests: 1
+<a id="__codelineno-7-21" name="__codelineno-7-21"></a>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+<a id="__codelineno-7-22" name="__codelineno-7-22"></a>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+<a id="__codelineno-7-23" name="__codelineno-7-23"></a>Sec-Fetch-Site: same-origin
+<a id="__codelineno-7-24" name="__codelineno-7-24"></a>Sec-Fetch-Mode: navigate
+<a id="__codelineno-7-25" name="__codelineno-7-25"></a>Sec-Fetch-User: ?1
+<a id="__codelineno-7-26" name="__codelineno-7-26"></a>Sec-Fetch-Dest: document
+<a id="__codelineno-7-27" name="__codelineno-7-27"></a>Referer: https://0a6800a403f1413383246ed900270005.web-security-academy.net/post?postId=8
+<a id="__codelineno-7-28" name="__codelineno-7-28"></a>Accept-Encoding: gzip, deflate, br
+<a id="__codelineno-7-29" name="__codelineno-7-29"></a>Priority: u=0, i
+<a id="__codelineno-7-30" name="__codelineno-7-30"></a>Connection: keep-alive
+<a id="__codelineno-7-31" name="__codelineno-7-31"></a>
+<a id="__codelineno-7-32" name="__codelineno-7-32"></a>csrf=Jdx2VKWE6aJDFeX9HmegZS2DazgLtc5I&amp;postId=8&amp;name=1111&amp;email=222%40google.com&amp;website=&amp;comment=
+</code></pre></div></td></tr></table></div>
+<p>接下来再有人向网站发送请求，就会在<span class="heti-skip"><span class="heti-spacing"> </span>postID=8<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>post<span class="heti-spacing"> </span></span>下面出现一条评论，评论内容就是这个人刚刚提交过的<span><span class="heti-spacing"> </span>request</span>。对应受害者的界面也会直接变成评论已提交成功。理论上可以搭配其他漏洞再重定向回正常界面，但是技术比较复杂所以暂时还没有研究。</p>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: pwn_lab1" class="md-footer__link md-footer__link--prev" href="../pwn_lab1/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                pwn_lab1
+              </div>
+</div>
+</a>
+<a aria-label="Next: crypto_lab1" class="md-footer__link md-footer__link--next" href="../crypto_lab1/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                crypto_lab1
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright 2025 AlabTNT
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<div class="md-progress" data-md-component="progress" role="progressbar"></div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.footer", "navigation.tabs", "navigation.instant", "navigation.instant.progress"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+<script src="../../javascripts/katex.js"></script>
+<script src="../../javascripts/katex2.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jayi0908/jayi0908-trigonometry@master/docs/javascripts/music.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script src="../../javascripts/rb.js"></script>
+</body>
+</html>

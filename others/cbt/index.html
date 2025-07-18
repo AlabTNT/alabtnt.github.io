@@ -1,475 +1,1126 @@
-<!DOCTYPE html>
-<html class="no-js" lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="TNT的github.io" name="description"/>
-<link href="../../eating/" rel="prev"/>
-<link href="../izatomo/" rel="next"/>
-<link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.5.42" name="generator"/>
-<title>pycbt - AlabTNT's Github IO</title>
-<link href="../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css?family=JetBrains+Mono:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
-<style>:root{--md-text-font:"JetBrains Mono";--md-code-font:"JetBrains Mono"}</style>
-<link href="../../css/heti.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-</head>
-<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
-<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-<label class="md-overlay" for="__drawer"></label>
-<div data-md-component="skip">
-<a class="md-skip" href="#python">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="TNT的github.io">
+      
+      
+      
+      
+        <link rel="prev" href="../../eating/">
+      
+      
+        <link rel="next" href="../izatomo/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>pycbt - AlabTNT's Github IO</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=JetBrains+Mono:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"JetBrains Mono";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python" class="md-skip">
           Skip to content
         </a>
-</div>
-<div data-md-component="announce">
-</div>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
 <header class="md-header" data-md-component="header">
-<nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="AlabTNT's Github IO" class="md-header__button md-logo" data-md-component="logo" href="../.." title="AlabTNT's Github IO">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
-</a>
-<label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
-</label>
-<div class="md-header__title" data-md-component="header-title">
-<div class="md-header__ellipsis">
-<div class="md-header__topic">
-<span class="md-ellipsis">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AlabTNT&#39;s Github IO" class="md-header__button md-logo" aria-label="AlabTNT's Github IO" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             AlabTNT's Github IO
           </span>
-</div>
-<div class="md-header__topic" data-md-component="header-topic">
-<span class="md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               pycbt
             
           </span>
-</div>
-</div>
-</div>
-<form class="md-header__option" data-md-component="palette">
-<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
-</label>
-<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
-</label>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
 </form>
-<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-<label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-</label>
-<div class="md-search" data-md-component="search" role="dialog">
-<label class="md-search__overlay" for="__search"></label>
-<div class="md-search__inner" role="search">
-<form class="md-search__form" name="search">
-<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
-<label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
-</label>
-<nav aria-label="Search" class="md-search__options">
-<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
-</button>
-</nav>
-</form>
-<div class="md-search__output">
-<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
-<div class="md-search-result" data-md-component="search-result">
-<div class="md-search-result__meta">
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
             Initializing search
           </div>
-<ol class="md-search-result__list" role="presentation"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</nav>
+    
+    
+  </nav>
+  
 </header>
-<div class="md-container" data-md-component="container">
-<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
-<div class="md-grid">
-<ul class="md-tabs__list">
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../tutorial/">
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tutorial/" class="md-tabs__link">
           
   
   TNT麻将教程
 
         </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../eating/">
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../eating/" class="md-tabs__link">
           
   
   TNT Eating
 
         </a>
-</li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="./">
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   TNTSiteOthers
 
         </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../ctf/lab0_reuse/">
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ctf/lab0_reuse/" class="md-tabs__link">
           
   
   CTF2025
 
         </a>
-</li>
-</ul>
-</div>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
 </nav>
-<main class="md-main" data-md-component="main">
-<div class="md-main__inner md-grid">
-<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
-<label class="md-nav__title" for="__drawer">
-<a aria-label="AlabTNT's Github IO" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="AlabTNT's Github IO">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
-</a>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AlabTNT&#39;s Github IO" class="md-nav__button md-logo" aria-label="AlabTNT's Github IO" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
     AlabTNT's Github IO
   </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
-<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     TNT麻将教程
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_1">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
             TNT麻将教程
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     主页
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/0.0/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/0.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     零、前言
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/1.0/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/1.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     一、麻将基础内容及基本规则
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/2.0/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/2.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     二、日本麻将（マージャン）规则介绍
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/3.0/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/3.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     三、国内麻将规则归纳（部分）
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/4.0/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/4.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     四、TNT公式战分数规则
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/5.0/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/5.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     五、线下礼仪
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/end/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/end/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     结语
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/app.1/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/app.1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     附录1*：日麻役种表
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/app.2/">
-<span class="md-ellipsis">
-    附录2*：日麻点数、符数速查表 &amp; 番种速查
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/app.2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    附录2*：日麻点数、符数速查表 & 番种速查
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/app.3/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/app.3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     附录3*：术语收录一览
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/app.4/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/app.4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     附录4*：M-League相关内容
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     TNT Eating
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_2">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
             TNT Eating
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../eating/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eating/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     主页
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
     TNTSiteOthers
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
             TNTSiteOthers
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
     pycbt
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-<span class="md-ellipsis">
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
     pycbt
   </span>
-</a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
-<span class="md-ellipsis">
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
       选择题
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
       判断题
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
       填空题
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
       附录1：常见保留字
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
+      
+    </ul>
+  
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../izatomo/">
-<span class="md-ellipsis">
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../izatomo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     izatomo
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../test/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     test
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     CTF2025
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_4">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
             CTF2025
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ctf/lab0_reuse/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ctf/lab0_reuse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     lab0
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ctf/misc_lab1/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ctf/misc_lab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     misc_lab1
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ctf/rev_lab1/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ctf/rev_lab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     rev_lab1
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ctf/pwn_lab1/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ctf/pwn_lab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     pwn_lab1
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ctf/web_lab1/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ctf/web_lab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     web_lab1
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ctf/crypto_lab1/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ctf/crypto_lab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     crypto_lab1
   </span>
-</a>
-</li>
-</ul>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
 </nav>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
-<span class="md-ellipsis">
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
       选择题
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
       判断题
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
       填空题
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
       附录1：常见保留字
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
+      
+    </ul>
+  
 </nav>
-</div>
-</div>
-</div>
-<div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset">
-<h1 id="python">Python<a class="headerlink" href="#python" title="Permanent link">¶</a></h1>
-<h2 id="_1">选择题<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="python">Python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h1>
+<h2 id="_1">选择题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ol>
-<li>B。<span>A<span class="heti-spacing"> </span></span>选项以数字开头；<span>C<span class="heti-spacing"> </span></span>选项是保留字；<span>D<span class="heti-spacing"> </span></span>选项以特殊字符开头。</li>
+<li>B。A选项以数字开头；C选项是保留字；D选项以特殊字符开头。</li>
 </ol>
 <div class="admonition tips">
 <p class="admonition-title">相关知识点：合法变量名</p>
-<p>合法变量名是由<span class="heti-skip"><span class="heti-spacing"> </span>26<span class="heti-spacing"> </span></span>个字母、数字和下划线组成的。要求符合以下规则：</p>
+<p>合法变量名是由26个字母、数字和下划线组成的。要求符合以下规则：</p>
 <ul>
 <li>
 <p>不允许以数字开头</p>
@@ -484,21 +1135,21 @@
 <p>可以是单独的或多个下划线</p>
 </li>
 </ul>
-<p>注意大小写敏感问题，<span>Name<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>name<span class="heti-spacing"> </span></span>不是同一个变量。</p>
-<p>注意规范问题。全大写的变量代表常量。<strong>虽然变量在<span class="heti-skip"><span class="heti-spacing"> </span>Python<span class="heti-spacing"> </span></span>中可以被后期修改，但考试中一般认为常量不可修改</strong></p>
-<p>保留字：需要记忆。常用保留字见末尾附录<span><span class="heti-spacing"> </span>1</span></p>
+<p>注意大小写敏感问题，Name和name不是同一个变量。</p>
+<p>注意规范问题。全大写的变量代表常量。<strong>虽然变量在Python中可以被后期修改，但考试中一般认为常量不可修改</strong></p>
+<p>保留字：需要记忆。常用保留字见末尾附录1</p>
 </div>
 <ol start="2">
 <li>
-<p>B。<span>pip<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>python<span class="heti-spacing"> </span></span>的库管理器，可以用于安装、卸载第三方库。常用的命令是<code>pip install &lt;包名&gt;</code><span><span class="heti-spacing"> </span>,</span> <code>pip uninstall &lt;包名&gt;</code>, <code>pip install -r requirements.txt</code>（安装<span class="heti-skip"><span class="heti-spacing"> </span>requirements.txt<span class="heti-spacing"> </span></span>中的所有包）</p>
+<p>B。pip是python的库管理器，可以用于安装、卸载第三方库。常用的命令是<code>pip install &lt;包名&gt;</code>, <code>pip uninstall &lt;包名&gt;</code>, <code>pip install -r requirements.txt</code>（安装requirements.txt中的所有包）</p>
 </li>
 <li>
-<p>C。<span>input<span class="heti-spacing"> </span></span>输入进的内容永<span><span class="heti-spacing"> </span>远是s</span>tr。</p>
+<p>C。input输入进的内容永远是str。</p>
 </li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">相关知识点：input</p>
-<p><span>input<span class="heti-spacing"> </span></span>默认输入的所有内容全<span><span class="heti-spacing"> </span>部为s</span>tr。为了输<span><span class="heti-spacing"> </span>入</span><span class="heti-skip"><span class="heti-spacing"> </span>int<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>或flo</span>at，可以有以下两种方案：</p>
+<p>input默认输入的所有内容全部为str。为了输入int或float，可以有以下两种方案：</p>
 <ul>
 <li>
 <p>使用<code>eval()</code>函数，例如<code>a=eval(input("请输入一个数字："))</code></p>
@@ -509,52 +1160,52 @@
 </ul>
 </div>
 <ol start="4">
-<li>B。相关内容有赋值、字符串的<span class="heti-skip"><span class="heti-spacing"> </span>format<span class="heti-spacing"> </span></span>方法。</li>
+<li>B。相关内容有赋值、字符串的format方法。</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">相关知识点：format</p>
-<p><span>format<span class="heti-spacing"> </span></span>用在一个字符串后面，可以是字符串变量（例如<code>a.format()</code><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，也可以是立即字符串（例如本题<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。<code>format</code>方法是返回函数而不是操作函数，因此需要用变量来接收<code>format</code>结果（即本题<code>formatted_string=...</code>）</p>
-<p><span>format<span class="heti-spacing"> </span></span>内容：搜寻字符串中的 <code>{}</code> 并用后面给定的变量替换。<code>{}</code> 含义如下：</p>
+<p>format用在一个字符串后面，可以是字符串变量（例如<code>a.format()</code>），也可以是立即字符串（例如本题）。<code>format</code>方法是返回函数而不是操作函数，因此需要用变量来接收<code>format</code>结果（即本题<code>formatted_string=...</code>）</p>
+<p>format内容：搜寻字符串中的 <code>{}</code> 并用后面给定的变量替换。<code>{}</code> 含义如下：</p>
 <ul>
 <li>
 <p>空：直接替换</p>
 </li>
 <li>
-<p>包含整数：指定位置替换，从<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>开始，例如<code>"{0} {1} {0}".format("hello","world")</code>输出<code>hello world hello</code></p>
+<p>包含整数：指定位置替换，从0开始，例如<code>"{0} {1} {0}".format("hello","world")</code>输出<code>hello world hello</code></p>
 </li>
 <li>
-<p>包含字母：代表参数，需在<span class="heti-skip"><span class="heti-spacing"> </span>format<span class="heti-spacing"> </span></span>后指定。例如<code>"{name}: {age}".format(name="小明", age=18)</code></p>
+<p>包含字母：代表参数，需在format后指定。例如<code>"{name}: {age}".format(name="小明", age=18)</code></p>
 </li>
 <li>
-<p>以<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>开头：数字格式化。常用的有：<code>:.xf</code> 保留小数点后<span class="heti-skip"><span class="heti-spacing"> </span>x<span class="heti-spacing"> </span></span>位（如题中保留两位，<span>x=0<span class="heti-spacing"> </span></span>时不带小数）<code>:+.xf</code> 保留小数点后前<span><span class="heti-spacing"> </span>面</span>加+（<span>-<span class="heti-spacing"> </span></span>也可以替换<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，<code>:,</code>逗号隔开数字（<span><span class="heti-spacing"> </span>例如1000-&gt;1,0</span>00）</p>
+<p>以:开头：数字格式化。常用的有：<code>:.xf</code> 保留小数点后x位（如题中保留两位，x=0时不带小数）<code>:+.xf</code> 保留小数点后前面加+（-也可以替换），<code>:,</code>逗号隔开数字（例如1000-&gt;1,000）</p>
 </li>
 </ul>
 <p>其余用法基本不需要考虑，考试考到的可能性较小。可以参考<a href="https://www.runoob.com/python/att-string-format.html">这篇教程</a></p>
 </div>
 <ol start="5">
-<li>D。<span>bool<span class="heti-spacing"> </span></span>函数用以判断条件并返回结果。</li>
+<li>D。bool函数用以判断条件并返回结果。</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">相关知识点：bool()</p>
 <p><code>bool()</code>函数可以传入一个变量并返回<code>True</code>或<code>False</code>。判断方法如下：</p>
 <ul>
 <li>
-<p>如果是判断式，<span><span class="heti-spacing"> </span>例如</span><code>a==b</code><span><span class="heti-spacing"> </span>,</span> <code>c&gt;d</code>, <code>x!=y</code>，返回判断结果</p>
+<p>如果是判断式，例如<code>a==b</code>, <code>c&gt;d</code>, <code>x!=y</code>，返回判断结果</p>
 </li>
 <li>
-<p>如果是单一变量，例如题中，那么对于<span class="heti-skip"><span class="heti-spacing"> </span>int<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>float<span class="heti-spacing"> </span></span>来说，<span><span class="heti-spacing"> </span>除</span>了0，<span><span class="heti-spacing"> </span>都是Tr</span>ue；对于<span class="heti-skip"><span class="heti-spacing"> </span>str<span class="heti-spacing"> </span></span>来说，<span><span class="heti-spacing"> </span>除了</span>""，<span><span class="heti-spacing"> </span>都是Tr</span>ue；对于<span class="heti-skip"><span class="heti-spacing"> </span>list<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>dict<span class="heti-spacing"> </span></span>来说，除了空的，<span><span class="heti-spacing"> </span>都是Tr</span>ue</p>
+<p>如果是单一变量，例如题中，那么对于int和float来说，除了0，都是True；对于str来说，除了""，都是True；对于list和dict来说，除了空的，都是True</p>
 </li>
 <li>
-<p>如果<span><span class="heti-spacing"> </span>是</span><span class="heti-skip"><span class="heti-spacing"> </span>True<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>或Fal</span>se，返回他们本身。注意这里的<span class="heti-skip"><span class="heti-spacing"> </span>True<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>False<span class="heti-spacing"> </span></span>是本身还是字符串。本题中就是字符串。</p>
+<p>如果是True或False，返回他们本身。注意这里的True和False是本身还是字符串。本题中就是字符串。</p>
 </li>
 </ul>
 </div>
 <ol start="6">
-<li>C。<span>A<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>中</span><span class="heti-skip"><span class="heti-spacing"> </span>10%2==0<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>为Tr</span>ue，中间是<span class="heti-skip"><span class="heti-spacing"> </span>or<span class="heti-spacing"> </span></span>连接，<span><span class="heti-spacing"> </span>故为Tr</span>ue；<span>B<span class="heti-spacing"> </span></span>中<span class="heti-skip"><span class="heti-spacing"> </span>'b'&lt;'c'<span class="heti-spacing"> </span></span>字符串的比<span><span class="heti-spacing"> </span>较是Tr</span>ue，详见知识点；<span>C<span class="heti-spacing"> </span></span>中<span class="heti-skip"><span class="heti-spacing"> </span>'0'<span class="heti-spacing"> </span></span>的结<span><span class="heti-spacing"> </span>果是Tr</span>ue（详见上一条知识点<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，<span>not True<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>就是Fal</span>se；<span>D<span class="heti-spacing"> </span></span>中结<span><span class="heti-spacing"> </span>果为</span>2j，<span>complex<span class="heti-spacing"> </span></span>数不为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>即为Tr</span>ue。</li>
+<li>C。A中10%2==0为True，中间是or连接，故为True；B中'b'&lt;'c'字符串的比较是True，详见知识点；C中'0'的结果是True（详见上一条知识点），not True就是False；D中结果为2j，complex数不为0即为True。</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">相关知识点：逻辑判断</p>
-<p>逻辑判断的核心就<span><span class="heti-spacing"> </span>是</span><span class="heti-skip"><span class="heti-spacing"> </span>and or<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>和n</span>ot。<span>and<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>or<span class="heti-spacing"> </span></span>优先级<span><span class="heti-spacing"> </span>低于n</span>ot。所有表达式先<span><span class="heti-spacing"> </span>计算n</span>ot（有括号除外<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，然后从左到右计<span><span class="heti-spacing"> </span>算</span><span class="heti-skip"><span class="heti-spacing"> </span>and<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>和</span>or。<span>python<span class="heti-spacing"> </span></span>是“短路判断”，即判断到有<span class="heti-skip"><span class="heti-spacing"> </span>False and ...<span class="heti-spacing"> </span></span>的时候，结果立即<span><span class="heti-spacing"> </span>返回Fal</span>se；判断到有<span class="heti-skip"><span class="heti-spacing"> </span>True or ...<span class="heti-spacing"> </span></span>的时候，结果立即<span><span class="heti-spacing"> </span>返回Tr</span>ue。</p>
+<p>逻辑判断的核心就是and or和not。and和or优先级低于not。所有表达式先计算not（有括号除外），然后从左到右计算and和or。python是“短路判断”，即判断到有False and ...的时候，结果立即返回False；判断到有True or ...的时候，结果立即返回True。</p>
 <div class="admonition example">
 <p class="admonition-title">练习：判断以下结果：</p>
 <ol>
@@ -570,140 +1221,140 @@
 <summary>答案</summary>
 <ol>
 <li>
-<p>False，<span><span class="heti-spacing"> </span>因为10//2=</span>=5</p>
+<p>False，因为10//2==5</p>
 </li>
 <li>
-<p>True，因<span><span class="heti-spacing"> </span>为</span><span class="heti-skip"><span class="heti-spacing"> </span>"x"<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>是Tr</span>ue</p>
+<p>True，因为"x"是True</p>
 </li>
 </ol>
 </details>
 </div>
 <div class="admonition note">
 <p class="admonition-title">相关知识点：字符串比较</p>
-<p>字符串有相等判断、长度比较和<span class="heti-skip"><span class="heti-spacing"> </span>unicode<span class="heti-spacing"> </span></span>比较三种。本题中是最难的<span class="heti-skip"><span class="heti-spacing"> </span>unicode<span class="heti-spacing"> </span></span>比较。</p>
-<p>相等比较：单纯看两个字符串是否相同即可。<span>"a"<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>"a"<span class="heti-spacing"> </span></span>就是相等的，和<span class="heti-skip"><span class="heti-spacing"> </span>"abc"<span class="heti-spacing"> </span></span>就是不等的。比较方<span><span class="heti-spacing"> </span>式是"a"=="</span>b"</p>
-<p>长度比较：看两个字符串的长度，这里长度指的是各种字的个数。例如<span class="heti-skip"><span class="heti-spacing"> </span>"abcde"<span class="heti-spacing"> </span></span>的长<span><span class="heti-spacing"> </span>度</span>是5，<span>"hello, w0rld!"<span class="heti-spacing"> </span></span>的长<span><span class="heti-spacing"> </span>度是</span>13（包含<span class="heti-skip"><span class="heti-spacing"> </span>9<span class="heti-spacing"> </span></span>个字母，一个数字，两个符号和一个空格<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。需要注意的是转义符，<span><span class="heti-spacing"> </span>例如"\n", "\t", "</span>\"，这几个长度<span><span class="heti-spacing"> </span>记</span>为1。或者可以这样记忆：所有带<span class="heti-skip"><span class="heti-spacing"> </span>"\"<span class="heti-spacing"> </span></span>的长度都不计，只有<span class="heti-skip"><span class="heti-spacing"> </span>"\"<span class="heti-spacing"> </span></span>长度<span><span class="heti-spacing"> </span>记</span>为1。如果字符串前<span><span class="heti-spacing"> </span>面</span>带r，<span><span class="heti-spacing"> </span>例如r"\n12</span>3"，那么按正常的数数记法。本字符串长<span><span class="heti-spacing"> </span>度</span>为5。否则长<span><span class="heti-spacing"> </span>度</span>为4。长度比较的方<span><span class="heti-spacing"> </span>式是len("\n123")==len("\t456</span>")</p>
-<p><span>unicode<span class="heti-spacing"> </span></span>比较：从两个字符串的第一个字符开始向下比较，直到<span class="heti-skip"><span class="heti-spacing"> </span>unicode<span class="heti-spacing"> </span></span>不相等，给出结果。例如<span><span class="heti-spacing"> </span>本题"abcdef"&lt;"a</span>c"，比较方式就是先比较第一个字符，<span><span class="heti-spacing"> </span>都是"</span>a"，向下比较；第二个左<span><span class="heti-spacing"> </span>边是"</span>b"，右<span><span class="heti-spacing"> </span>边是"</span>c"，于是左边的字符更小，结束比较，返回小于。发现题目也是小于，所以<span><span class="heti-spacing"> </span>返回Tr</span>ue。<span>unicode<span class="heti-spacing"> </span></span>的核心就是比较两个字符在<span class="heti-skip"><span class="heti-spacing"> </span>unicode<span class="heti-spacing"> </span></span>表中的位置前后</p>
+<p>字符串有相等判断、长度比较和unicode比较三种。本题中是最难的unicode比较。</p>
+<p>相等比较：单纯看两个字符串是否相同即可。"a"和"a"就是相等的，和"abc"就是不等的。比较方式是"a"=="b"</p>
+<p>长度比较：看两个字符串的长度，这里长度指的是各种字的个数。例如"abcde"的长度是5，"hello, w0rld!"的长度是13（包含9个字母，一个数字，两个符号和一个空格）。需要注意的是转义符，例如"\n", "\t", "\"，这几个长度记为1。或者可以这样记忆：所有带"\"的长度都不计，只有"\"长度记为1。如果字符串前面带r，例如r"\n123"，那么按正常的数数记法。本字符串长度为5。否则长度为4。长度比较的方式是len("\n123")==len("\t456")</p>
+<p>unicode比较：从两个字符串的第一个字符开始向下比较，直到unicode不相等，给出结果。例如本题"abcdef"&lt;"ac"，比较方式就是先比较第一个字符，都是"a"，向下比较；第二个左边是"b"，右边是"c"，于是左边的字符更小，结束比较，返回小于。发现题目也是小于，所以返回True。unicode的核心就是比较两个字符在unicode表中的位置前后</p>
 <div class="admonition note">
-<p class="admonition-title">什么是<span class="heti-skip"><span class="heti-spacing"> </span>unicode<span class="heti-spacing"> </span></span>表？</p>
-<p><span>unicode<span class="heti-spacing"> </span></span>表是用于编码字符的一个表，每一个字符都对应了一个整数。例如<span class="heti-skip"><span class="heti-spacing"> </span>"A"<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>对应</span>65，<span>"a"<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>对应</span>97。除了汉字日文假名等字符外，也可以叫<span class="heti-skip"><span class="heti-spacing"> </span>ascii<span class="heti-spacing"> </span></span>表。你可以在你的<span class="heti-skip"><span class="heti-spacing"> </span>python<span class="heti-spacing"> </span></span>中使用<span class="heti-skip"><span class="heti-spacing"> </span>ord("x")<span class="heti-spacing"> </span></span>来获得一个字符的<span class="heti-skip"><span class="heti-spacing"> </span>unicode<span class="heti-spacing"> </span></span>值（<span>ascii<span class="heti-spacing"> </span></span>值和<span class="heti-skip"><span class="heti-spacing"> </span>unicode<span class="heti-spacing"> </span></span>值在英文、数字、部分符号上是相等的，你在看到<span class="heti-skip"><span class="heti-spacing"> </span>ascii<span class="heti-spacing"> </span></span>的时候可以自动替换<span><span class="heti-spacing"> </span>他为unico</span>de<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
-<p>需要记住的是： <span>$<span class="heti-spacing"> </span></span>数字<span class="heti-skip"><span class="heti-spacing"> </span>&lt;<span class="heti-spacing"> </span></span>大写字母<span class="heti-skip"><span class="heti-spacing"> </span>&lt;<span class="heti-spacing"> </span></span>下划线<span class="heti-skip"><span class="heti-spacing"> </span>&lt;<span class="heti-spacing"> </span></span>小写<span><span class="heti-spacing"> </span>字母</span> $ 。内部顺<span><span class="heti-spacing"> </span>序按0 ~</span> 9、A ~ Z、<span>a ~ z<span class="heti-spacing"> </span></span>来排。<span><span class="heti-spacing"> </span>比如"X"&lt;"</span>c"，<span>"_"&gt;"0"<span class="heti-spacing"> </span></span>等</p>
+<p class="admonition-title">什么是unicode表？</p>
+<p>unicode表是用于编码字符的一个表，每一个字符都对应了一个整数。例如"A"对应65，"a"对应97。除了汉字日文假名等字符外，也可以叫ascii表。你可以在你的python中使用ord("x")来获得一个字符的unicode值（ascii值和unicode值在英文、数字、部分符号上是相等的，你在看到ascii的时候可以自动替换他为unicode）。</p>
+<p>需要记住的是： $ 数字&lt;大写字母&lt;下划线&lt;小写字母 $ 。内部顺序按0 ~ 9、A ~ Z、a ~ z来排。比如"X"&lt;"c"，"_"&gt;"0"等</p>
 </div>
-<p>比较方<span><span class="heti-spacing"> </span>式是"xyz"&lt;"asd</span>w"</p>
+<p>比较方式是"xyz"&lt;"asdw"</p>
 </div>
 <div class="admonition 计算符号">
 <p class="admonition-title">计算符号</p>
-<p>计算符号<span><span class="heti-spacing"> </span>包</span>括+、-、*、/、//、**、%。代表含义是加法、减法、乘法、除法、整除、指数、取余。</p>
-<p>注意除法返回结果一<span><span class="heti-spacing"> </span>定是flo</span>at。例如<span class="heti-skip"><span class="heti-spacing"> </span>10/2<span class="heti-spacing"> </span></span>返回<span class="heti-skip"><span class="heti-spacing"> </span>5.0<span class="heti-spacing"> </span></span>而<span><span class="heti-spacing"> </span>不</span>是5。</p>
-<p><span><span class="heti-spacing"> </span>注意0.1+0.2=0.300000000000</span>04<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（原因在于二进制浮点误差，不过可能不考。如果有兴趣可以参考<a href="https://www.bilibili.com/video/BV14JoMYHEUj">这个视频</a></p>
-<p>指数这里可以进行开方操作。指数操作例子：<code>2**2</code> <span><span class="heti-spacing"> </span>代表 $ 2^2</span> $，<code>-4**0.5</code> <span><span class="heti-spacing"> </span>代表 $ -4^{0.5} = \sqrt{-4}</span> $，<code>8**(-1/3)</code> <span><span class="heti-spacing"> </span>代表 $ 8^{-\frac{1}{3}} = \frac{1}{\sqrt[3]{8}}</span> $</p>
-<p>取余指<span><span class="heti-spacing"> </span>的是$ x mod y</span> $，即<span class="heti-skip"><span class="heti-spacing"> </span>$ x $<span class="heti-spacing"> </span></span>除<span class="heti-skip"><span class="heti-spacing"> </span>$ y $<span class="heti-spacing"> </span></span>后取余数，例如<code>10%2==0</code>，<code>15%7==1</code></p>
+<p>计算符号包括+、-、*、/、//、**、%。代表含义是加法、减法、乘法、除法、整除、指数、取余。</p>
+<p>注意除法返回结果一定是float。例如10/2返回5.0而不是5。</p>
+<p>注意0.1+0.2=0.30000000000004。（原因在于二进制浮点误差，不过可能不考。如果有兴趣可以参考<a href="https://www.bilibili.com/video/BV14JoMYHEUj">这个视频</a></p>
+<p>指数这里可以进行开方操作。指数操作例子：<code>2**2</code> 代表 $ 2^2 $，<code>-4**0.5</code> 代表 $ -4^{0.5} = \sqrt{-4} $，<code>8**(-1/3)</code> 代表 $ 8^{-\frac{1}{3}} = \frac{1}{\sqrt[3]{8}} $</p>
+<p>取余指的是$ x mod y $，即 $ x $除 $ y $后取余数，例如<code>10%2==0</code>，<code>15%7==1</code></p>
 </div>
 <ol start="7">
-<li>C。<span>A.<span class="heti-spacing"> </span></span>违反定义，<span>B.<span class="heti-spacing"> </span></span>违反定义。<span>AB<span class="heti-spacing"> </span></span>互换后定义正确<span><span class="heti-spacing"> </span>，</span>即C；<span>D<span class="heti-spacing"> </span></span>显然错误。</li>
+<li>C。A.违反定义，B.违反定义。AB互换后定义正确，即C；D显然错误。</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">相关知识点：流程控制</p>
-<p>流程控制中有两个关键字：<span>break<span class="heti-spacing"></span></span><span><span class="heti-spacing"> </span>和contin</span>ue。<span>break<span class="heti-spacing"> </span></span>代表完全跳出循环，<span>continue<span class="heti-spacing"> </span></span>代表结束本次循环进入下一次循环。这两个关键字只可以在<span class="heti-skip"><span class="heti-spacing"> </span>while<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>for<span class="heti-spacing"> </span></span>循环中使用。</p>
+<p>流程控制中有两个关键字：break和continue。break代表完全跳出循环，continue代表结束本次循环进入下一次循环。这两个关键字只可以在while或for循环中使用。</p>
 <details class="abstract">
 <summary>如果你还是理解不了……</summary>
-<p>假设你是“上海脚痛大学<span class="heti-skip"><span class="heti-spacing"> </span>2025<span class="heti-spacing"> </span></span>年度十佳歌手”的评委，一共有<span class="heti-skip"><span class="heti-spacing"> </span>100<span class="heti-spacing"> </span></span>个待选人，你需要完成的任务是进行<span class="heti-skip"><span class="heti-spacing"> </span>100<span class="heti-spacing"> </span></span>次以下循环：喊选手入场，听歌手唱歌，给选手评价，把选手从台上扒拉下来，给选手打分。在你听到“周鑫迟”选手的歌时，觉得他一定不会入选了，因此不需要再进行后续的评价和打分环节了，于是你可以喊出“下一位”（continue<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，跳过这个选手，进行下一个选手；在你听到“宋雨哼”选手的歌时，你发现他是隔壁“负担大学”来的，比赛前面说不定还混进了“折将大学”的学生，这个比赛出现了问题，需要叫停检查，于是你喊出了“停”（break<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，进行接下来的处理工作<heti-adjacent class="heti-adjacent-quarter">，</heti-adjacent>“宋雨哼”后面的选手就都不用继续流程循环了。</p>
+<p>假设你是“上海脚痛大学2025年度十佳歌手”的评委，一共有100个待选人，你需要完成的任务是进行100次以下循环：喊选手入场，听歌手唱歌，给选手评价，把选手从台上扒拉下来，给选手打分。在你听到“周鑫迟”选手的歌时，觉得他一定不会入选了，因此不需要再进行后续的评价和打分环节了，于是你可以喊出“下一位”（continue），跳过这个选手，进行下一个选手；在你听到“宋雨哼”选手的歌时，你发现他是隔壁“负担大学”来的，比赛前面说不定还混进了“折将大学”的学生，这个比赛出现了问题，需要叫停检查，于是你喊出了“停”（break），进行接下来的处理工作，“宋雨哼”后面的选手就都不用继续流程循环了。</p>
 </details>
 </div>
 <ol start="8">
 <li>
-<p>B。详见上一题解析。在<span class="heti-skip"><span class="heti-spacing"> </span>count==2<span class="heti-spacing"> </span></span>时，<span><span class="heti-spacing"> </span>输出"2</span> "，count+=1（<span>count<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>现在=</span>=3<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，然后跳<span><span class="heti-spacing"> </span>转回whi</span>le，<span>count&lt;5<span class="heti-spacing"> </span></span>成立，于是进入循环：<span>if count==3<span class="heti-spacing"> </span></span>成立，于是进入<span class="heti-skip"><span class="heti-spacing"> </span>if<span class="heti-spacing"> </span></span>分支：break，跳出循环。</p>
+<p>B。详见上一题解析。在count==2时，输出"2 "，count+=1（count现在==3），然后跳转回while，count&lt;5成立，于是进入循环：if count==3成立，于是进入if分支：break，跳出循环。</p>
 </li>
 <li>
-<p>A<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（卧槽这个题你们也考）<span>B<span class="heti-spacing"> </span></span>生成的是<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span>49<span class="heti-spacing"> </span></span>的列表<code>[0,1,2,...,49]</code>，<span>C<span class="heti-spacing"> </span></span>生成的是<span class="heti-skip"><span class="heti-spacing"> </span>0~200<span class="heti-spacing"> </span></span>中的偶数列表<code>[0,2,4,...198]</code>，<span>D<span class="heti-spacing"> </span></span>生成的是<span class="heti-skip"><span class="heti-spacing"> </span>True<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>False<span class="heti-spacing"> </span></span>的列表，偶数<span><span class="heti-spacing"> </span>位是Tr</span>ue，奇数<span><span class="heti-spacing"> </span>位是Fal</span>se<code>[True,False,True,...False]</code></p>
+<p>A。（卧槽这个题你们也考）B生成的是0到49的列表<code>[0,1,2,...,49]</code>，C生成的是0~200中的偶数列表<code>[0,2,4,...198]</code>，D生成的是True和False的列表，偶数位是True，奇数位是False<code>[True,False,True,...False]</code></p>
 </li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">相关知识点：生成器和选择器</p>
 <p>生成器和选择器属于不是特别建议但是很方便的一个语法糖了，说他满足语法又不是特别满足，但是也是官方语法中的一种。</p>
-<p>生成器的使用方式是在列表中或是字典中使用。阅读方式是：for（<span><span class="heti-spacing"> </span>或是</span>if）前面的是生成元素，<span>for<span class="heti-spacing"> </span></span>后面是生成方式。有<span class="heti-skip"><span class="heti-spacing"> </span>for<span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>if<span class="heti-spacing"> </span></span>必须放在<span class="heti-skip"><span class="heti-spacing"> </span>for<span class="heti-spacing"> </span></span>后面。</p>
-<p>例如：<code>[x for x in range(100)]</code>代表生成<span><span class="heti-spacing"> </span>元</span>素x，<span>x<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>0~99<span class="heti-spacing"> </span></span>的数字；<code>["This is "+str(x) for x in range(100) if x%3==0]</code>代表<span><span class="heti-spacing"> </span>生成This is</span> x，<span>x<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>0~99<span class="heti-spacing"> </span></span>的数字，但是只生成除<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>余<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>的数字，也就是<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>的倍数。</p>
+<p>生成器的使用方式是在列表中或是字典中使用。阅读方式是：for（或是if）前面的是生成元素，for后面是生成方式。有for时if必须放在for后面。</p>
+<p>例如：<code>[x for x in range(100)]</code>代表生成元素x，x是0~99的数字；<code>["This is "+str(x) for x in range(100) if x%3==0]</code>代表生成This is x，x是0~99的数字，但是只生成除3余0的数字，也就是3的倍数。</p>
 </div>
 <ol start="10">
-<li>B。<span>A<span class="heti-spacing"> </span></span>位置实参是以位置确定的参数传递方式，与题意明显不符；<span>C<span class="heti-spacing"> </span></span>默认实参是允许不传递实参，但仍需要按位置实参进行；<span>D<span class="heti-spacing"> </span></span>匿名实参不是<span class="heti-skip"><span class="heti-spacing"> </span>Python<span class="heti-spacing"> </span></span>概念，是<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言系列概念。</li>
+<li>B。A位置实参是以位置确定的参数传递方式，与题意明显不符；C默认实参是允许不传递实参，但仍需要按位置实参进行；D匿名实参不是Python概念，是C语言系列概念。</li>
 </ol>
 <div class="admonition node">
 <p class="admonition-title">相关知识点：函数的参数传递</p>
 <p>函数有时需要传入参数，因此演变出实参和形参的概念（个人认为这两个概念就是毒瘤，因为实际开发中从来不会考虑这两个概念）
 形参：写在函数中的等待接收的参数；实参：调用函数时传入的参数。例如以下代码中：
-</p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
 <span class="normal"><a href="#__codelineno-0-3">3</a></span>
 <span class="normal"><a href="#__codelineno-0-4">4</a></span>
 <span class="normal"><a href="#__codelineno-0-5">5</a></span>
 <span class="normal"><a href="#__codelineno-0-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span><span class="n">b</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="s2">"+"</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="s2">"="</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="s2">&quot;+&quot;</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">c</span><span class="o">=</span><span class="mi">10</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">d</span><span class="o">=</span><span class="mi">20</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">add</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">add</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="n">c</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<p>这里面<span class="heti-skip"><span class="heti-spacing"> </span>a<span class="heti-spacing"> </span></span>是形参，代表<span class="heti-skip"><span class="heti-spacing"> </span>add<span class="heti-spacing"> </span></span>函数等待传入参<span><span class="heti-spacing"> </span>数</span><span class="heti-skip"><span class="heti-spacing"> </span>a<span class="heti-spacing"> </span></span>和b，且期待是<span class="heti-skip"><span class="heti-spacing"> </span>int<span class="heti-spacing"> </span></span>型。在<span class="heti-skip"><span class="heti-spacing"> </span>add<span class="heti-spacing"> </span></span>函数内部，<span>a<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>b<span class="heti-spacing"> </span></span>作为局部变量使用，任何传入作为<span class="heti-skip"><span class="heti-spacing"> </span>a<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>b<span class="heti-spacing"> </span></span>参数都会在<span class="heti-skip"><span class="heti-spacing"> </span>add<span class="heti-spacing"> </span></span>函数内部使用。例如下面的<code>add(c,d)</code>是<span><span class="heti-spacing"> </span>调用a</span>dd，并把<span class="heti-skip"><span class="heti-spacing"> </span>add<span class="heti-spacing"> </span></span>中的<span class="heti-skip"><span class="heti-spacing"> </span>a<span class="heti-spacing"> </span></span>用<span class="heti-skip"><span class="heti-spacing"> </span>c<span class="heti-spacing"> </span></span>代替，<span>b<span class="heti-spacing"> </span></span>用<span class="heti-skip"><span class="heti-spacing"> </span>d<span class="heti-spacing"> </span></span>代替。这里的<span class="heti-skip"><span class="heti-spacing"> </span>ab<span class="heti-spacing"> </span></span>是形参，<span>cd<span class="heti-spacing"> </span></span>是实参。</p>
-<p>之后的<code>add(b=c,a=d)</code>是关键字实参传递，指定了<span class="heti-skip"><span class="heti-spacing"> </span>add<span class="heti-spacing"> </span></span>中的<span class="heti-skip"><span class="heti-spacing"> </span>b<span class="heti-spacing"> </span></span>必<span><span class="heti-spacing"> </span>须</span>是c，<span>a<span class="heti-spacing"> </span></span>必<span><span class="heti-spacing"> </span>须</span>是d，不再依赖顺序传递。</p>
+</code></pre></div></td></tr></table></div></p>
+<p>这里面a是形参，代表add函数等待传入参数a和b，且期待是int型。在add函数内部，a和b作为局部变量使用，任何传入作为a和b参数都会在add函数内部使用。例如下面的<code>add(c,d)</code>是调用add，并把add中的a用c代替，b用d代替。这里的ab是形参，cd是实参。</p>
+<p>之后的<code>add(b=c,a=d)</code>是关键字实参传递，指定了add中的b必须是c，a必须是d，不再依赖顺序传递。</p>
 </div>
 <ol start="11">
 <li>C。字典的键必须用不可变元素担当，例如字符串、数字、元组。</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">相关知识点：dict:key</p>
-<p>dict（即字典）类型中以一个键来确定对应变量。定义字典时，只允许用不可变的元素来担当键，且不允许重复。题中的<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>列表是可变元素，因此不可担当键。</p>
+<p>dict（即字典）类型中以一个键来确定对应变量。定义字典时，只允许用不可变的元素来担当键，且不允许重复。题中的C列表是可变元素，因此不可担当键。</p>
 <p>什么是键？键就是字典中用于索引的值，定义时在冒号前面的是键；索引时在中括号中的是键。</p>
 <p>什么是值？值就是字典中索引得到的内容，定义是在冒号后面的是值；索引时整个索引得到的结果是值。</p>
-<p>例如<span class="heti-skip"><span class="heti-spacing"> </span>sjtu={"name":"<span class="heti-spacing"> </span></span>上海脚痛大学<span class="heti-skip"><span class="heti-spacing"> </span>","location":"<span class="heti-spacing"> </span></span>上海<span class="heti-skip"><span class="heti-spacing"> </span>"}<span class="heti-spacing"> </span></span>中的<span class="heti-skip"><span class="heti-spacing"> </span>name<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>location<span class="heti-spacing"> </span></span>是键，上海脚痛大学和上海是值</p>
+<p>例如sjtu={"name":"上海脚痛大学","location":"上海"}中的name和location是键，上海脚痛大学和上海是值</p>
 </div>
 <ol start="12">
-<li>B。<span>add<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>set<span class="heti-spacing"> </span></span>的内置函数，执行后向<span class="heti-skip"><span class="heti-spacing"> </span>set<span class="heti-spacing"> </span></span>中<span><span class="heti-spacing"> </span>添</span>加2。但是<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>已经存在，因此原集合不变。</li>
+<li>B。add是set的内置函数，执行后向set中添加2。但是2已经存在，因此原集合不变。</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">相关知识点：set</p>
-<p><span>set<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>dict<span class="heti-spacing"> </span></span>共用<span class="heti-skip"><span class="heti-spacing"> </span>{}<span class="heti-spacing"> </span></span>来代表，区别是<span class="heti-skip"><span class="heti-spacing"> </span>dict<span class="heti-spacing"> </span></span>中有键和值，但是<span class="heti-skip"><span class="heti-spacing"> </span>set<span class="heti-spacing"> </span></span>中只有值。<span>set<span class="heti-spacing"> </span></span>中的元素没有位置前后、不能重复、不可描述，对应集合的无序性、互异性、确定性<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（但是<span class="heti-skip"><span class="heti-spacing"> </span>Python<span class="heti-spacing"> </span></span>作为机器语言本来就是不可描述的，所以确定性可以忽略）</p>
+<p>set和dict共用{}来代表，区别是dict中有键和值，但是set中只有值。set中的元素没有位置前后、不能重复、不可描述，对应集合的无序性、互异性、确定性。（但是Python作为机器语言本来就是不可描述的，所以确定性可以忽略）</p>
 </div>
 <ol start="13">
-<li>D。groupA=groupA+(5,6)=(1,2,3,4)+(5,6)=(1,2,3,4,5,6)；groupB.update(groupA) =&gt; groupB=set(groupA)=set((1,2,3,4,5,6))={1,2,3,4,5,6}，<span><span class="heti-spacing"> </span>故</span>选D。</li>
+<li>D。groupA=groupA+(5,6)=(1,2,3,4)+(5,6)=(1,2,3,4,5,6)；groupB.update(groupA) =&gt; groupB=set(groupA)=set((1,2,3,4,5,6))={1,2,3,4,5,6}，故选D。</li>
 </ol>
 <div class="admonition note">
-<p class="admonition-title">相关知识点：列表<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>元组拼接</p>
+<p class="admonition-title">相关知识点：列表/元组拼接</p>
 <p>列表和元组可以进行拼接。注意元组虽然不可变，但是元组可以拼接得到新元组。</p>
-<p>拼接方式就是使用<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>号。例如：
-</p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<p>拼接方式就是使用+号。例如：
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
 <span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">b</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="n">c</span><span class="o">=</span><span class="n">a</span><span class="o">+</span><span class="n">b</span>
-</code></pre></div></td></tr></table></div>
-<p>这里<span class="heti-skip"><span class="heti-spacing"> </span>c<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>等于[1,2,3,</span>4]。元组同理（见本题<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。注意拼接时类型统一，<code>a=[1,2]+3</code>这种语法是错误的，可以用<code>a.append(3)</code>或是<code>a=[1,2]+[3]</code></p>
+</code></pre></div></td></tr></table></div></p>
+<p>这里c等于[1,2,3,4]。元组同理（见本题）。注意拼接时类型统一，<code>a=[1,2]+3</code>这种语法是错误的，可以用<code>a.append(3)</code>或是<code>a=[1,2]+[3]</code></p>
 </div>
 <div class="admonition note">
-<p class="admonition-title">相关知识点：<span>set<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>方法update</span>()</p>
-<p><span>set<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>update<span class="heti-spacing"> </span></span>方法可以通过一个列表或元组来生成一个新集合，类<span><span class="heti-spacing"> </span>似于set</span>()。</p>
+<p class="admonition-title">相关知识点：set方法update()</p>
+<p>set的update方法可以通过一个列表或元组来生成一个新集合，类似于set()。</p>
 </div>
 <ol start="14">
 <li>
-<p>B。本题考查局部变量和全局变量。在函数内的变量作为局部变量只能在函数内使用，且优先级高于全局变量。本题中<span class="heti-skip"><span class="heti-spacing"> </span>x=10<span class="heti-spacing"> </span></span>定义的是全局变量，<span>x=20<span class="heti-spacing"> </span></span>定义的是<span class="heti-skip"><span class="heti-spacing"> </span>my_function()<span class="heti-spacing"> </span></span>的局部变量，接下来的<code>print(x,end=' ')</code>调用的是局部变量。之后的<code>print(x)</code>调用的是全局变量。</p>
+<p>B。本题考查局部变量和全局变量。在函数内的变量作为局部变量只能在函数内使用，且优先级高于全局变量。本题中x=10定义的是全局变量，x=20定义的是my_function()的局部变量，接下来的<code>print(x,end=' ')</code>调用的是局部变量。之后的<code>print(x)</code>调用的是全局变量。</p>
 </li>
 <li>
-<p>B。考察<span class="heti-skip"><span class="heti-spacing"> </span>numpy<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>array<span class="heti-spacing"> </span></span>使用。二级索引下，<span>[0,1]<span class="heti-spacing"> </span></span>代表原<span><span class="heti-spacing"> </span>来</span>的2，修改为<span class="heti-skip"><span class="heti-spacing"> </span>10<span class="heti-spacing"> </span></span>后<span class="heti-skip"><span class="heti-spacing"> </span>arr<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>变为[[1,10],[3,4</span>]]</p>
+<p>B。考察numpy的array使用。二级索引下，[0,1]代表原来的2，修改为10后arr变为[[1,10],[3,4]]</p>
 </li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">相关知识点：numpy.array</p>
-<p><span>numpy<span class="heti-spacing"> </span></span>中的<span class="heti-skip"><span class="heti-spacing"> </span>array<span class="heti-spacing"> </span></span>支持多级索引，索引的<span class="heti-skip"><span class="heti-spacing"> </span>index<span class="heti-spacing"> </span></span>都是从<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>开始的，例如本体的<span class="heti-skip"><span class="heti-spacing"> </span>[0,1]<span class="heti-spacing"> </span></span>代表第一个列表中的第二个元素。<span>Python<span class="heti-spacing"> </span></span>原版也支持多级索引，但是方式不同，<span>Python<span class="heti-spacing"> </span></span>应当使用<span class="heti-skip"><span class="heti-spacing"> </span>arr[0][1]<span class="heti-spacing"> </span></span>的方式索引。可以理解为先<span><span class="heti-spacing"> </span>获得arr[</span>0]，然后对<span class="heti-skip"><span class="heti-spacing"> </span>arr[0]<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>索引[</span>1]。</p>
+<p>numpy中的array支持多级索引，索引的index都是从0开始的，例如本体的[0,1]代表第一个列表中的第二个元素。Python原版也支持多级索引，但是方式不同，Python应当使用arr[0][1]的方式索引。可以理解为先获得arr[0]，然后对arr[0]索引[1]。</p>
 </div>
 <ol start="16">
-<li>D。先写入一行（字数<span><span class="heti-spacing"> </span>大于</span>10<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，然后用二进制打开，<span>fw.tell()<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>返</span>回0；之后从头开始向后偏移<span class="heti-skip"><span class="heti-spacing"> </span>10<span class="heti-spacing"> </span></span>个量，<span>fw.tell()<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>返回</span>10。</li>
+<li>D。先写入一行（字数大于10），然后用二进制打开，fw.tell()返回0；之后从头开始向后偏移10个量，fw.tell()返回10。</li>
 </ol>
 <div class="admonition danger">
 <p class="admonition-title">这个题是错题！</p>
-<p>这个题是错题，正确答<span><span class="heti-spacing"> </span>案是0\n</span>10，如果认为是最后一行的输出可<span><span class="heti-spacing"> </span>以选</span>10，实际输出结果是第一<span><span class="heti-spacing"> </span>行</span>为0，第二<span><span class="heti-spacing"> </span>行为</span>10。可见外院计算机老师的不严谨程度，尤其是<span class="heti-skip"><span class="heti-spacing"> </span>Python<span class="heti-spacing"> </span></span>语言。</p>
+<p>这个题是错题，正确答案是0\n10，如果认为是最后一行的输出可以选10，实际输出结果是第一行为0，第二行为10。可见外院计算机老师的不严谨程度，尤其是Python语言。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">相关知识点：FileIO</p>
-<p><span>Python<span class="heti-spacing"> </span></span>中使用<span class="heti-skip"><span class="heti-spacing"> </span>open<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>close<span class="heti-spacing"> </span></span>进行文件的读写。<span>open<span class="heti-spacing"> </span></span>需要传入<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>个或更多参数。第一个参数是打开的文件，第二个参数是打开方式。有：</p>
+<p>Python中使用open和close进行文件的读写。open需要传入2个或更多参数。第一个参数是打开的文件，第二个参数是打开方式。有：</p>
 <table>
 <thead>
 <tr>
@@ -726,7 +1377,7 @@
 </tr>
 <tr>
 <td style="text-align: center;">wb</td>
-<td style="text-align: center;"><span>w<span class="heti-spacing"> </span></span>的二进制方式</td>
+<td style="text-align: center;">w的二进制方式</td>
 </tr>
 <tr>
 <td style="text-align: center;">a</td>
@@ -738,14 +1389,14 @@
 </tr>
 </tbody>
 </table>
-<p>以上参数后加“+”可以拓展为读写模式。除<span class="heti-skip"><span class="heti-spacing"> </span>"r+"<span class="heti-spacing"> </span></span>在无文件时会报错外，其他均为正常的读写模式。</p>
+<p>以上参数后加“+”可以拓展为读写模式。除"r+"在无文件时会报错外，其他均为正常的读写模式。</p>
 <p>可以参考<a href="https://www.runoob.com/python/python-files-io.html">这篇教程</a></p>
 </div>
 <div class="admonition note">
-<p class="admonition-title">相关知识点：<span>tell(), seek()<span class="heti-spacing"></span></span><span><span class="heti-spacing"> </span>和read</span>()</p>
-<p><s>一般<span class="heti-skip"><span class="heti-spacing"> </span>Python<span class="heti-spacing"> </span></span>都是<span class="heti-skip"><span class="heti-spacing"> </span>read()<span class="heti-spacing"> </span></span>常用，谁家好人用<span class="heti-skip"><span class="heti-spacing"> </span>tell<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>seek<span class="heti-spacing"> </span></span>啊（</s></p>
-<p><span>tell<span class="heti-spacing"> </span></span>函数返回当前指针位置。可以想象用<span class="heti-skip"><span class="heti-spacing"> </span>r<span class="heti-spacing"> </span></span>打开文件后，有一个箭头指着这个文件的第一个字（index=0<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，<span>tell<span class="heti-spacing"> </span></span>就返回这个<span class="heti-skip"><span class="heti-spacing"> </span>index<span class="heti-spacing"> </span></span>的值。</p>
-<p><span>seek<span class="heti-spacing"> </span></span>函数偏移指针，<span>seek<span class="heti-spacing"> </span></span>函数接受<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>个或<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>个参数，第一个参数是偏移量，第二个是方式。第一个参数接受负数。第二个参数使用方法见表：</p>
+<p class="admonition-title">相关知识点：tell(), seek()和read()</p>
+<p><s>一般Python都是read()常用，谁家好人用tell和seek啊（</s></p>
+<p>tell函数返回当前指针位置。可以想象用r打开文件后，有一个箭头指着这个文件的第一个字（index=0），tell就返回这个index的值。</p>
+<p>seek函数偏移指针，seek函数接受1个或2个参数，第一个参数是偏移量，第二个是方式。第一个参数接受负数。第二个参数使用方法见表：</p>
 <table>
 <thead>
 <tr>
@@ -768,87 +1419,87 @@
 </tr>
 </tbody>
 </table>
-<p>例如题中的<span class="heti-skip"><span class="heti-spacing"> </span>seek(10,1)<span class="heti-spacing"> </span></span>代表从头开始向后偏移<span class="heti-skip"><span class="heti-spacing"> </span>10<span class="heti-spacing"> </span></span>个位置，<span><span class="heti-spacing"> </span>于是index=0+10=</span>10。</p>
-<p>接下来的<span class="heti-skip"><span class="heti-spacing"> </span>tell<span class="heti-spacing"> </span></span>返回当<span><span class="heti-spacing"> </span>前的ind</span>ex，也<span><span class="heti-spacing"> </span>就是</span>10。</p>
-<p><span>read<span class="heti-spacing"> </span></span>函数接受<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>个<span><span class="heti-spacing"> </span>参</span>数n，执行时向后读取<span class="heti-skip"><span class="heti-spacing"> </span>n<span class="heti-spacing"> </span></span>个字并打印，指针随之改变。</p>
-<p>例如本题中的文件，在打开后<span><span class="heti-spacing"> </span>执行read(</span>3)，会<span><span class="heti-spacing"> </span>输出"Py</span>t"，此时指针<span><span class="heti-spacing"> </span>指向"</span>h"，index=3。执行<span class="heti-skip"><span class="heti-spacing"> </span>tell()<span class="heti-spacing"> </span></span>将<span><span class="heti-spacing"> </span>返</span>回3。</p>
+<p>例如题中的seek(10,1)代表从头开始向后偏移10个位置，于是index=0+10=10。</p>
+<p>接下来的tell返回当前的index，也就是10。</p>
+<p>read函数接受1个参数n，执行时向后读取n个字并打印，指针随之改变。</p>
+<p>例如本题中的文件，在打开后执行read(3)，会输出"Pyt"，此时指针指向"h"，index=3。执行tell()将返回3。</p>
 </div>
 <ol start="17">
-<li>C。考察<span class="heti-skip"><span class="heti-spacing"> </span>pandas<span class="heti-spacing"> </span></span>使用。这里使用<span class="heti-skip"><span class="heti-spacing"> </span>pandas<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>dataframe<span class="heti-spacing"> </span></span>创建了一个表，每一个键对应一个列，之后的列表对应一行。索引时先行后列，也就是查询<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>行<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>列（第一行第二列<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，即<span class="heti-skip"><span class="heti-spacing"> </span>'B'<span class="heti-spacing"> </span></span>的第一个<span><span class="heti-spacing"> </span>元</span>素3。</li>
+<li>C。考察pandas使用。这里使用pandas的dataframe创建了一个表，每一个键对应一个列，之后的列表对应一行。索引时先行后列，也就是查询0行1列（第一行第二列），即'B'的第一个元素3。</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">相关知识点：pandas.DataFrame</p>
-<p><span>pandas<span class="heti-spacing"> </span></span>中的<span class="heti-skip"><span class="heti-spacing"> </span>DataFrame<span class="heti-spacing"> </span></span>用于创建一个<span class="heti-skip"><span class="heti-spacing"> </span>Series<span class="heti-spacing"> </span></span>对象，可以比作一张表。不过这张表创建时先列后行，也就是一维下<span><span class="heti-spacing"> </span>是</span>列1<span><span class="heti-spacing"> </span>、</span>列2，二维下<span><span class="heti-spacing"> </span>是</span>行1<span><span class="heti-spacing"> </span>、</span>行2。比如本题<span class="heti-skip"><span class="heti-spacing"> </span>'A'<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>'B'<span class="heti-spacing"> </span></span>代表列<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>和</span>列B（<span>0<span class="heti-spacing"> </span></span>列和<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>列<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，<span>'A'<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>'B'<span class="heti-spacing"> </span></span>下面的列表代表了这一列中的每一行的元素是什么。</p>
-<p>但是索引时的顺序是先行后列，类似坐标。比如<span class="heti-skip"><span class="heti-spacing"> </span>[0, 1]<span class="heti-spacing"> </span></span>代表第一行第二列。</p>
+<p>pandas中的DataFrame用于创建一个Series对象，可以比作一张表。不过这张表创建时先列后行，也就是一维下是列1、列2，二维下是行1、行2。比如本题'A'和'B'代表列A和列B（0列和1列），'A'和'B'下面的列表代表了这一列中的每一行的元素是什么。</p>
+<p>但是索引时的顺序是先行后列，类似坐标。比如[0, 1]代表第一行第二列。</p>
 </div>
 <ol start="18">
 <li>B。必须先绘制图形再添加图例。</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">相关知识点：matplotlib</p>
-<p>本库用于绘制<span class="heti-skip"><span class="heti-spacing"> </span>matlab<span class="heti-spacing"> </span></span>图形，物理化学实验时常用。基本思想是<span><span class="heti-spacing"> </span>提</span>供x、<span>y<span class="heti-spacing"> </span></span>数据，然后它可以按序用直线或光滑曲线连接各个数据点。<span>plt.show()<span class="heti-spacing"> </span></span>时打开<span class="heti-skip"><span class="heti-spacing"> </span>GUI<span class="heti-spacing"> </span></span>程序展示绘制图形。这一步是阻塞的，在你关闭<span class="heti-skip"><span class="heti-spacing"> </span>GUI<span class="heti-spacing"> </span></span>前程序不会继续进行，而是会停在这一步等待你关闭程序。</p>
+<p>本库用于绘制matlab图形，物理化学实验时常用。基本思想是提供x、y数据，然后它可以按序用直线或光滑曲线连接各个数据点。plt.show()时打开GUI程序展示绘制图形。这一步是阻塞的，在你关闭GUI前程序不会继续进行，而是会停在这一步等待你关闭程序。</p>
 <p>添加图例必须要先添加图线，也就是绘制图形。否则你不可能给一个不存在的图线添加图例。</p>
-<p><span>xy<span class="heti-spacing"> </span></span>轴默认存在，不过需要指定其标签以表示意义。这一步只需要在展示图形前完成即可。</p>
-<p><span>savefig()<span class="heti-spacing"> </span></span>需要在<span class="heti-skip"><span class="heti-spacing"> </span>show()<span class="heti-spacing"> </span></span>前进行，否则<span class="heti-skip"><span class="heti-spacing"> </span>show()<span class="heti-spacing"> </span></span>后图形内存就会被释放，<span><span class="heti-spacing"> </span>无法savefig</span>()。</p>
+<p>xy轴默认存在，不过需要指定其标签以表示意义。这一步只需要在展示图形前完成即可。</p>
+<p>savefig()需要在show()前进行，否则show()后图形内存就会被释放，无法savefig()。</p>
 </div>
 <ol start="19">
-<li>D。由<span class="heti-skip"><span class="heti-spacing"> </span>BC<span class="heti-spacing"> </span></span>知显然是支持自定义颜色的。</li>
+<li>D。由BC知显然是支持自定义颜色的。</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">相关知识点：RGB</p>
-<p>（本知识点不仅适<span><span class="heti-spacing"> </span>用于Pyth</span>on，还适用于计算机各种领域）</p>
-<p>在计算机中存储图形时是用坐标<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>颜色来存储的，每个像素点都有自己的颜色。而颜色信息使用<span class="heti-skip"><span class="heti-spacing"> </span>RGB<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>RGBA<span class="heti-spacing"> </span></span>存储。<span>RGB<span class="heti-spacing"> </span></span>就是<span class="heti-skip"><span class="heti-spacing"> </span>Red, Green, Blue<span class="heti-spacing"> </span></span>的缩写，<span>RGBA<span class="heti-spacing"> </span></span>中<span><span class="heti-spacing"> </span>的</span><span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span><span><span class="heti-spacing"> </span>是Alp</span>ha（透明度<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。<span>RGB<span class="heti-spacing"> </span></span>一般要以“#”开头代表这是一种颜色。取值范<span><span class="heti-spacing"> </span>围是0~2</span>55（ $ 2^8 -1 $<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，一般用两位十六进制数表示。</p>
+<p>（本知识点不仅适用于Python，还适用于计算机各种领域）</p>
+<p>在计算机中存储图形时是用坐标+颜色来存储的，每个像素点都有自己的颜色。而颜色信息使用RGB或RGBA存储。RGB就是Red, Green, Blue的缩写，RGBA中的A是Alpha（透明度）。RGB一般要以“#”开头代表这是一种颜色。取值范围是0~255（ $ 2^8 -1 $），一般用两位十六进制数表示。</p>
 <details class="note">
 <summary>如果你不知道什么是十六进制数的话……</summary>
-<p>计算机中存储数据一般不是十进制而是二进制（因为开关只有两种状态：开和关<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，在二进制中，每次<span><span class="heti-spacing"> </span>逢</span><span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>进1，<span><span class="heti-spacing"> </span>比如1001+1=10</span>10，这里遇见了<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>因此向前进<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>位，类<span><span class="heti-spacing"> </span>似于9+1=</span>10，这<span><span class="heti-spacing"> </span>里的1+1=</span>10。</p>
-<p>在实际操作中，为了缩短二进制，一般使用二进制的高位进制，常用的是八进制和十六进制，且十六进制比八进制更常用（像我前天通宵搓<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>可能八进制更常用一些，因为不用使用字母<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，十六进制中，9+1=a(A)，a+1=b，以此类推，最<span><span class="heti-spacing"> </span>大</span>是f，f+1=10。十六进制中的字母要小写都小写，要大写都大写。十六进制最大的一位<span><span class="heti-spacing"> </span>数</span>是F，代表十进<span><span class="heti-spacing"> </span>制的</span>15（16-1<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>；最大的两位<span><span class="heti-spacing"> </span>数是2</span>55，代表十进<span><span class="heti-spacing"> </span>制的2</span>55（256-1<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<p>计算机中存储数据一般不是十进制而是二进制（因为开关只有两种状态：开和关），在二进制中，每次逢2进1，比如1001+1=1010，这里遇见了2因此向前进1位，类似于9+1=10，这里的1+1=10。</p>
+<p>在实际操作中，为了缩短二进制，一般使用二进制的高位进制，常用的是八进制和十六进制，且十六进制比八进制更常用（像我前天通宵搓CPU可能八进制更常用一些，因为不用使用字母），十六进制中，9+1=a(A)，a+1=b，以此类推，最大是f，f+1=10。十六进制中的字母要小写都小写，要大写都大写。十六进制最大的一位数是F，代表十进制的15（16-1）；最大的两位数是255，代表十进制的255（256-1）。</p>
 </details>
-<p>在<span class="heti-skip"><span class="heti-spacing"> </span>RGB<span class="heti-spacing"> </span></span>中，<span>#<span class="heti-spacing"> </span></span>后面跟着六位十六进制数，每两位代表一种颜色的数值，数值越大添加越多。注意这里是光的叠加而非色彩的叠加，也就是说三原色不再是红黄蓝而是红绿蓝。于是对应的，<span>#000000<span class="heti-spacing"> </span></span>代表纯白色，<span>#FFFFFF<span class="heti-spacing"> </span></span>代表纯黑色。当每两位两位都相等时代表不同程度的灰色，某一个值突出时代表是这种颜色的偏色。比如<span class="heti-skip"><span class="heti-spacing"> </span>#66ccff<span class="heti-spacing"> </span></span>是一种天蓝色（<span><span class="heti-spacing"> </span>红色=1</span>02，<span><span class="heti-spacing"> </span>绿色=2</span>04，<span><span class="heti-spacing"> </span>蓝色=2</span>55）题中<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>选项的<span class="heti-skip"><span class="heti-spacing"> </span>#FF0000<span class="heti-spacing"> </span></span>代表<span><span class="heti-spacing"> </span>红色2</span>55、<span><span class="heti-spacing"> </span>绿</span>色0、<span><span class="heti-spacing"> </span>蓝</span>色0，也就是纯红色（这种颜色非常的丑，所以不建议用）</p>
-<p><span>RGB<span class="heti-spacing"> </span></span>还有一种表示方式，即浮点表示法。使用<span class="heti-skip"><span class="heti-spacing"> </span>0~1.0<span class="heti-spacing"> </span></span>中的浮点数代表一种颜色的值。可以认为是添加百分之多少这种颜色，或是<span class="heti-skip"><span class="heti-spacing"> </span>255<span class="heti-spacing"> </span></span>乘以这个数并向下取整。例如题中<span class="heti-skip"><span class="heti-spacing"> </span>B<span class="heti-spacing"> </span></span>中的<span class="heti-skip"><span class="heti-spacing"> </span>0.2,0.4,0.6<span class="heti-spacing"> </span></span>代表<span><span class="heti-spacing"> </span>红色=</span>51，<span><span class="heti-spacing"> </span>绿色=1</span>02，<span><span class="heti-spacing"> </span>蓝色=1</span>53，也就是<span class="heti-skip"><span class="heti-spacing"> </span>#336699(<span class="heti-spacing"> </span></span>一种有点发灰的浅<span><span class="heti-spacing"> </span>蓝</span>色)</p>
+<p>在RGB中，#后面跟着六位十六进制数，每两位代表一种颜色的数值，数值越大添加越多。注意这里是光的叠加而非色彩的叠加，也就是说三原色不再是红黄蓝而是红绿蓝。于是对应的，#000000代表纯白色，#FFFFFF代表纯黑色。当每两位两位都相等时代表不同程度的灰色，某一个值突出时代表是这种颜色的偏色。比如#66ccff是一种天蓝色（红色=102，绿色=204，蓝色=255）题中C选项的#FF0000代表红色255、绿色0、蓝色0，也就是纯红色（这种颜色非常的丑，所以不建议用）</p>
+<p>RGB还有一种表示方式，即浮点表示法。使用0~1.0中的浮点数代表一种颜色的值。可以认为是添加百分之多少这种颜色，或是255乘以这个数并向下取整。例如题中B中的0.2,0.4,0.6代表红色=51，绿色=102，蓝色=153，也就是#336699(一种有点发灰的浅蓝色)</p>
 </div>
 <ol start="20">
-<li>B。<span>try<span class="heti-spacing"> </span></span>块中出现了错误，因为输入的<span class="heti-skip"><span class="heti-spacing"> </span>68e<span class="heti-spacing"> </span></span>不能强制<span><span class="heti-spacing"> </span>转为i</span>nt；从此处跳到<span class="heti-skip"><span class="heti-spacing"> </span>except<span class="heti-spacing"> </span></span>块，执行后跳转到<span class="heti-skip"><span class="heti-spacing"> </span>finally<span class="heti-spacing"> </span></span>块。</li>
+<li>B。try块中出现了错误，因为输入的68e不能强制转为int；从此处跳到except块，执行后跳转到finally块。</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">相关知识点：try</p>
-<p><span>try<span class="heti-spacing"> </span></span>块包含<span class="heti-skip"><span class="heti-spacing"> </span>except/else/finally<span class="heti-spacing"> </span></span>附属指令。一般<span class="heti-skip"><span class="heti-spacing"> </span>try<span class="heti-spacing"> </span></span>后必<span><span class="heti-spacing"> </span>须含exce</span>pt，其他两个非必须。而且<span class="heti-skip"><span class="heti-spacing"> </span>finally<span class="heti-spacing"> </span></span>非常没用，因为执行完<span class="heti-skip"><span class="heti-spacing"> </span>try<span class="heti-spacing"> </span></span>块后肯定会接着往下执行，不管有没有<span class="heti-skip"><span class="heti-spacing"> </span>finally<span class="heti-spacing"> </span></span>最后执行结果是一样的。</p>
-<p><span>try<span class="heti-spacing"> </span></span>块的逻辑是：先执行<span class="heti-skip"><span class="heti-spacing"> </span>try<span class="heti-spacing"> </span></span>块下的内容，如果没有出现错误，就跳转到<span class="heti-skip"><span class="heti-spacing"> </span>else<span class="heti-spacing"> </span></span>块；如果没有<span class="heti-skip"><span class="heti-spacing"> </span>else<span class="heti-spacing"> </span></span>块，就跳转的<span class="heti-skip"><span class="heti-spacing"> </span>finally<span class="heti-spacing"> </span></span>块；如果没有<span class="heti-skip"><span class="heti-spacing"> </span>finally<span class="heti-spacing"> </span></span>块，就跳出<span class="heti-skip"><span class="heti-spacing"> </span>try<span class="heti-spacing"> </span></span>块继续向下执行。如果出现了任何错误，停止执行<span class="heti-skip"><span class="heti-spacing"> </span>try<span class="heti-spacing"> </span></span>块并立即跳转到<span class="heti-skip"><span class="heti-spacing"> </span>except<span class="heti-spacing"> </span></span>块，然后正常执行，但跳转到<span class="heti-skip"><span class="heti-spacing"> </span>except<span class="heti-spacing"> </span></span>块后会跳过<span class="heti-skip"><span class="heti-spacing"> </span>else<span class="heti-spacing"> </span></span>块。</p>
-<p>这里的<span class="heti-skip"><span class="heti-spacing"> </span>except XXX as e<span class="heti-spacing"> </span></span>相当于设置了一个局部<span><span class="heti-spacing"> </span>变</span>量e，<span>e<span class="heti-spacing"> </span></span>可以当作一个形参。<span>XXX<span class="heti-spacing"> </span></span>必须是一种错误类型。这里的<span class="heti-skip"><span class="heti-spacing"> </span>Exception<span class="heti-spacing"> </span></span>是任意错误类型。其他错误类型有<span class="heti-skip"><span class="heti-spacing"> </span>KeyError<span class="heti-spacing"> </span></span>等等。存在的意义是多个<span class="heti-skip"><span class="heti-spacing"> </span>except<span class="heti-spacing"> </span></span>处理不同的错误。</p>
+<p>try块包含except/else/finally附属指令。一般try后必须含except，其他两个非必须。而且finally非常没用，因为执行完try块后肯定会接着往下执行，不管有没有finally最后执行结果是一样的。</p>
+<p>try块的逻辑是：先执行try块下的内容，如果没有出现错误，就跳转到else块；如果没有else块，就跳转的finally块；如果没有finally块，就跳出try块继续向下执行。如果出现了任何错误，停止执行try块并立即跳转到except块，然后正常执行，但跳转到except块后会跳过else块。</p>
+<p>这里的except XXX as e相当于设置了一个局部变量e，e可以当作一个形参。XXX必须是一种错误类型。这里的Exception是任意错误类型。其他错误类型有KeyError等等。存在的意义是多个except处理不同的错误。</p>
 </div>
-<h2 id="_2">判<span><span class="heti-spacing"> </span>断</span>题<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<h2 id="_2">判断题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>T。<span>Python<span class="heti-spacing"> </span></span>是解释型、面向对象的、大小写敏感的语言。</p>
+<p>T。Python是解释型、面向对象的、大小写敏感的语言。</p>
 </li>
 <li>
-<p>F。<span>is<span class="heti-spacing"> </span></span>可能更偏向自然语言，例如<code>[1,2,3] is list</code><span><span class="heti-spacing"> </span>返回Tr</span>ue。<span>is<span class="heti-spacing"> </span></span>判断的是二者是否为同一类，<span>==<span class="heti-spacing"> </span></span>严格判断二者是否相等。尤其在自定义<span class="heti-skip"><span class="heti-spacing"> </span>class<span class="heti-spacing"> </span></span>时，如果没有定义<span class="heti-skip"><span class="heti-spacing"> </span>__eq__<span class="heti-spacing"> </span></span>函数，两个实例用<span class="heti-skip"><span class="heti-spacing"> </span>==<span class="heti-spacing"> </span></span>比较时比较的是两个实例的存储地址而非它们的各项值。</p>
+<p>F。is可能更偏向自然语言，例如<code>[1,2,3] is list</code>返回True。is判断的是二者是否为同一类，==严格判断二者是否相等。尤其在自定义class时，如果没有定义__eq__函数，两个实例用==比较时比较的是两个实例的存储地址而非它们的各项值。</p>
 </li>
 <li>
-<p>F。字典的键必须不可变，见选择<span class="heti-skip"><span class="heti-spacing"> </span>11<span class="heti-spacing"> </span></span>题相关知识点</p>
+<p>F。字典的键必须不可变，见选择11题相关知识点</p>
 </li>
 <li>
-<p>T。这两个玩意是毒瘤，少用。<span>*args<span class="heti-spacing"> </span></span>是可变长度的参数，<span>**kwargs<span class="heti-spacing"> </span></span>是任意的关键字参数。</p>
+<p>T。这两个玩意是毒瘤，少用。*args是可变长度的参数，**kwargs是任意的关键字参数。</p>
 </li>
 <li>
-<p>T。局部变量优先于全局变量。见选择<span class="heti-skip"><span class="heti-spacing"> </span>14<span class="heti-spacing"> </span></span>题解析。</p>
+<p>T。局部变量优先于全局变量。见选择14题解析。</p>
 </li>
 <li>
-<p>F。<span>open<span class="heti-spacing"> </span></span>函数中的<span class="heti-skip"><span class="heti-spacing"> </span>a<span class="heti-spacing"> </span></span>功能可以新建文件。见选择<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>题解析。</p>
+<p>F。open函数中的a功能可以新建文件。见选择16题解析。</p>
 </li>
 <li>
-<p>F。<span>with<span class="heti-spacing"> </span></span>块发生异常后仍然会清空文件内容。换句话说，<span>w<span class="heti-spacing"> </span></span>的功能就是新建一个文件，然后覆盖原文件，之后再对这个文件进行操作。</p>
+<p>F。with块发生异常后仍然会清空文件内容。换句话说，w的功能就是新建一个文件，然后覆盖原文件，之后再对这个文件进行操作。</p>
 </li>
 <li>
-<p>F。<span>ndarray<span class="heti-spacing"> </span></span>可以存储任意数据类型。但要保证必须是同类型的。</p>
+<p>F。ndarray可以存储任意数据类型。但要保证必须是同类型的。</p>
 </li>
 <li>
-<p>T。见选择<span class="heti-skip"><span class="heti-spacing"> </span>17<span class="heti-spacing"> </span></span>题相关知识点。</p>
+<p>T。见选择17题相关知识点。</p>
 </li>
 <li>
-<p>F。这样设置只能让<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>的负号改成<span class="heti-skip"><span class="heti-spacing"> </span>Unicode<span class="heti-spacing"> </span></span>的负号，并不能解决中文乱码问题。正确做法是指定字体，例如<code>plt.rcParams['font.sans-serif']=['SimHei']</code>指定为微软雅黑字体。</p>
+<p>F。这样设置只能让ASCII的负号改成Unicode的负号，并不能解决中文乱码问题。正确做法是指定字体，例如<code>plt.rcParams['font.sans-serif']=['SimHei']</code>指定为微软雅黑字体。</p>
 </li>
 </ol>
-<h2 id="_3">填<span><span class="heti-spacing"> </span>空</span>题<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<h2 id="_3">填空题<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ol>
 <li>5.0-8<em>2</em><em>3%5//3-True=5.0-8</em>8%5//3-True=5.0-64%5//3-True=5.0-4//3-True=5.0-1-True=4.0-True=4.0-1=3.0。</li>
 </ol>
@@ -867,15 +1518,15 @@
 </ol>
 <div class="admonition note">
 <p class="admonition-title">相关知识点：sort</p>
-<p>对于一个列表，可以用<span class="heti-skip"><span class="heti-spacing"> </span>sorted<span class="heti-spacing"> </span></span>函数进行排序，<span>sorted<span class="heti-spacing"> </span></span>函数返回一个排好序的原列表，排序原则是从小到大。允许指定<span class="heti-skip"><span class="heti-spacing"> </span>reverse<span class="heti-spacing"> </span></span>参数，此时返回反转的列表。</p>
-<p>另外，使用<span class="heti-skip"><span class="heti-spacing"> </span>sort<span class="heti-spacing"> </span></span>方法可以进行原地排序，例如<span class="heti-skip"><span class="heti-spacing"> </span>a.sort(reverse=True)<span class="heti-spacing"> </span></span>可以实现和题目相同的效果，只不过这里<span><span class="heti-spacing"> </span>没</span>有b，而是把<span class="heti-skip"><span class="heti-spacing"> </span>a<span class="heti-spacing"> </span></span>直接进行从大到小排序。</p>
+<p>对于一个列表，可以用sorted函数进行排序，sorted函数返回一个排好序的原列表，排序原则是从小到大。允许指定reverse参数，此时返回反转的列表。</p>
+<p>另外，使用sort方法可以进行原地排序，例如a.sort(reverse=True)可以实现和题目相同的效果，只不过这里没有b，而是把a直接进行从大到小排序。</p>
 </div>
 <ol start="4">
 <li>
-<p>(year%400==0) or (year%4==0 and year%100!=0)。闰年是每四年一闰，整百年时整<span class="heti-skip"><span class="heti-spacing"> </span>400<span class="heti-spacing"> </span></span>才能闰。</p>
+<p>(year%400==0) or (year%4==0 and year%100!=0)。闰年是每四年一闰，整百年时整400才能闰。</p>
 </li>
 <li>
-<p><span>break<span class="heti-spacing"> </span></span>语句退出。<span>for<span class="heti-spacing"> </span></span>循环下面的<span class="heti-skip"><span class="heti-spacing"> </span>else<span class="heti-spacing"> </span></span>块是<span class="heti-skip"><span class="heti-spacing"> </span>for<span class="heti-spacing"> </span></span>的附属行，<span>else<span class="heti-spacing"> </span></span>块相当于是<span class="heti-skip"><span class="heti-spacing"> </span>for<span class="heti-spacing"> </span></span>循环结束后的执行内容。用上面介绍<span class="heti-skip"><span class="heti-spacing"> </span>for<span class="heti-spacing"> </span></span>循环的例子来说，就是演唱比赛结束后的颁奖仪式环节。但是如果有外校学生闯入，颁奖仪式也可以不用进行了，直接执行特殊程序即可。</p>
+<p>break语句退出。for循环下面的else块是for的附属行，else块相当于是for循环结束后的执行内容。用上面介绍for循环的例子来说，就是演唱比赛结束后的颁奖仪式环节。但是如果有外校学生闯入，颁奖仪式也可以不用进行了，直接执行特殊程序即可。</p>
 </li>
 <li>
 <p>"1232"。字符串拼接，类似于列表拼接，结果是字符串拼起来。但是注意字符串不可减，只可加。</p>
@@ -884,99 +1535,148 @@
 <p>popitem()。字典的用法。可以参考<a href="https://www.runoob.com/python3/python3-dictionary.html">这篇教程</a>最后的部分</p>
 </li>
 <li>
-<p>ndarray。<span>Numpy<span class="heti-spacing"> </span></span>中的数列一般<span><span class="heti-spacing"> </span>都是ndarr</span>ay。</p>
+<p>ndarray。Numpy中的数列一般都是ndarray。</p>
 </li>
 <li>
 <p>文本文件。文本文件是可读的文件，二进制文件是编码好的用于交予计算机执行的文件。</p>
 </li>
 <li>
-<p>end=';'。<span>print<span class="heti-spacing"> </span></span>函数的用法之一。还有类<span><span class="heti-spacing"> </span>似的sep=</span>""。<span>end<span class="heti-spacing"> </span></span>用于指定<span class="heti-skip"><span class="heti-spacing"> </span>print<span class="heti-spacing"> </span></span>结尾的内容，默认是换<span><span class="heti-spacing"> </span>行符"\</span>n"；<span>sep<span class="heti-spacing"> </span></span>用于指定<span class="heti-skip"><span class="heti-spacing"> </span>print<span class="heti-spacing"> </span></span>多参数之间的分割，默认是<span><span class="heti-spacing"> </span>空格"</span> "。例如<span class="heti-skip"><span class="heti-spacing"> </span>print(1,2)<span class="heti-spacing"> </span></span>实际输<span><span class="heti-spacing"> </span>出是"1 2\</span>n"，<span>print(1,2,sep=",",end=";")<span class="heti-spacing"> </span></span>实际输<span><span class="heti-spacing"> </span>出是"1,2</span>;"</p>
+<p>end=';'。print函数的用法之一。还有类似的sep=""。end用于指定print结尾的内容，默认是换行符"\n"；sep用于指定print多参数之间的分割，默认是空格" "。例如print(1,2)实际输出是"1 2\n"，print(1,2,sep=",",end=";")实际输出是"1,2;"</p>
 </li>
 <li>
-<p>a.resize(9,2)。<span>numpy<span class="heti-spacing"> </span></span>的数组方法。实际上，<span>numpy<span class="heti-spacing"> </span></span>中的数组是一个一维序列，只不过把它人为分割后生成了一个类似于表格的东西。使用<span class="heti-skip"><span class="heti-spacing"> </span>resize<span class="heti-spacing"> </span></span>可以重新指定分割方式。</p>
+<p>a.resize(9,2)。numpy的数组方法。实际上，numpy中的数组是一个一维序列，只不过把它人为分割后生成了一个类似于表格的东西。使用resize可以重新指定分割方式。</p>
 </li>
 <li>
-<p>np.random.normal(loc=0.9,scale=2.5,size=(3,4))。<span>numpy<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>random<span class="heti-spacing"> </span></span>类用法。<span>random<span class="heti-spacing"> </span></span>用于生成随机数据，后面的<span class="heti-skip"><span class="heti-spacing"> </span>.normal<span class="heti-spacing"> </span></span>代表正态分布。类似的还有<span class="heti-skip"><span class="heti-spacing"> </span>random.rand<span class="heti-spacing"> </span></span>返回<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>中的数据，<span>random.randint<span class="heti-spacing"> </span></span>根据给定的范围返回随机数等等。</p>
+<p>np.random.normal(loc=0.9,scale=2.5,size=(3,4))。numpy的random类用法。random用于生成随机数据，后面的.normal代表正态分布。类似的还有random.rand返回0到1中的数据，random.randint根据给定的范围返回随机数等等。</p>
 </li>
 <li>
 <p>元组。<code>return a,b,c,...</code>返回多个元素时，会自动使用元组打包。</p>
 </li>
 <li>
-<p>lst[start],lst[end]=lst[end],lst[start]。这里是<span class="heti-skip"><span class="heti-spacing"> </span>python<span class="heti-spacing"> </span></span>的一个语法糖，即多变量赋值。<code>a,b,c,...=x,y,z,...</code>相当于<code>a=x,b=y,c=z,...</code>，但还是有一些细微的区别。当<span class="heti-skip"><span class="heti-spacing"> </span>x,y,z...<span class="heti-spacing"> </span></span>是变量时，赋值语句首先取临时变量表出来将<span class="heti-skip"><span class="heti-spacing"> </span>x,y,z...<span class="heti-spacing"> </span></span>一一写入，然后再一一<span><span class="heti-spacing"> </span>赋给a,b,c.</span>..。这也就导致了<code>lst[start],lst[end]=lst[end],lst[start]</code>是交换值，而<code>lst[start]=lst[end],lst[end]=lst[start]</code>是覆盖值（后者损失了<code>lst[start]</code>原来的值）</p>
+<p>lst[start],lst[end]=lst[end],lst[start]。这里是python的一个语法糖，即多变量赋值。<code>a,b,c,...=x,y,z,...</code>相当于<code>a=x,b=y,c=z,...</code>，但还是有一些细微的区别。当x,y,z...是变量时，赋值语句首先取临时变量表出来将x,y,z...一一写入，然后再一一赋给a,b,c...。这也就导致了<code>lst[start],lst[end]=lst[end],lst[start]</code>是交换值，而<code>lst[start]=lst[end],lst[end]=lst[start]</code>是覆盖值（后者损失了<code>lst[start]</code>原来的值）</p>
 </li>
 <li>
-<p>if n%i==0。这里判断从<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>开始到根号<span class="heti-skip"><span class="heti-spacing"> </span>n<span class="heti-spacing"> </span></span>结束的所有整数中有没有数可以<span><span class="heti-spacing"> </span>整</span>除n（即除后余数<span><span class="heti-spacing"> </span>等</span>于0）</p>
+<p>if n%i==0。这里判断从2开始到根号n结束的所有整数中有没有数可以整除n（即除后余数等于0）</p>
 </li>
 </ol>
-<h2 id="1"><span><span class="heti-spacing"> </span>附</span>录1：常见保<span><span class="heti-spacing"> </span>留</span>字<a class="headerlink" href="#1" title="Permanent link">¶</a></h2>
+<h2 id="1">附录1：常见保留字<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>False, None, True, and, as, break, class, continue, def, del, elif, else, except, finally, for, from, if, import, in, is, not, or, pass, raise, return, try, while, with, yield</p>
 <p>不常见保留字：assert, async, await, lambda, nonlocal, global</p>
-</article>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-</div>
-<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
   Back to top
 </button>
-</main>
-<footer class="md-footer">
-<nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: 主页" class="md-footer__link md-footer__link--prev" href="../../eating/">
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
-</div>
-<div class="md-footer__title">
-<span class="md-footer__direction">
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../eating/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 主页">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
                 Previous
               </span>
-<div class="md-ellipsis">
+              <div class="md-ellipsis">
                 主页
               </div>
-</div>
-</a>
-<a aria-label="Next: izatomo" class="md-footer__link md-footer__link--next" href="../izatomo/">
-<div class="md-footer__title">
-<span class="md-footer__direction">
+            </div>
+          </a>
+        
+        
+          
+          <a href="../izatomo/" class="md-footer__link md-footer__link--next" aria-label="Next: izatomo">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
                 Next
               </span>
-<div class="md-ellipsis">
+              <div class="md-ellipsis">
                 izatomo
               </div>
-</div>
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
-</div>
-</a>
-</nav>
-<div class="md-footer-meta md-typeset">
-<div class="md-footer-meta__inner md-grid">
-<div class="md-copyright">
-<div class="md-copyright__highlight">
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
       Copyright 2025 AlabTNT
     </div>
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
     </a>
+  
 </div>
-</div>
-</div>
+      
+    </div>
+  </div>
 </footer>
-</div>
-<div class="md-dialog" data-md-component="dialog">
-<div class="md-dialog__inner md-typeset"></div>
-</div>
-<div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.footer", "navigation.tabs", "navigation.instant", "navigation.instant.progress"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
-<script src="../../javascripts/katex.js"></script>
-<script src="../../javascripts/katex2.js"></script>
-<script src="../../javascripts/rb.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/jayi0908/jayi0908-trigonometry@master/docs/javascripts/music.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-</body>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.footer", "navigation.tabs", "navigation.instant", "navigation.instant.progress"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="../../javascripts/katex2.js"></script>
+      
+        <script src="../../javascripts/rb.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/jayi0908/jayi0908-trigonometry@master/docs/javascripts/music.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
 </html>

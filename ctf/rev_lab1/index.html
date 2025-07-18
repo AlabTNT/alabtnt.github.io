@@ -1,511 +1,1166 @@
-<!DOCTYPE html>
-<html class="no-js" lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="TNT的github.io" name="description"/>
-<link href="../misc_lab1/" rel="prev"/>
-<link href="../pwn_lab1/" rel="next"/>
-<link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.5.42" name="generator"/>
-<title>rev_lab1 - AlabTNT's Github IO</title>
-<link href="../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css?family=JetBrains+Mono:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
-<style>:root{--md-text-font:"JetBrains Mono";--md-code-font:"JetBrains Mono"}</style>
-<link href="../../css/heti.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-</head>
-<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
-<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-<label class="md-overlay" for="__drawer"></label>
-<div data-md-component="skip">
-<a class="md-skip" href="#ctf101-rev-lab1">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="TNT的github.io">
+      
+      
+      
+      
+        <link rel="prev" href="../misc_lab1/">
+      
+      
+        <link rel="next" href="../pwn_lab1/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>rev_lab1 - AlabTNT's Github IO</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=JetBrains+Mono:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"JetBrains Mono";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ctf101-rev-lab1" class="md-skip">
           Skip to content
         </a>
-</div>
-<div data-md-component="announce">
-</div>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
 <header class="md-header" data-md-component="header">
-<nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="AlabTNT's Github IO" class="md-header__button md-logo" data-md-component="logo" href="../.." title="AlabTNT's Github IO">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
-</a>
-<label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
-</label>
-<div class="md-header__title" data-md-component="header-title">
-<div class="md-header__ellipsis">
-<div class="md-header__topic">
-<span class="md-ellipsis">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AlabTNT&#39;s Github IO" class="md-header__button md-logo" aria-label="AlabTNT's Github IO" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             AlabTNT's Github IO
           </span>
-</div>
-<div class="md-header__topic" data-md-component="header-topic">
-<span class="md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               rev_lab1
             
           </span>
-</div>
-</div>
-</div>
-<form class="md-header__option" data-md-component="palette">
-<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
-</label>
-<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
-</label>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
 </form>
-<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-<label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-</label>
-<div class="md-search" data-md-component="search" role="dialog">
-<label class="md-search__overlay" for="__search"></label>
-<div class="md-search__inner" role="search">
-<form class="md-search__form" name="search">
-<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
-<label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
-</label>
-<nav aria-label="Search" class="md-search__options">
-<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
-</button>
-</nav>
-</form>
-<div class="md-search__output">
-<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
-<div class="md-search-result" data-md-component="search-result">
-<div class="md-search-result__meta">
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
             Initializing search
           </div>
-<ol class="md-search-result__list" role="presentation"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</nav>
+    
+    
+  </nav>
+  
 </header>
-<div class="md-container" data-md-component="container">
-<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
-<div class="md-grid">
-<ul class="md-tabs__list">
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../tutorial/">
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tutorial/" class="md-tabs__link">
           
   
   TNT麻将教程
 
         </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../eating/">
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../eating/" class="md-tabs__link">
           
   
   TNT Eating
 
         </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../others/cbt/">
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../others/cbt/" class="md-tabs__link">
           
   
   TNTSiteOthers
 
         </a>
-</li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../lab0_reuse/">
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lab0_reuse/" class="md-tabs__link">
           
   
   CTF2025
 
         </a>
-</li>
-</ul>
-</div>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
 </nav>
-<main class="md-main" data-md-component="main">
-<div class="md-main__inner md-grid">
-<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
-<label class="md-nav__title" for="__drawer">
-<a aria-label="AlabTNT's Github IO" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="AlabTNT's Github IO">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
-</a>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AlabTNT&#39;s Github IO" class="md-nav__button md-logo" aria-label="AlabTNT's Github IO" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
     AlabTNT's Github IO
   </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
-<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     TNT麻将教程
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_1">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
             TNT麻将教程
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     主页
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/0.0/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/0.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     零、前言
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/1.0/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/1.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     一、麻将基础内容及基本规则
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/2.0/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/2.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     二、日本麻将（マージャン）规则介绍
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/3.0/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/3.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     三、国内麻将规则归纳（部分）
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/4.0/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/4.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     四、TNT公式战分数规则
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/5.0/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/5.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     五、线下礼仪
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/end/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/end/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     结语
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/app.1/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/app.1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     附录1*：日麻役种表
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/app.2/">
-<span class="md-ellipsis">
-    附录2*：日麻点数、符数速查表 &amp; 番种速查
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/app.2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    附录2*：日麻点数、符数速查表 & 番种速查
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/app.3/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/app.3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     附录3*：术语收录一览
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tutorial/app.4/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/app.4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     附录4*：M-League相关内容
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     TNT Eating
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_2">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
             TNT Eating
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../eating/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eating/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     主页
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     TNTSiteOthers
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
             TNTSiteOthers
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../others/cbt/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/cbt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     pycbt
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../others/izatomo/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/izatomo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     izatomo
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../others/test/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     test
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
     CTF2025
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_4">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
             CTF2025
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../lab0_reuse/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab0_reuse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     lab0
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../misc_lab1/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc_lab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     misc_lab1
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
     rev_lab1
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-<span class="md-ellipsis">
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
     rev_lab1
   </span>
-</a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3240102120">
-<span class="md-ellipsis">
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#3240102120" class="md-nav__link">
+    <span class="md-ellipsis">
       3240102120
     </span>
-</a>
-<nav aria-label="3240102120" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#task1">
-<span class="md-ellipsis">
+  </a>
+  
+    <nav class="md-nav" aria-label="3240102120">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task1" class="md-nav__link">
+    <span class="md-ellipsis">
       Task1
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#task2">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#task2" class="md-nav__link">
+    <span class="md-ellipsis">
       Task2
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#task3">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#task3" class="md-nav__link">
+    <span class="md-ellipsis">
       Task3
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../pwn_lab1/">
-<span class="md-ellipsis">
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pwn_lab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     pwn_lab1
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../web_lab1/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web_lab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     web_lab1
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../crypto_lab1/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crypto_lab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     crypto_lab1
   </span>
-</a>
-</li>
-</ul>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
 </nav>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3240102120">
-<span class="md-ellipsis">
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#3240102120" class="md-nav__link">
+    <span class="md-ellipsis">
       3240102120
     </span>
-</a>
-<nav aria-label="3240102120" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#task1">
-<span class="md-ellipsis">
+  </a>
+  
+    <nav class="md-nav" aria-label="3240102120">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task1" class="md-nav__link">
+    <span class="md-ellipsis">
       Task1
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#task2">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#task2" class="md-nav__link">
+    <span class="md-ellipsis">
       Task2
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#task3">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#task3" class="md-nav__link">
+    <span class="md-ellipsis">
       Task3
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-</ul>
+      
+    </ul>
+  
 </nav>
-</div>
-</div>
-</div>
-<div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset">
-<h1 id="ctf101-rev-lab1">CTF101 REV Lab1<a class="headerlink" href="#ctf101-rev-lab1" title="Permanent link">¶</a></h1>
-<h2 id="3240102120">3240102120<a class="headerlink" href="#3240102120" title="Permanent link">¶</a></h2>
-<h3 id="task1">Task1<a class="headerlink" href="#task1" title="Permanent link">¶</a></h3>
-<p>课上用了四种参数，-E、-S、<span>-c<span class="heti-spacing"> </span></span>和不加。</p>
-<p>这里分别进行 <code>gcc -E hello.c -o hello.c.i</code> 、 <code>gcc -S hello.c</code> 、<code>gcc -c hello.c</code> 、<code>gcc hello.c -o hello</code>，可以分别得到<span><span class="heti-spacing"> </span>hello.c.i</span>、hello.s、<span>hello.o<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>hello.exe</span>。</p>
-<p>其中<span class="heti-skip"><span class="heti-spacing"> </span>.i<span class="heti-spacing"> </span></span>是预处理文件，里面堆了一堆<span class="heti-skip"><span class="heti-spacing"> </span>include<span class="heti-spacing"> </span></span>内容和一小点点的<span><span class="heti-spacing"> </span>int main</span>，<span>main<span class="heti-spacing"> </span></span>里面也没有进行处理。</p>
-<p><span>.s<span class="heti-spacing"> </span></span>是汇编文件，就是刚才的程序的汇编版本，因为我本学期选修过汇编语言所以不再作熟悉工作。</p>
-<p><span>.o<span class="heti-spacing"> </span></span>是编译文件，但是没有做链接。在<span class="heti-skip"><span class="heti-spacing"> </span>.o<span class="heti-spacing"> </span></span>里面，对<span class="heti-skip"><span class="heti-spacing"> </span>printf<span class="heti-spacing"> </span></span>的跳转地址是<span><span class="heti-spacing"> </span>0</span>，所以理论上这个<span class="heti-skip"><span class="heti-spacing"> </span>.o<span class="heti-spacing"> </span></span>还不能执行。因此需要进一步进行链接。</p>
-<p>最终的<span class="heti-skip"><span class="heti-spacing"> </span>hello<span class="heti-spacing"> </span></span>就是一个<span class="heti-skip"><span class="heti-spacing"> </span>elf<span class="heti-spacing"> </span></span>可执行文件，可以直接执行来输出<span><span class="heti-spacing"> </span>hello world!</span> 。</p>
-<h3 id="task2">Task2<a class="headerlink" href="#task2" title="Permanent link">¶</a></h3>
-<p><span>IDA<span class="heti-spacing"> </span></span>是老朋友了，这里按要求回答问题：</p>
-<p>功能：最重要的就是反汇编，把<span class="heti-skip"><span class="heti-spacing"> </span>elf<span class="heti-spacing"> </span></span>或者<span class="heti-skip"><span class="heti-spacing"> </span>pe<span class="heti-spacing"> </span></span>文件反汇编成汇编。其次就是反编译，把牛马都不乐意读的汇编给写成伪<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>代码，最起码读起来没汇编难受就是了。然后这里面还有几个功能比较好用，一个是汇编流程图，感觉这个功能救过我一命，之前有一次打也不哪道题的时候体会深刻，要是没流程图，我觉得我可能已经迷失在<span class="heti-skip"><span class="heti-spacing"> </span>jne<span class="heti-spacing"> </span></span>的海洋里了；另外一个就是<span><span class="heti-spacing"> </span>debug</span>。总的来说功能很强大，能做到这种程度的软件真不多。</p>
-<p>（后期补充一下：想起来什么时候用流程图了，当时和北京一哥们一块爆<span><span class="heti-spacing"> </span>classin</span>，想实现一下防撤回，搞忘记是做什么了，他最开始拿到的内容是纯汇编，就是那一大坨一大坨的三元运算，在<span class="heti-skip"><span class="heti-spacing"> </span>jne<span class="heti-spacing"> </span></span>的海洋中徜徉了不知道多久，后来改用了流程图稍微清晰了点，最后把“小<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>撤回了一条消息”给魔改成了“小<span><span class="heti-spacing"> </span>A</span>”，这个用户名逻辑说啥也没找到。这也是第一次汇编给我留下的心理阴影）</p>
-<p>快捷键：GNU（不是<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，就是跳转、重命名和还原。这是调试过程中的事。丢程序进去之后<span class="heti-skip"><span class="heti-spacing"> </span>ctrl+P<span class="heti-spacing"> </span></span>看流程图，<span>tab<span class="heti-spacing"> </span></span>能在流程图和伪代码之间反复横跳</p>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="ctf101-rev-lab1">CTF101 REV Lab1<a class="headerlink" href="#ctf101-rev-lab1" title="Permanent link">&para;</a></h1>
+<h2 id="3240102120">3240102120<a class="headerlink" href="#3240102120" title="Permanent link">&para;</a></h2>
+<h3 id="task1">Task1<a class="headerlink" href="#task1" title="Permanent link">&para;</a></h3>
+<p>课上用了四种参数，-E、-S、-c和不加。</p>
+<p>这里分别进行 <code>gcc -E hello.c -o hello.c.i</code> 、 <code>gcc -S hello.c</code> 、<code>gcc -c hello.c</code> 、<code>gcc hello.c -o hello</code>，可以分别得到hello.c.i、hello.s、hello.o和hello.exe。</p>
+<p>其中.i是预处理文件，里面堆了一堆include内容和一小点点的int main，main里面也没有进行处理。</p>
+<p>.s是汇编文件，就是刚才的程序的汇编版本，因为我本学期选修过汇编语言所以不再作熟悉工作。</p>
+<p>.o是编译文件，但是没有做链接。在.o里面，对printf的跳转地址是0，所以理论上这个.o还不能执行。因此需要进一步进行链接。</p>
+<p>最终的hello就是一个elf可执行文件，可以直接执行来输出hello world! 。</p>
+<h3 id="task2">Task2<a class="headerlink" href="#task2" title="Permanent link">&para;</a></h3>
+<p>IDA是老朋友了，这里按要求回答问题：</p>
+<p>功能：最重要的就是反汇编，把elf或者pe文件反汇编成汇编。其次就是反编译，把牛马都不乐意读的汇编给写成伪C代码，最起码读起来没汇编难受就是了。然后这里面还有几个功能比较好用，一个是汇编流程图，感觉这个功能救过我一命，之前有一次打也不哪道题的时候体会深刻，要是没流程图，我觉得我可能已经迷失在jne的海洋里了；另外一个就是debug。总的来说功能很强大，能做到这种程度的软件真不多。</p>
+<p>（后期补充一下：想起来什么时候用流程图了，当时和北京一哥们一块爆classin，想实现一下防撤回，搞忘记是做什么了，他最开始拿到的内容是纯汇编，就是那一大坨一大坨的三元运算，在jne的海洋中徜徉了不知道多久，后来改用了流程图稍微清晰了点，最后把“小A 撤回了一条消息”给魔改成了“小A”，这个用户名逻辑说啥也没找到。这也是第一次汇编给我留下的心理阴影）</p>
+<p>快捷键：GNU（不是），就是跳转、重命名和还原。这是调试过程中的事。丢程序进去之后ctrl+P看流程图，tab能在流程图和伪代码之间反复横跳</p>
 <p>实用技巧倒是没有什么，就是可以优先看伪代码但是不能只看伪代码，有必要的时候要重命名一些奇妙小变量</p>
-<p><span>gdb<span class="heti-spacing"> </span></span>比较新，我也是学了系统一和汇编之后才开始接触，不过因为之前<span class="heti-skip"><span class="heti-spacing"> </span>python<span class="heti-spacing"> </span></span>是主战场，也没少打断点查变量，所以对<span class="heti-skip"><span class="heti-spacing"> </span>gdb<span class="heti-spacing"> </span></span>的感觉就是命令行版的断点器。以下也是按盘回答问题。不过没有尝试<span class="heti-skip"><span class="heti-spacing"> </span>gef<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>pwndbg<span class="heti-spacing"> </span></span>插件，打算晚点再了解</p>
+<p>gdb比较新，我也是学了系统一和汇编之后才开始接触，不过因为之前python是主战场，也没少打断点查变量，所以对gdb的感觉就是命令行版的断点器。以下也是按盘回答问题。不过没有尝试gef和pwndbg插件，打算晚点再了解</p>
 <ul>
-<li>打断点<span><span class="heti-spacing"> </span>b</span>，可以跟行数也可以跟函数名，汇编里面可以跟<span><span class="heti-spacing"> </span>label</span>，作用就是在这打断点，执行到这一步就停；</li>
-<li>运行<span><span class="heti-spacing"> </span>r</span>，就是运行程序</li>
-<li>继续<span><span class="heti-spacing"> </span>c</span>，跑程序到下一个断点</li>
-<li>步进<span class="heti-skip"><span class="heti-spacing"> </span>n<span class="heti-spacing"> </span></span>或者<span><span class="heti-spacing"> </span>s</span>，区别就是如果有函数调用，<span>n<span class="heti-spacing"> </span></span>只调用不进函数体，<span>s<span class="heti-spacing"> </span></span>直接执行函数体</li>
-<li>执行到<span><span class="heti-spacing"> </span>until</span>，如果是循环体就执行到跳出循环体，如果不是要跟行号，执行到行为止。</li>
-<li>退出<span><span class="heti-spacing"> </span>q</span></li>
+<li>打断点b，可以跟行数也可以跟函数名，汇编里面可以跟label，作用就是在这打断点，执行到这一步就停；</li>
+<li>运行r，就是运行程序</li>
+<li>继续c，跑程序到下一个断点</li>
+<li>步进n或者s，区别就是如果有函数调用，n只调用不进函数体，s直接执行函数体</li>
+<li>执行到until，如果是循环体就执行到跳出循环体，如果不是要跟行号，执行到行为止。</li>
+<li>退出q</li>
 </ul>
-<h3 id="task3">Task3<a class="headerlink" href="#task3" title="Permanent link">¶</a></h3>
-<p><span>exp2:<span class="heti-spacing"> </span></span>首先用<span class="heti-skip"><span class="heti-spacing"> </span>IDA<span class="heti-spacing"> </span></span>打开程序，能直接看到比较的内容：</p>
-<p><img alt="alt text" src="../image-16.png"/></p>
-<p>再看比较方式是<span class="heti-skip"><span class="heti-spacing"> </span>flag<span class="heti-spacing"> </span></span>位异或<span class="heti-skip"><span class="heti-spacing"> </span>0xC<span class="heti-spacing"> </span></span>和那一串比，所以只要异或回来就行了</p>
-<p><img alt="alt text" src="../image-17.png"/></p>
-<p><img alt="alt text" src="../image-18.png"/></p>
-<p>得到<span><span class="heti-spacing"> </span>flag</span>。<code>AAA{fmyl_QQ_qun_386796080}</code></p>
-<p><br/></p>
-<p><span>exp3:<span class="heti-spacing"> </span></span>用<span class="heti-skip"><span class="heti-spacing"> </span>IDA<span class="heti-spacing"> </span></span>打开程序，可以看到逻辑是用<span class="heti-skip"><span class="heti-spacing"> </span>401570<span class="heti-spacing"> </span></span>函数比较的</p>
-<p><img alt="alt text" src="../image-19.png"/></p>
-<p>追踪到<span><span class="heti-spacing"> </span>401570</span>，可以看到逻辑一大串。大致看下来就是用来做<span class="heti-skip"><span class="heti-spacing"> </span>base64<span class="heti-spacing"> </span></span>编码的。所以实际上需要找的是一串存好的<span class="heti-skip"><span class="heti-spacing"> </span>base64<span class="heti-spacing"> </span></span>编码。返回<span class="heti-skip"><span class="heti-spacing"> </span>main<span class="heti-spacing"> </span></span>追踪<span class="heti-skip"><span class="heti-spacing"> </span>a5mc58bphliax7j<span class="heti-spacing"> </span></span>得到<span><span class="heti-spacing"> </span>db '5Mc58bPHLiAx7J8ocJIlaVUxaJvMcoYMaoPMaOfg15c475tscHfM/8=='</span>。又因为是自定义符集编码，所以再追踪<span class="heti-skip"><span class="heti-spacing"> </span>aQvejafhmuyjbac<span class="heti-spacing"> </span></span>得到<span><span class="heti-spacing"> </span>'qvEJAfHmUYjBac+u8Ph5n9Od17FrICL/X0gVtM4Qk6T2z3wNSsyoebilxWKGZpRD'</span></p>
-<p>有点懒得写脚本了，让<span class="heti-skip"><span class="heti-spacing"> </span>AI<span class="heti-spacing"> </span></span>替我写一个：</p>
+<h3 id="task3">Task3<a class="headerlink" href="#task3" title="Permanent link">&para;</a></h3>
+<p>exp2: 首先用IDA打开程序，能直接看到比较的内容：</p>
+<p><img alt="alt text" src="../image-16.png" /></p>
+<p>再看比较方式是flag位异或0xC和那一串比，所以只要异或回来就行了</p>
+<p><img alt="alt text" src="../image-17.png" /></p>
+<p><img alt="alt text" src="../image-18.png" /></p>
+<p>得到flag。<code>AAA{fmyl_QQ_qun_386796080}</code></p>
+<p><br></p>
+<p>exp3: 用IDA打开程序，可以看到逻辑是用401570函数比较的</p>
+<p><img alt="alt text" src="../image-19.png" /></p>
+<p>追踪到401570，可以看到逻辑一大串。大致看下来就是用来做base64编码的。所以实际上需要找的是一串存好的base64编码。返回main追踪a5mc58bphliax7j得到db '5Mc58bPHLiAx7J8ocJIlaVUxaJvMcoYMaoPMaOfg15c475tscHfM/8=='。又因为是自定义符集编码，所以再追踪aQvejafhmuyjbac得到'qvEJAfHmUYjBac+u8Ph5n9Od17FrICL/X0gVtM4Qk6T2z3wNSsyoebilxWKGZpRD'</p>
+<p>有点懒得写脚本了，让AI替我写一个：</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
@@ -542,8 +1197,8 @@
 <span class="normal"><a href="#__codelineno-0-34">34</a></span>
 <span class="normal"><a href="#__codelineno-0-35">35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="ch">#! 本脚本由AI生成，极可能存在查重率不过的情况，并非抄袭&lt;s&gt;（而是偷懒）&lt;/s&gt;！</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">custom_table</span> <span class="o">=</span> <span class="s2">"qvEJAfHmUYjBac+u8Ph5n9Od17FrICL/X0gVtM4Qk6T2z3wNSsyoebilxWKGZpRD"</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">encoded</span> <span class="o">=</span> <span class="s2">"5Mc58bPHLiAx7J8ocJIlaVUxaJvMcoYMaoPMaOfg15c475tscHfM/8=="</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">custom_table</span> <span class="o">=</span> <span class="s2">&quot;qvEJAfHmUYjBac+u8Ph5n9Od17FrICL/X0gVtM4Qk6T2z3wNSsyoebilxWKGZpRD&quot;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">encoded</span> <span class="o">=</span> <span class="s2">&quot;5Mc58bPHLiAx7J8ocJIlaVUxaJvMcoYMaoPMaOfg15c475tscHfM/8==&quot;</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5"></a>
 <a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="kn">import</span> <span class="nn">base64</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7"></a>
@@ -551,16 +1206,16 @@
 <a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="n">decode_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">c</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">custom_table</span><span class="p">)}</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="c1"># 清理填充</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="n">encoded_clean</span> <span class="o">=</span> <span class="n">encoded</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">"="</span><span class="p">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="n">encoded_clean</span> <span class="o">=</span> <span class="n">encoded</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="n">padding</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_clean</span><span class="p">)</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="c1"># 将每个字符映射为其 6 位整数</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="n">bit_stream</span> <span class="o">=</span> <span class="s2">""</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="n">bit_stream</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">encoded_clean</span><span class="p">:</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a>    <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">decode_map</span><span class="p">:</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Illegal character </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Illegal character </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="n">val</span> <span class="o">=</span> <span class="n">decode_map</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="n">bit_stream</span> <span class="o">+=</span> <span class="nb">format</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="s2">"06b"</span><span class="p">)</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="n">bit_stream</span> <span class="o">+=</span> <span class="nb">format</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="s2">&quot;06b&quot;</span><span class="p">)</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a>
 <a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="c1"># 处理 padding（每个 = 去掉两个 bit）</span>
 <a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="n">bit_stream</span> <span class="o">=</span> <span class="n">bit_stream</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">bit_stream</span><span class="p">)</span> <span class="o">-</span> <span class="n">padding</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span>
@@ -573,76 +1228,125 @@
 <a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="n">decoded_bytes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">byte_bits</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <a id="__codelineno-0-32" name="__codelineno-0-32"></a>
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="c1"># 输出结果</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="n">flag</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">decoded_bytes</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">errors</span><span class="o">=</span><span class="s2">"ignore"</span><span class="p">)</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Decoded flag:"</span><span class="p">,</span> <span class="n">flag</span><span class="p">)</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="n">flag</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">decoded_bytes</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">errors</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Decoded flag:&quot;</span><span class="p">,</span> <span class="n">flag</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>运行脚本就可以得到<span><span class="heti-spacing"> </span>flag</span>：<code>NSSCTF{a8d4347722800e72e34e1aba3fe914ae}</code></p>
-</article>
-</div>
+<p>运行脚本就可以得到flag：<code>NSSCTF{a8d4347722800e72e34e1aba3fe914ae}</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-</div>
-<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
   Back to top
 </button>
-</main>
-<footer class="md-footer">
-<nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: misc_lab1" class="md-footer__link md-footer__link--prev" href="../misc_lab1/">
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
-</div>
-<div class="md-footer__title">
-<span class="md-footer__direction">
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../misc_lab1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: misc_lab1">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
                 Previous
               </span>
-<div class="md-ellipsis">
+              <div class="md-ellipsis">
                 misc_lab1
               </div>
-</div>
-</a>
-<a aria-label="Next: pwn_lab1" class="md-footer__link md-footer__link--next" href="../pwn_lab1/">
-<div class="md-footer__title">
-<span class="md-footer__direction">
+            </div>
+          </a>
+        
+        
+          
+          <a href="../pwn_lab1/" class="md-footer__link md-footer__link--next" aria-label="Next: pwn_lab1">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
                 Next
               </span>
-<div class="md-ellipsis">
+              <div class="md-ellipsis">
                 pwn_lab1
               </div>
-</div>
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
-</div>
-</a>
-</nav>
-<div class="md-footer-meta md-typeset">
-<div class="md-footer-meta__inner md-grid">
-<div class="md-copyright">
-<div class="md-copyright__highlight">
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
       Copyright 2025 AlabTNT
     </div>
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
     </a>
+  
 </div>
-</div>
-</div>
+      
+    </div>
+  </div>
 </footer>
-</div>
-<div class="md-dialog" data-md-component="dialog">
-<div class="md-dialog__inner md-typeset"></div>
-</div>
-<div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.footer", "navigation.tabs", "navigation.instant", "navigation.instant.progress"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
-<script src="../../javascripts/katex.js"></script>
-<script src="../../javascripts/katex2.js"></script>
-<script src="../../javascripts/rb.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/jayi0908/jayi0908-trigonometry@master/docs/javascripts/music.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-</body>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.footer", "navigation.tabs", "navigation.instant", "navigation.instant.progress"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="../../javascripts/katex2.js"></script>
+      
+        <script src="../../javascripts/rb.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/jayi0908/jayi0908-trigonometry@master/docs/javascripts/music.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
 </html>
